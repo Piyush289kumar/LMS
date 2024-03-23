@@ -1,6 +1,6 @@
 <!-- Import Files -->
 <?php include('admin_header.php');
-include('private_files/system_configure_setting.php') ?>
+include('private_files/system_configure_setting.php'); ?>
 
 <body>
   <!-- Nav Bar -->
@@ -65,21 +65,22 @@ include('private_files/system_configure_setting.php') ?>
               </ul>
               <div class="tab-content pt-2">
                 <!-- Profile Edit Form -->
-                <form>
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
                   <div class="row mb-3">
                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                     <div class="col-md-8 col-lg-9">
                       <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" style='width:100px;'>
                       <div class="pt-2 px-3">
-                        <input type="file" name="uploadfile" id="img" style="display:none;" />
+                        <input type="file" name="new-image" id="img" style="display:none;" />
                         <label for="img" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i>&#20;Upload new profile image</label>
+                        <input type="hidden" name="old-image" value="<?php echo $row_user_overview['profile_picture']; ?>">
                       </div>
                     </div>
                   </div>
                   <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                    <label for="full_name" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="fullName" type="text" class="form-control" id="fullName" value="<?php echo $row_user_overview['full_name'] ?>">
+                      <input name="full_name" type="text" class="form-control" id="full_name" value="<?php echo $row_user_overview['full_name'] ?>">
                     </div>
                   </div>
                   <div class="row mb-3">
@@ -143,7 +144,7 @@ include('private_files/system_configure_setting.php') ?>
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary" name='save'>Save Changes</button>
                   </div>
                 </form><!-- End Profile Edit Form -->
             <?php }
@@ -155,5 +156,56 @@ include('private_files/system_configure_setting.php') ?>
       </div>
     </section>
   </main><!-- End #main -->
+  <!-- User Update Back-End Code -->
+  <?php
+  if (isset($_POST['save'])) {
+    $file_name = '';
+    if (empty($_FILES['new-image']['name'])) {
+      $save_img_name = $_POST['old-image'];
+    } else {
+      if (isset($_FILES['new-image'])) {
+        $file_name = $_FILES['new-image']["name"];
+        $file_tmp = $_FILES['new-image']["tmp_name"];
+        $file_type = $_FILES['new-image']["type"];
+        $file_size = $_FILES['new-image']["size"];
+        $tempFileExt = explode('.', $file_name);
+        $file_ext = strtolower(end($tempFileExt));
+        $allow_extension = array("jpg", "jpeg", "png", "webp");
+        $file_error = array();
+        if (in_array($file_ext, $allow_extension) === false) {
+          $file_error[] = "This extension file not allowed, Please choose a JPG or PNG file.";
+        }
+        if ($file_size > 2097152) {
+          $file_error[] = "Image must be 2mb or lower.";
+        }
+        $save_img_name = date("d_M_Y_h_i_sa") . "_" . basename($file_name);
+        $img_save_target = "upload_media/users_profiles_picture/";
+        if (empty($file_error) == true) {
+          move_uploaded_file($file_tmp, $img_save_target . $save_img_name);
+        } else {
+          print_r($file_error);
+          die();
+        }
+      }
+    }
+    $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $sql_update_user = "UPDATE user_data SET full_name = '{$full_name}', profile_picture = '{$save_img_name}' WHERE user_id ='{$user_id}'";
+    if (mysqli_query($conn, $sql_update_user)) {
+  ?>
+      <script>
+        alert('Record is Update successfully !!')
+      </script>
+    <?php
+      echo "<script>window.location.href='$hostname/admin/users-profile-edit.php'</script>";
+    } else {
+    ?>
+      <script>
+        alert('Record is not Update !!')
+      </script>
+  <?php
+    }
+  }
+  ?>
+  <!-- User Update Back-End Code -->
   <!-- ======= Footer ======= -->
   <?php include('admin_footer.php') ?>
