@@ -7,13 +7,16 @@ include('private_files/system_configure_setting.php') ?>
 if (isset($_POST['login'])) {
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-  $sql_user_pass_cheack = "SELECT user_id, username, password, role FROM user_data WHERE username = '{$username}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
+  $sql_user_pass_cheack = "SELECT user_id, username, password, role, designation, profile_picture FROM user_data WHERE username = '{$username}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
   $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
     while ($row = mysqli_fetch_assoc($result_sql_user_pass_cheack)) {
+      session_start();
       $_SESSION['user_id'] = $row['user_id'];
       $_SESSION['username'] = $row['username'];
       $_SESSION['user_role'] = $row['role'];
+      $_SESSION['user_designation'] = $row['designation'];
+      $_SESSION['user_profile_picture'] = $row['profile_picture'];
       echo "<script>window.location.href='$hostname/admin'</script>";
 ?>
       <script>
