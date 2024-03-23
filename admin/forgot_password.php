@@ -10,17 +10,17 @@ if (isset($_POST['login'])) {
   $sql_user_pass_cheack = "SELECT user_id, username, email FROM user_data WHERE username = '{$username}' AND email = '{$email}'" or die("Query Failed!! --> sql_user_pass_cheack");
   $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
-
     // Create Session For OTP Auth
     session_start();
     $_SESSION['otp_username'] = $username;
     $_SESSION['otp_email'] = $email;
-
     // OTP Generated 
     $otp = strtoupper(substr(md5(rand(11, 99)), 0, 6));
+    // OTP Session for Send Email
+    $_SESSION['otp_send_session'] = $otp;
     $sql_otp_create = "UPDATE user_data SET forgot_pwd_otp ='{$otp}' WHERE username = '{$username}' AND email = '{$email}'";
     if (mysqli_query($conn, $sql_otp_create)) {
-      echo "<script>window.location.href='$hostname/admin/forgot_password_otp_auth.php'</script>";
+      echo "<script>window.location.href='$hostname/admin/forgot_password_otp_sender.php'</script>";
     } else {
       echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Invalid Username and Email.</p></div>");
     }
@@ -52,7 +52,7 @@ if (isset($_POST['login'])) {
                     <p class="text-center small">Enter your username & email to login</p>
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
-                    <div class="col-12" style="display : <?php echo $other_input ?>">
+                    <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>

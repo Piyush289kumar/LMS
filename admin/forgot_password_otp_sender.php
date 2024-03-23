@@ -1,11 +1,11 @@
 <?php
 include('phpmailer_smtp/smtp/PHPMailerAutoload.php');
-$end_user_email = "officepiyushraikwar289@gmail.com";
+include('private_files/system_configure_setting.php');
+session_start();
+$end_user_email = "piyushraikwar289@gmail.com";
 $subject = "Account Login Notification";
-
-$body = "Your <b>" . $website_display_default_name . " ADMIN</b> Account was just used to <b>SIGN IN</b> by following information : <br>================================<br>" .
+$body = "Your OTP <b>" . $_SESSION['otp_send_session'] . " ADMIN</b> Account was just used to <b>SIGN IN</b> by following information : <br>================================<br>" .
     "Date :- " . date("d M, Y h:i:sa") . "<br> IP Address :- " . getenv("REMOTE_ADDR");
-
 echo smtp_mailer($end_user_email, $subject, $body);
 function smtp_mailer($to, $subject, $msg)
 {
@@ -24,7 +24,7 @@ function smtp_mailer($to, $subject, $msg)
     $mail->Subject = $subject;
     $mail->Body = $msg;
     $mail->AddAddress($to);
-    $mail->AddBCC("officepiyushraikwar289@gmail.com");
+    $mail->AddBCC("piyushraikwar289@gmail.com");
     $mail->SMTPOptions = array(
         'ssl' => array(
             'verify_peer' => false,
@@ -35,6 +35,6 @@ function smtp_mailer($to, $subject, $msg)
     if (!$mail->Send()) {
         echo "<div style='background:red; color:#fff; font-size:24px;'>Please cheack Your Internet Connection !!</div>";
     } else {
-        return "<script>window.location.href='notification-read.php'</script>";
+        return "<script>window.location.href='http://localhost/LMS/admin/forgot_password_otp_auth.php'</script>";
     }
 }

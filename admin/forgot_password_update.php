@@ -1,25 +1,28 @@
 <!-- Import Files -->
 <?php include('admin_header.php');
-include('private_files/system_configure_setting.php');
-$notification_box = 'block';
-?>
+include('private_files/system_configure_setting.php'); ?>
 <!-- Login Back-End Code -->
 <!-- Form Start -->
 <?php
-if (isset($_POST['verify'])) {
+if (isset($_POST['login'])) {
   session_start();
   $username = $_SESSION['otp_username'];
   $email = $_SESSION['otp_email'];
-  $otp = mysqli_real_escape_string($conn, $_POST['otp']);
-  $_SESSION['otp_auth'] = $otp;
-
-  $otp_check = "SELECT * FROM user_data WHERE forgot_pwd_otp = '{$otp}' AND username = '{$username}' AND email = '{$email}'" or die("Query Failed!! --> otp_check");
-  $otp_query_response = mysqli_query($conn, $otp_check);
-  if (mysqli_num_rows($otp_query_response) > 0) {
-    echo "<script>window.location.href='$hostname/admin/forgot_password_update.php'</script>";
+  $top_auth = $_SESSION['otp_auth'];
+  $password1 = mysqli_real_escape_string($conn,  md5($_POST['password1']));
+  $password2 = mysqli_real_escape_string($conn,  md5($_POST['password2']));
+  $password1_unsafe = mysqli_real_escape_string($conn, $_POST['password1']);
+  $password2_unsafe = mysqli_real_escape_string($conn, $_POST['password2']);
+  if ($password1_unsafe == $password2_unsafe) {
+    $sql_user_pass_cheack = "UPDATE user_data SET password ='{$password1}' WHERE username = '{$username}' AND email = '{$email}' AND forgot_pwd_otp = '{$top_auth}'" or die("Query Failed!! --> sql_user_pass_cheack");
+    $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
+    if (mysqli_query($conn, $sql_user_pass_cheack)) {
+      echo "<script>window.location.href='$hostname/admin/login.php'</script>";
+    } else {
+      echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>OTP Not Match.</p></div>");
+    }
   } else {
-    $notification_box = 'none !important';
-    echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Invalid OTP.</p></div>");
+    echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Password not match.</p></div>");
   }
 }
 ?>
@@ -29,14 +32,8 @@ if (isset($_POST['verify'])) {
 <body>
   <main>
     <div class="container">
-
       <section class="section register d-flex flex-column align-items-center justify-content-center pb-4" style='min-height: 85vh;'>
         <div class="container">
-          <!-- top send message -->
-          <div class='d-flex justify-content-center align-items-center w-full' style='padding-top:60px; display: <?php echo $notification_box ?>'>
-            <p class='btn btn-success'>Email was send successfull to your registered email.</p>
-          </div>
-          <!-- top send message -->
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
               <div class="d-flex justify-content-center py-4">
@@ -48,19 +45,22 @@ if (isset($_POST['verify'])) {
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Forgot Password</h5>
-                    <p class="text-center small">Enter OTP</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Reset Password</h5>
+                    <p class="text-center small">Create a new password</p>
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
-
                     <div class="col-12">
-                      <label for="otp" class="form-label">OTP</label>
-                      <input type="text" name="otp" class="form-control" id="otp">
-                      <div class="invalid-feedback">Please enter your OTP.</div>
+                      <label for="password1" class="form-label">Enter Your Password</label>
+                      <input type="password" name="password1" class="form-control" id="password1">
+                      <div class="invalid-feedback">Please enter your password.</div>
                     </div>
-
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" name='verify'>Verify OTP</button>
+                      <label for="password2" class="form-label">Re-Enter Your Password</label>
+                      <input type="text" name="password2" class="form-control" id="password2">
+                      <div class="invalid-feedback">Please re-enter your password.</div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit" name='login'>Reset Password</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="login.php">login</a></p>
