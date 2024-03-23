@@ -1,6 +1,35 @@
 <!-- Import Files -->
 <?php include('../admin_header.php');
 include('../private_files/system_configure_setting.php') ?>
+<!-- Login Back-End Code -->
+<!-- Form Start -->
+<?php
+if (isset($_POST['login'])) {
+  $username = mysqli_real_escape_string($conn, $_POST['username']);
+  $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
+  $sql_user_pass_cheack = "SELECT user_id, username, password, role FROM user_data WHERE username = '{$username}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
+  $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
+  if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
+    while ($row = mysqli_fetch_assoc($result_sql_user_pass_cheack)) {
+      $_SESSION['user_id'] = $row['user_id'];
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['user_role'] = $row['role'];
+      // echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
+?>
+      <script>
+        alert('Login successfully !!')
+      </script>
+    <?php
+    }
+  } else { ?>
+<?php
+    echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid username and password!!</p></div>");
+  }
+}
+?>
+<!-- Login Back-End Code -->
+<?php ?>
+
 <body>
   <main>
     <div class="container">
@@ -20,8 +49,7 @@ include('../private_files/system_configure_setting.php') ?>
                     <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
-                  
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
@@ -35,14 +63,14 @@ include('../private_files/system_configure_setting.php') ?>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <button class="btn btn-primary w-100" type="submit" name='login'>Login</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="register.php">Create an account</a></p>

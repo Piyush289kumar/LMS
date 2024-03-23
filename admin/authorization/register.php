@@ -11,6 +11,7 @@ if (isset($_POST['save'])) {
   $password = mysqli_real_escape_string($conn, md5($_POST['password']));
   $role = 'end_user';
   $date = Date('d-m-Y');
+  $defult_user_profile = 'default_user_profile.png';
 
   $sql_user_cheack = "SELECT username FROM user_data WHERE username = '{$username}'";
   $result_user_cheack = mysqli_query($conn, $sql_user_cheack) or die("Query Die ( sql_user_cheack )!!");
@@ -24,7 +25,7 @@ if (isset($_POST['save'])) {
   } else {
 
     $sql_insert_user = "INSERT INTO user_data (full_name, username, password, role, profile_picture, forgot_pwd_otp, phone, email, fb, insta, twitter, github, youtube, date)
-                                    values('{$full_name}','{$username}','{$password}', '{$role}','nope','nope','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}' )";
+                                    values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','nope','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}' )";
     if (mysqli_query($conn, $sql_insert_user)) {
     ?>
       <script>
