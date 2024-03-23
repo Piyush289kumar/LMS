@@ -1,6 +1,6 @@
 <!-- Import Files -->
-<?php include('../admin_header.php');
-include('../private_files/system_configure_setting.php') ?>
+<?php include('admin_header.php');
+include('private_files/system_configure_setting.php') ?>
 
 <!-- Register User Back-End Code -->
 <?php
@@ -32,7 +32,7 @@ if (isset($_POST['save'])) {
         alert('User is added successfully !!')
       </script>
 <?php
-      // echo "<script>window.location.href='$hostname/admin/users.php'</script>";
+      echo "<script>window.location.href='$hostname/admin/login.php'</script>";
     }
   }
 }
@@ -48,7 +48,7 @@ if (isset($_POST['save'])) {
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="../assets/img/logo.png" alt=<?php echo $website_display_default_name; ?>>
+                  <img src="assets/img/logo.png" alt=<?php echo $website_display_default_name; ?>>
                   <span class="d-none d-lg-block"><?php echo $website_display_default_name; ?></span>
                 </a>
               </div><!-- End Logo -->
@@ -102,7 +102,7 @@ if (isset($_POST['save'])) {
                 </div>
               </div>
               <!-- Import Copyright File -->
-              <?php include('../copyright/copyright.php') ?>
+              <?php include('copyright/copyright.php') ?>
             </div>
           </div>
         </div>
@@ -111,4 +111,4 @@ if (isset($_POST['save'])) {
   </main><!-- End #main -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Import Vendor JS links -->
-  <?php include('../admin_footer_vendor_links.php') ?>
+  <?php include('admin_footer_vendor_links.php') ?>
