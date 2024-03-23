@@ -662,5 +662,4 @@ include('private_files/system_configure_setting.php') ?>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <!-- Import Vendor JS links -->
   <?php include('admin_footer.php') ?>

@@ -24,8 +24,8 @@ if (isset($_POST['save'])) {
     echo ("<div class='d-flex justify-content-center' style='margin-bottom:-50px; padding-top:15px;'><p class='btn btn-danger'>User already Exsits !!</p></div>");
   } else {
 
-    $sql_insert_user = "INSERT INTO user_data (full_name, username, password, role, profile_picture, forgot_pwd_otp, phone, email, fb, insta, twitter, github, youtube, date, designation, about_text)
-                                    values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','nope','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}', 'nope' , 'nope' )";
+    $sql_insert_user = "INSERT INTO user_data (full_name, username, password, role, profile_picture, forgot_pwd_otp, phone, email, fb, insta, twitter, github, youtube, linkedin, date, designation, about_text)
+                                    values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','nope','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}', 'nope' , 'nope' )";
     if (mysqli_query($conn, $sql_insert_user)) {
     ?>
       <script>
