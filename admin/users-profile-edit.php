@@ -57,7 +57,7 @@ include('private_files/system_configure_setting.php'); ?>
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-edit.php">Edit Profile</a></button>
                 </li>
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-settings.php">Settings</a></button>
                 </li>
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>

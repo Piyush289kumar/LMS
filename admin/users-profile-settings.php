@@ -63,7 +63,7 @@ include('private_files/system_configure_setting.php') ?>
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-overview.php">Overview</a></button>
                 </li>
 
                 <li class="nav-item">
@@ -71,7 +71,7 @@ include('private_files/system_configure_setting.php') ?>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-settings.php">Settings</a></button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-settings.php">Settings</a></button>
                 </li>
 
                 <li class="nav-item">
@@ -82,40 +82,29 @@ include('private_files/system_configure_setting.php') ?>
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic"><?php echo $row_user_overview['about_text'] ?></p>
+                  <!-- Profile Edit Form -->
+                  <form>
 
-                  <h5 class="card-title">Profile Details</h5>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $row_user_overview['full_name'] ?></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Designation</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $row_user_overview['designation'] ?></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $row_user_overview['phone'] ?></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8"><?php echo $row_user_overview['email'] ?></div>
-                  </div>
-
-                </div>
-            <?php }
-          } ?>        
-              </div><!-- End Bordered Tabs -->
+                    <div class="row mb-3">
+                      <label for="full_name" class="col-md-8 col-lg-9 col-form-label">Two-Factor Authentication</label>
+                      <div class="col-md-4 col-lg-3">
+                        <button type="submit" class="btn btn-success">Enable</button>
+                      </div>
+                    </div>
+                  </form><!-- End Profile Edit Form -->
+              <?php }
+          } ?>
+                </div><!-- End Bordered Tabs -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
   </main><!-- End #main -->
   <!-- ======= Footer ======= -->
+  <script>
+    function btnClick() {
+      console.log('Click');
+    }
+  </script>
   <?php include('admin_footer.php') ?>
