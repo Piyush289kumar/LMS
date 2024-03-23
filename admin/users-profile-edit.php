@@ -65,7 +65,7 @@ include('private_files/system_configure_setting.php'); ?>
               </ul>
               <div class="tab-content pt-2">
                 <!-- Profile Edit Form -->
-                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
                   <div class="row mb-3">
                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                     <div class="col-md-8 col-lg-9">
@@ -86,13 +86,13 @@ include('private_files/system_configure_setting.php'); ?>
                   <div class="row mb-3">
                     <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                     <div class="col-md-8 col-lg-9">
-                      <textarea name="about" class="form-control" id="about" style="height: 100px"><?php echo $row_user_overview['about_text'] ?></textarea>
+                      <textarea name="about_text" class="form-control" id="about" style="height: 100px"><?php echo $row_user_overview['about_text'] ?></textarea>
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label for="Job" class="col-md-4 col-lg-3 col-form-label">Designation</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="job" type="text" class="form-control" id="Job" value="<?php echo $row_user_overview['designation'] ?>">
+                      <input name="designation" type="text" class="form-control" id="Job" value="<?php echo $row_user_overview['designation'] ?>">
                     </div>
                   </div>
                   <div class="row mb-3">
@@ -128,13 +128,13 @@ include('private_files/system_configure_setting.php'); ?>
                   <div class="row mb-3">
                     <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="facebook" type="text" class="form-control" id="Facebook" value="<?php echo $row_user_overview['fb'] ?>">
+                      <input name="fb" type="text" class="form-control" id="Facebook" value="<?php echo $row_user_overview['fb'] ?>">
                     </div>
                   </div>
                   <div class="row mb-3">
                     <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="instagram" type="text" class="form-control" id="Instagram" value="<?php echo $row_user_overview['insta'] ?>">
+                      <input name="insta" type="text" class="form-control" id="Instagram" value="<?php echo $row_user_overview['insta'] ?>">
                     </div>
                   </div>
                   <div class="row mb-3">
@@ -189,7 +189,18 @@ include('private_files/system_configure_setting.php'); ?>
       }
     }
     $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
-    $sql_update_user = "UPDATE user_data SET full_name = '{$full_name}', profile_picture = '{$save_img_name}' WHERE user_id ='{$user_id}'";
+    $about_text = mysqli_real_escape_string($conn, $_POST['about_text']);
+    $designation = mysqli_real_escape_string($conn, $_POST['designation']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $github = mysqli_real_escape_string($conn, $_POST['github']);
+    $linkedin = mysqli_real_escape_string($conn, $_POST['linkedin']);
+    $twitter = mysqli_real_escape_string($conn, $_POST['twitter']);
+    $fb = mysqli_real_escape_string($conn, $_POST['fb']);
+    $insta = mysqli_real_escape_string($conn, $_POST['insta']);
+    $youtube = mysqli_real_escape_string($conn, $_POST['youtube']);
+
+    $sql_update_user = "UPDATE user_data SET full_name = '{$full_name}', about_text = '{$about_text}', designation = '{$designation}', phone = '{$phone}', email= '{$email}', github = '{$github}', linkedin= '{$linkedin}', twitter = '{$twitter}', fb= '{$fb}', insta = '{$insta}', youtube = '{$youtube}', profile_picture = '{$save_img_name}' WHERE user_id ='{$user_id}'";
     if (mysqli_query($conn, $sql_update_user)) {
   ?>
       <script>

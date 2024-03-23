@@ -1,12 +1,9 @@
 <!-- Import Files -->
 <?php include('private_files/system_configure_setting.php');
 session_start();
-
-
-
-// if (!isset($_SESSION['username'])) {
-//     header("Location:{$hostname}/admin/");
-// } 
+if (!isset($_SESSION['username'])) {
+    header("Location:{$hostname}/admin/login.php");
+} 
 ?>
 
 <!-- ======= Header ======= -->
