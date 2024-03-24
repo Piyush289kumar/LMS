@@ -65,7 +65,7 @@ if (isset($_POST['verify'])) {
                     <h5 class="card-title text-center pb-0 fs-4">Disable - Two Factor Authentication</h5>
                     <p class="text-center small">Enter OTP</p>
                   </div>
-                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
+                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate autocomplete="off">
                     <div class="col-12">
                       <label for="otp" class="form-label">OTP</label>
                       <input type="text" name="otp" class="form-control" id="otp" maxlength="6">

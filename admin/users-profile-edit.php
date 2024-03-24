@@ -32,9 +32,9 @@ include('private_files/system_configure_setting.php'); ?>
               <div class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                   <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" class="rounded-circle">
-                  <h2><?php echo $row_user_overview['full_name'] ?></h2>
-                  <h3><?php echo $row_user_overview['designation'] ?></h3>
-                  <div class="social-links mt-2">
+                  <h2 class='text-center mt-3'><?php echo $row_user_overview['full_name'] ?></h2>
+                  <h3 class='text-center'><?php echo $row_user_overview['designation'] ?></h3>
+                  <div class="social-links mt-5">
                     <a href="<?php echo $row_user_overview['github'] ?>" class="linkedin"><i class="bi bi-github"></i></a>
                     <a href="<?php echo $row_user_overview['linkedin'] ?>" class="linkedin"><i class="bi bi-linkedin"></i></a>
                     <a href="<?php echo $row_user_overview['twitter'] ?>" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -52,17 +52,19 @@ include('private_files/system_configure_setting.php'); ?>
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link"><a style='color:#2c384e' href="users-profile-overview.php">Overview</a></button>
-                </li>              
-
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-edit.php">Edit Profile</a></button>
+                  <a style='color:#2c384e' href="users-profile-overview.php" class="nav-link">Overview</a>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-settings.php">Settings</a></button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a href="users-profile-edit.php">Edit Profile</a></button>
                 </li>
-                
+
+
+                <li class="nav-item">
+                  <a style='color:#2c384e' href="users-profile-settings.php" class="nav-link">Settings</a>
+                </li>
+
+
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
@@ -73,7 +75,7 @@ include('private_files/system_configure_setting.php'); ?>
                   <div class="row mb-3">
                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                     <div class="col-md-8 col-lg-9">
-                      <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" style='width:100px;'>
+                      <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" style='width:100px; border-radius:50%;'>
                       <div class="pt-2 px-3">
                         <input type="file" name="new-image" id="img" style="display:none;" />
                         <label for="img" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i>&#20;Upload new profile image</label>

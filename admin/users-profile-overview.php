@@ -41,9 +41,9 @@ include('private_files/system_configure_setting.php') ?>
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                   <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" class="rounded-circle">
-                  <h2><?php echo $row_user_overview['full_name'] ?></h2>
-                  <h3><?php echo $row_user_overview['designation'] ?></h3>
-                  <div class="social-links mt-2">
+                  <h2 class='text-center mt-3'><?php echo $row_user_overview['full_name'] ?></h2>
+                  <h3 class='text-center'><?php echo $row_user_overview['designation'] ?></h3>
+                  <div class="social-links mt-5">
                     <a href="<?php echo $row_user_overview['github'] ?>" class="linkedin"><i class="bi bi-github"></i></a>
                     <a href="<?php echo $row_user_overview['linkedin'] ?>" class="linkedin"><i class="bi bi-linkedin"></i></a>
                     <a href="<?php echo $row_user_overview['twitter'] ?>" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -67,11 +67,11 @@ include('private_files/system_configure_setting.php') ?>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-edit.php">Edit Profile</a></button>
+                  <a style='color:#2c384e' href="users-profile-edit.php" class="nav-link">Edit Profile</a>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-settings.php">Settings</a></button>
+                  <a style='color:#2c384e' href="users-profile-settings.php" class="nav-link">Settings</a>
                 </li>
 
                 <li class="nav-item">
@@ -109,7 +109,7 @@ include('private_files/system_configure_setting.php') ?>
 
                 </div>
             <?php }
-          } ?>        
+          } ?>
               </div><!-- End Bordered Tabs -->
             </div>
           </div>

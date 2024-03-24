@@ -15,23 +15,24 @@ if (isset($_POST['verify'])) {
   $otp_check = "SELECT * FROM user_data WHERE forgot_pwd_otp = '{$otp}' AND username = '{$username}' AND email = '{$email}'" or die("Query Failed!! --> otp_check");
   $otp_query_response = mysqli_query($conn, $otp_check);
   if (mysqli_num_rows($otp_query_response) > 0) {
-    // Enable Two Factor Authenticaion 
-    $sql_otp_create = "UPDATE user_data SET tfa ='Yes' WHERE username = '{$username}' AND email = '{$email}'";
+    // Email Update For Deactivate User Account
+    $deactivate_email = $email . " - deactivated";
+    $sql_otp_create = "UPDATE user_data SET email = '{$deactivate_email}' WHERE username = '{$username}' AND email = '{$email}'";
     if (mysqli_query($conn, $sql_otp_create)) {
 ?>
       <script>
-        alert('Two Factor Authenticaion is Enable successfully.')
+        alert('Your account is deactivated successfully.')
       </script>
 <?php
       echo "<script>
-      window.location.href = '$hostname/admin/logout.php'
+      window.location.href = '$hostname'
     </script>";
     } else {
       echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'>
       <p class='btn btn-danger'>Invalid OTP.</p>
     </div>");
     }
-    echo "<script>window.location.href='$hostname/admin/login.php'</script>";
+    echo "<script>window.location.href='$hostname'</script>";
   } else {
     $notification_box = 'none !important';
     echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Invalid OTP.</p></div>");
@@ -62,7 +63,7 @@ if (isset($_POST['verify'])) {
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Enable - Two Factor Authentication</h5>
+                    <h5 class="card-title text-center pb-0 fs-4">Deactivate Account</h5>
                     <p class="text-center small">Enter OTP</p>
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate autocomplete="off">
@@ -72,7 +73,7 @@ if (isset($_POST['verify'])) {
                       <div class="invalid-feedback">Please enter your OTP.</div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" name='verify'>Verify OTP</button>
+                      <button class="btn btn-danger w-100" type="submit" name='verify'>Verify OTP</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="login.php">login</a></p>

@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
                     <h5 class="card-title text-center pb-0 fs-4">Two Factor Authentication</h5>
                     <p class="text-center small">Enter your email & password to disable Two-Factor Authentication</p>
                   </div>
-                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
+                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate autocomplete="off">
                     <div class="col-12">
                       <label for="email" class="form-label">Email</label>
                       <div class="input-group has-validation">
@@ -75,6 +75,9 @@ if (isset($_POST['login'])) {
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Forgot Password? <a href="forgot_password.php">Reset Password</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Already have an account? <a href="login.php">Log in</a></p>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="register.php">Create an account</a></p>

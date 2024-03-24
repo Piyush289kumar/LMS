@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
                     <h5 class="card-title text-center pb-0 fs-4">Reset Password</h5>
                     <p class="text-center small">Create a new password</p>
                   </div>
-                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
+                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate autocomplete="off">
                     <div class="col-12">
                       <label for="password1" class="form-label">Enter Your Password</label>
                       <input type="password" name="password1" class="form-control" id="password1">

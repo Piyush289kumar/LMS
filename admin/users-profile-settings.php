@@ -41,9 +41,9 @@ include('private_files/system_configure_setting.php') ?>
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                   <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" class="rounded-circle">
-                  <h2><?php echo $row_user_overview['full_name'] ?></h2>
-                  <h3><?php echo $row_user_overview['designation'] ?></h3>
-                  <div class="social-links mt-2">
+                  <h2 class='text-center mt-3'><?php echo $row_user_overview['full_name'] ?></h2>
+                  <h3 class='text-center'><?php echo $row_user_overview['designation'] ?></h3>
+                  <div class="social-links mt-5">
                     <a href="<?php echo $row_user_overview['github'] ?>" class="linkedin"><i class="bi bi-github"></i></a>
                     <a href="<?php echo $row_user_overview['linkedin'] ?>" class="linkedin"><i class="bi bi-linkedin"></i></a>
                     <a href="<?php echo $row_user_overview['twitter'] ?>" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -63,15 +63,15 @@ include('private_files/system_configure_setting.php') ?>
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-overview.php">Overview</a></button>
+                  <a style='color:#2c384e' href="users-profile-overview.php" class="nav-link">Overview</a>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-edit.php">Edit Profile</a></button>
+                  <a style='color:#2c384e' href="users-profile-edit.php" class="nav-link">Edit Profile</a>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a style='color:#2c384e' href="users-profile-settings.php">Settings</a></button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a href="users-profile-settings.php">Settings</a></button>
                 </li>
 
                 <li class="nav-item">
@@ -91,7 +91,7 @@ include('private_files/system_configure_setting.php') ?>
                     } else {
                       $two_factor_auth = 'Enable';
                     } ?>
-                    <div class="row mb-3">
+                    <div class="row mb-3 pt-3">
                       <label for="full_name" class="col-md-8 col-lg-9 col-form-label">Two-Factor Authentication is <?php echo $two_factor_auth ?> </label>
                       <div class="col-md-4 col-lg-3">
 
@@ -103,6 +103,18 @@ include('private_files/system_configure_setting.php') ?>
                         <?php
                         }
                         ?>
+                      </div>
+                    </div>
+
+
+                    <!-- // Delete User account -->
+                    <div class="row mb-3 border-top pt-3">
+                      <div class="col-md-8 col-lg-9">
+                        <label for="full_name" class="col-form-label">Deactivate account</label>
+                        <p style="color:#B2BEB5">Note: Once you delete your account there's no getting it back. Make sure going forward with this will delete all your data from our platform such as email and cached files.</p>
+                      </div>
+                      <div class="col-md-4 col-lg-3">
+                        <a class="btn btn-outline-danger" href="deactivate_user_account.php">Deactivate</a>
                       </div>
                     </div>
 
