@@ -32,7 +32,7 @@ include('private_files/system_configure_setting.php'); ?>
               <div class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                   <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" class="rounded-circle">
-                  <h2 class='text-center mt-3'><?php echo $row_user_overview['full_name'] ?></h2>
+                  <h2 class='text-center mt-3 pb-2'>@<?php echo $row_user_overview['username'] ?></h2>
                   <h3 class='text-center'><?php echo $row_user_overview['designation'] ?></h3>
                   <div class="social-links mt-5">
                     <a href="<?php echo $row_user_overview['github'] ?>" class="linkedin"><i class="bi bi-github"></i></a>
@@ -50,23 +50,14 @@ include('private_files/system_configure_setting.php'); ?>
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
-
                 <li class="nav-item">
                   <a style='color:#2c384e' href="users-profile-overview.php" class="nav-link">Overview</a>
                 </li>
-
                 <li class="nav-item">
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a href="users-profile-edit.php">Edit Profile</a></button>
                 </li>
-
-
                 <li class="nav-item">
                   <a style='color:#2c384e' href="users-profile-settings.php" class="nav-link">Settings</a>
-                </li>
-
-
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
               </ul>
               <div class="tab-content pt-2">
@@ -205,7 +196,6 @@ include('private_files/system_configure_setting.php'); ?>
     $fb = mysqli_real_escape_string($conn, $_POST['fb']);
     $insta = mysqli_real_escape_string($conn, $_POST['insta']);
     $youtube = mysqli_real_escape_string($conn, $_POST['youtube']);
-
     $sql_update_user = "UPDATE user_data SET full_name = '{$full_name}', about_text = '{$about_text}', designation = '{$designation}', phone = '{$phone}', email= '{$email}', github = '{$github}', linkedin= '{$linkedin}', twitter = '{$twitter}', fb= '{$fb}', insta = '{$insta}', youtube = '{$youtube}', profile_picture = '{$save_img_name}' WHERE user_id ='{$user_id}'";
     if (mysqli_query($conn, $sql_update_user)) {
   ?>
