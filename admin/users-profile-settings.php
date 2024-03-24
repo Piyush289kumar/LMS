@@ -85,12 +85,28 @@ include('private_files/system_configure_setting.php') ?>
                   <!-- Profile Edit Form -->
                   <form>
 
+                    <?php $two_factor_auth = '';
+                    if ($row_user_overview['tfa'] == 'No') {
+                      $two_factor_auth = 'Disable';
+                    } else {
+                      $two_factor_auth = 'Enable';
+                    } ?>
                     <div class="row mb-3">
-                      <label for="full_name" class="col-md-8 col-lg-9 col-form-label">Two-Factor Authentication</label>
+                      <label for="full_name" class="col-md-8 col-lg-9 col-form-label">Two-Factor Authentication is <?php echo $two_factor_auth ?> </label>
                       <div class="col-md-4 col-lg-3">
-                        <button type="submit" class="btn btn-success"><a style='color:#fff' href="two_factor_authentication.php">Enable</a></button>
+
+                        <?php if ($row_user_overview['tfa'] == 'No') { ?>
+                          <button type="submit" class="btn btn-success"><a style='color:#fff' href="two_factor_authentication.php">Enable</a></button>
+                        <?php } else {
+                        ?>
+                          <a class="btn btn-outline-danger" href="two_factor_authentication_disable.php">Disable</a>
+                        <?php
+                        }
+                        ?>
                       </div>
                     </div>
+
+
                   </form><!-- End Profile Edit Form -->
               <?php }
           } ?>
