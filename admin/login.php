@@ -5,15 +5,16 @@ include('private_files/system_configure_setting.php') ?>
 <!-- Form Start -->
 <?php
 if (isset($_POST['login'])) {
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-  $sql_user_pass_cheack = "SELECT user_id, username, password, role, designation, profile_picture FROM user_data WHERE username = '{$username}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
+  $sql_user_pass_cheack = "SELECT user_id, username, email, password, role, designation, profile_picture FROM user_data WHERE email = '{$email}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
   $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
     while ($row = mysqli_fetch_assoc($result_sql_user_pass_cheack)) {
       session_start();
       $_SESSION['user_id'] = $row['user_id'];
       $_SESSION['username'] = $row['username'];
+      $_SESSION['email'] = $row['email'];
       $_SESSION['user_role'] = $row['role'];
       $_SESSION['user_designation'] = $row['designation'];
       $_SESSION['user_profile_picture'] = $row['profile_picture'];
@@ -26,7 +27,7 @@ if (isset($_POST['login'])) {
     }
   } else { ?>
 <?php
-    echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid username and password!!</p></div>");
+    echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid Email and Password!!</p></div>");
   }
 }
 ?>
@@ -54,24 +55,21 @@ if (isset($_POST['login'])) {
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label for="email" class="form-label">Email</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-envelope-at-fill"></i></span>
+                        <input type="email" name="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Please enter your Email.</div>
                       </div>
                     </div>
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
-                    <!-- <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                      <label for="password" class="form-label">Password</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="password"><i class="bi bi-key-fill"></i></span>
+                        <input type="password" name="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback">Please enter your Password.</div>
                       </div>
-                    </div> -->
+                    </div>
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit" name='login'>Login</button>
                     </div>

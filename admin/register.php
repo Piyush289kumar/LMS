@@ -13,26 +13,32 @@ if (isset($_POST['save'])) {
   $date = Date('d-m-Y');
   $defult_user_profile = 'default_user_profile.png';
 
-  $sql_user_cheack = "SELECT username FROM user_data WHERE username = '{$username}'";
+  $sql_user_cheack = "SELECT username FROM user_data WHERE email = '{$email}'";
   $result_user_cheack = mysqli_query($conn, $sql_user_cheack) or die("Query Die ( sql_user_cheack )!!");
 
   if (mysqli_num_rows($result_user_cheack) > 0) { ?>
     <script>
-      alert('User already Exsits !!')
+      alert('Email already Exsits !!')
     </script>
     <?php
-    echo ("<div class='d-flex justify-content-center' style='margin-bottom:-50px; padding-top:15px;'><p class='btn btn-danger'>User already Exsits !!</p></div>");
+    echo ("<div class='d-flex justify-content-center' style='margin-bottom:-50px; padding-top:15px;'><p class='btn btn-danger'>Email already Exsits !!</p></div>");
   } else {
-
+    // Create Session For OTP Auth
+    session_start();
+    $_SESSION['user_otp_email'] = $email;
+    // OTP Generated 
+    $otp = strtoupper(substr(md5(rand(11, 99)), 0, 6));
+    // OTP Session for Send Email
+    $_SESSION['otp_send_session'] = $otp;
     $sql_insert_user = "INSERT INTO user_data (full_name, username, password, role, profile_picture, forgot_pwd_otp, phone, email, fb, insta, twitter, github, youtube, linkedin, date, designation, about_text)
-                                    values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','nope','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}', 'nope' , 'nope' )";
+                                    values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','{$otp}','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}', 'nope' , 'nope' )";
     if (mysqli_query($conn, $sql_insert_user)) {
     ?>
       <script>
-        alert('User is added successfully !!')
+        alert('Email was send successfull to your registered email.')
       </script>
 <?php
-      echo "<script>window.location.href='$hostname/admin/login.php'</script>";
+      echo "<script>window.location.href='$hostname/admin/email_sender_files/registration_otp_sender.php'</script>";
     }
   }
 }
@@ -66,10 +72,14 @@ if (isset($_POST['save'])) {
                       <input type="text" name="full_name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
+
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      <label for="email" class="form-label">Email</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-envelope-at-fill"></i></span>
+                        <input type="email" name="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Please enter your Email.</div>
+                      </div>
                     </div>
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
@@ -79,10 +89,15 @@ if (isset($_POST['save'])) {
                         <div class="invalid-feedback">Please choose a username.</div>
                       </div>
                     </div>
+
+
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                      <label for="password" class="form-label">Password</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="password"><i class="bi bi-key-fill"></i></span>
+                        <input type="password" name="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback">Please enter your Password.</div>
+                      </div>
                     </div>
                     <!-- <div class="col-12">
                       <div class="form-check">
