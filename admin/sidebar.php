@@ -169,8 +169,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="icons-remix.html">
-                        <i class="bi bi-circle"></i><span>Remix Icons</span>
+                    <a href="user_management_insert.php">
+                        <i class="bi bi-circle"></i><span>Create a New User</span>
                     </a>
                 </li>
                 <li>
