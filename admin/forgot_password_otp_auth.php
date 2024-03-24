@@ -16,6 +16,11 @@ if (isset($_POST['verify'])) {
   $otp_check = "SELECT * FROM user_data WHERE forgot_pwd_otp = '{$otp}' AND username = '{$username}' AND email = '{$email}'" or die("Query Failed!! --> otp_check");
   $otp_query_response = mysqli_query($conn, $otp_check);
   if (mysqli_num_rows($otp_query_response) > 0) {
+?>
+    <script>
+      alert('OTP Verify.')
+    </script>
+<?php
     echo "<script>window.location.href='$hostname/admin/forgot_password_update.php'</script>";
   } else {
     $notification_box = 'none !important';

@@ -12,15 +12,14 @@ if (isset($_POST['login'])) {
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
     // Create Session For OTP Auth
     session_start();
-    $_SESSION['otp_username'] = $username;
-    $_SESSION['otp_email'] = $email;
+    $_SESSION['user_otp_email'] = $email;
     // OTP Generated 
     $otp = strtoupper(substr(md5(rand(11, 99)), 0, 6));
     // OTP Session for Send Email
     $_SESSION['otp_send_session'] = $otp;
     $sql_otp_create = "UPDATE user_data SET forgot_pwd_otp ='{$otp}' WHERE username = '{$username}' AND email = '{$email}'";
     if (mysqli_query($conn, $sql_otp_create)) {
-      echo "<script>window.location.href='$hostname/admin/forgot_password_otp_sender.php'</script>";
+      echo "<script>window.location.href='$hostname/admin/email_sender_files/forgot_password_otp_sender.php'</script>";
     } else {
       echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Invalid Username and Email.</p></div>");
     }

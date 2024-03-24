@@ -17,6 +17,11 @@ if (isset($_POST['login'])) {
     $sql_user_pass_cheack = "UPDATE user_data SET password ='{$password1}' WHERE username = '{$username}' AND email = '{$email}' AND forgot_pwd_otp = '{$top_auth}'" or die("Query Failed!! --> sql_user_pass_cheack");
     $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
     if (mysqli_query($conn, $sql_user_pass_cheack)) {
+?>
+      <script>
+        alert('Password is reset successfull.')
+      </script>
+<?php
       echo "<script>window.location.href='$hostname/admin/login.php'</script>";
     } else {
       echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>OTP Not Match.</p></div>");
