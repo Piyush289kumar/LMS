@@ -72,7 +72,7 @@ include('private_files/system_configure_setting.php'); ?>
                         <td><?php echo $row_sql_fetch_all_user['email'] ?></td>
                         <td><?php echo $row_sql_fetch_all_user['date'] ?></td>
                         <td><a href="user_management_edit.php?id=<?php echo ($row_sql_fetch_all_user["user_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
-                        <td><a href="user_management_delete.php?id=<?php echo ($row_sql_fetch_all_user["user_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
+                        <td><a href="middleware_auth_user_management_delete.php?id=<?php echo ($row_sql_fetch_all_user["user_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
                   <?php }
                   } ?>
