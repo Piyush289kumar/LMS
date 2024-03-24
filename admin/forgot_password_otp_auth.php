@@ -60,7 +60,7 @@ if (isset($_POST['verify'])) {
 
                     <div class="col-12">
                       <label for="otp" class="form-label">OTP</label>
-                      <input type="text" name="otp" class="form-control" id="otp">
+                      <input type="text" name="otp" class="form-control" id="otp" maxlength="6">
                       <div class="invalid-feedback">Please enter your OTP.</div>
                     </div>
 

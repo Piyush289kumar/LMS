@@ -30,8 +30,7 @@ if (isset($_POST['save'])) {
     $otp = strtoupper(substr(md5(rand(11, 99)), 0, 6));
     // OTP Session for Send Email
     $_SESSION['otp_send_session'] = $otp;
-    $sql_insert_user = "INSERT INTO user_data (full_name, username, password, role, profile_picture, forgot_pwd_otp, phone, email, fb, insta, twitter, github, youtube, linkedin, date, designation, about_text)
-                                    values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','{$otp}','nope', '{$email}', 'nope', 'nope', 'nope', 'nope', 'nope', 'nope', '{$date}', 'nope' , 'nope' )";
+    $sql_insert_user = "INSERT INTO user_data (full_name, username, password, role, profile_picture, forgot_pwd_otp, email, date) values('{$full_name}','{$username}','{$password}', '{$role}','{$defult_user_profile}','{$otp}','{$email}','{$date}')";
     if (mysqli_query($conn, $sql_insert_user)) {
     ?>
       <script>

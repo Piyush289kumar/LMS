@@ -12,37 +12,18 @@ if (isset($_POST['login'])) {
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
     while ($row = mysqli_fetch_assoc($result_sql_user_pass_cheack)) {
       session_start();
-      $_SESSION['user_id'] = $row['user_id'];
-      $_SESSION['username'] = $row['username'];
-      $_SESSION['email'] = $row['email'];
-      $_SESSION['user_role'] = $row['role'];
-      $_SESSION['user_designation'] = $row['designation'];
-      $_SESSION['user_profile_picture'] = $row['profile_picture'];
-
-      //Conditional Rending
-      if ($row['tfa'] == 'No') {
-        echo "<script>window.location.href='$hostname/admin'</script>";
-?>
-        <script>
-          alert('Login successfully !!')
-        </script>
-    <?php
+      // Create Session For OTP Auth
+      $_SESSION['user_otp_email'] = $row['email'];
+      // OTP Generated 
+      $otp = strtoupper(substr(md5(rand(11, 99)), 0, 6));
+      // OTP Session for Send Email
+      $_SESSION['otp_send_session'] = $otp;
+      $sql_otp_create = "UPDATE user_data SET forgot_pwd_otp ='{$otp}' WHERE email = '{$email}' AND password = '{$pass}'";
+      if (mysqli_query($conn, $sql_otp_create)) {
+        echo "<script>window.location.href='$hostname/admin/email_sender_files/two_factor_authentication_otp_sender.php'</script>";
       } else {
-        // Create Session For OTP Auth
-        $_SESSION['user_otp_email'] = $row['email'];
-        // OTP Generated 
-        $otp = strtoupper(substr(md5(rand(11, 99)), 0, 6));
-        // OTP Session for Send Email
-        $_SESSION['otp_send_session'] = $otp;
-        $sql_otp_create = "UPDATE user_data SET forgot_pwd_otp ='{$otp}' WHERE email = '{$email}' AND password = '{$pass}'";
-        if (mysqli_query($conn, $sql_otp_create)) {
-          echo "<script>window.location.href='$hostname/admin/email_sender_files/login_otp_sender.php'</script>";
-        } else {
-          echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid Email and Password.</p></div>");
-        }
+        echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid Email and Password.</p></div>");
       }
-      //Conditional Rending
-
     }
   } else { ?>
 <?php
@@ -69,8 +50,8 @@ if (isset($_POST['login'])) {
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Two Factor Authentication</h5>
+                    <p class="text-center small">Enter your email & password to enable Two-Factor Authentication</p>
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
                     <div class="col-12">
@@ -90,7 +71,7 @@ if (isset($_POST['login'])) {
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" name='login'>Login</button>
+                      <button class="btn btn-primary w-100" type="submit" name='login'>Enable</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Forgot Password? <a href="forgot_password.php">Reset Password</a></p>

@@ -88,7 +88,7 @@ include('private_files/system_configure_setting.php') ?>
                     <div class="row mb-3">
                       <label for="full_name" class="col-md-8 col-lg-9 col-form-label">Two-Factor Authentication</label>
                       <div class="col-md-4 col-lg-3">
-                        <button type="submit" class="btn btn-success">Enable</button>
+                        <button type="submit" class="btn btn-success"><a style='color:#fff' href="two_factor_authentication.php">Enable</a></button>
                       </div>
                     </div>
                   </form><!-- End Profile Edit Form -->

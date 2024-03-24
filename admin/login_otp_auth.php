@@ -18,10 +18,10 @@ if (isset($_POST['verify'])) {
   if (mysqli_num_rows($otp_query_response) > 0) {
 ?>
     <script>
-      alert('Registration completed successfully.')
+      alert('Login successfully.')
     </script>
 <?php
-    echo "<script>window.location.href='$hostname/admin/login.php'</script>";
+    echo "<script>window.location.href='$hostname/admin/index.php'</script>";
   } else {
     $notification_box = 'none !important';
     echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Invalid OTP.</p></div>");
@@ -53,7 +53,7 @@ if (isset($_POST['verify'])) {
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Registration</h5>
+                    <h5 class="card-title text-center pb-0 fs-4">Login</h5>
                     <p class="text-center small">Enter OTP</p>
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate>
