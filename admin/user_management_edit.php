@@ -11,19 +11,20 @@ include('private_files/system_configure_setting.php'); ?>
   <!-- ======= Sidebar ======= -->
   <main id="main" class="main">
     <div class="pagetitle">
-      <h1>Profile</h1>
+      <h1>Modify User Details</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item">User Management</li>
+          <li class="breadcrumb-item active">Modify User Details</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
     <section class="section profile">
       <div class="row">
         <div class="col-xl-4">
-          <?php $user_id = $_SESSION['user_id'];
+          <?php
+          $user_id = $_GET['id'];
           $sql_show_user_overview = "SELECT * FROM user_data WHERE user_id = '{$user_id}' ";
           $result_sql_show_user_overview = mysqli_query($conn, $sql_show_user_overview) or die("Query Failed!!");
           if (mysqli_num_rows($result_sql_show_user_overview) > 0) {
@@ -50,14 +51,9 @@ include('private_files/system_configure_setting.php'); ?>
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
+
                 <li class="nav-item">
-                  <a style='color:#2c384e' href="users-profile-overview.php" class="nav-link">Overview</a>
-                </li>
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit"><a href="users-profile-edit.php">Edit Profile</a></button>
-                </li>
-                <li class="nav-item">
-                  <a style='color:#2c384e' href="users-profile-settings.php" class="nav-link">Settings</a>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Modify User Details</button>
                 </li>
               </ul>
               <div class="tab-content pt-2">
@@ -80,6 +76,31 @@ include('private_files/system_configure_setting.php'); ?>
                       <input name="username" type="text" class="form-control" id="username" value="<?php echo $row_user_overview['username'] ?>">
                     </div>
                   </div>
+
+                  <div class="row mb-3">
+                    <label for="role" class="col-md-4 col-lg-3 col-form-label">Role</label>
+                    <div class="col-md-8 col-lg-9">
+                      <select class="form-select" name='role' required>
+                        <option disabled>Choose a Authorization Level</option>
+                        <?php if ($row_user_overview['role'] == '0') { ?>
+                          <option value="0" selected>1. Administration Level</option>
+                          <option value="1">2. Middle Management Level</option>
+                          <option value="9">3. End User Level</option>
+                        <?php } elseif ($row_user_overview['role'] == '1') { ?>
+                          <option value="0">1. Administration Level</option>
+                          <option value="1" selected>2. Middle Management Level</option>
+                          <option value="9">3. End User Level</option>
+                        <?php } elseif ($row_user_overview['role'] == '9') { ?>
+                          <option value="0">1. Administration Level</option>
+                          <option value="1">2. Middle Management Level</option>
+                          <option value="9" selected>3. End User Level</option>
+                        <?php } ?>
+
+                      </select>
+                    </div>
+                  </div>
+
+
                   <div class="row mb-3">
                     <label for="full_name" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                     <div class="col-md-8 col-lg-9">
@@ -192,6 +213,7 @@ include('private_files/system_configure_setting.php'); ?>
       }
     }
     $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $role = mysqli_real_escape_string($conn, $_POST['role']);
     $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
     $about_text = mysqli_real_escape_string($conn, $_POST['about_text']);
     $designation = mysqli_real_escape_string($conn, $_POST['designation']);
@@ -203,14 +225,14 @@ include('private_files/system_configure_setting.php'); ?>
     $fb = mysqli_real_escape_string($conn, $_POST['fb']);
     $insta = mysqli_real_escape_string($conn, $_POST['insta']);
     $youtube = mysqli_real_escape_string($conn, $_POST['youtube']);
-    $sql_update_user = "UPDATE user_data SET username = '{$username}', full_name = '{$full_name}', about_text = '{$about_text}', designation = '{$designation}', phone = '{$phone}', email= '{$email}', github = '{$github}', linkedin= '{$linkedin}', twitter = '{$twitter}', fb= '{$fb}', insta = '{$insta}', youtube = '{$youtube}', profile_picture = '{$save_img_name}' WHERE user_id ='{$user_id}'";
+    $sql_update_user = "UPDATE user_data SET username = '{$username}', role = '{$role}', full_name = '{$full_name}', about_text = '{$about_text}', designation = '{$designation}', phone = '{$phone}', email= '{$email}', github = '{$github}', linkedin= '{$linkedin}', twitter = '{$twitter}', fb= '{$fb}', insta = '{$insta}', youtube = '{$youtube}', profile_picture = '{$save_img_name}' WHERE user_id ='{$user_id}'";
     if (mysqli_query($conn, $sql_update_user)) {
   ?>
       <script>
         alert('Record is Update successfully !!')
       </script>
     <?php
-      echo "<script>window.location.href='$hostname/admin/users-profile-edit.php'</script>";
+      echo "<script>window.location.href='$hostname/admin/user_management_read.php'</script>";
     } else {
     ?>
       <script>

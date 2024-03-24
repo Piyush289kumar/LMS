@@ -78,7 +78,7 @@ include('private_files/system_configure_setting.php'); ?>
                       <select class="form-select" name='role' required>
                         <option selected disabled>Choose a Authorization Level</option>
                         <option value="0">1. Administration Level</option>
-                        <option value="1">2. Middle management Level</option>
+                        <option value="1">2. Middle Management Level</option>
                         <option value="9">3. End User Level</option>
                       </select>
                     </div>

@@ -54,12 +54,25 @@ include('private_files/system_configure_setting.php'); ?>
                         <td><?php echo $row_sql_fetch_all_user['username'] ?></td>
                         <td><?php echo $row_sql_fetch_all_user['full_name'] ?></td>
                         <td><?php echo $row_sql_fetch_all_user['designation'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_user['role'] ?></td>
+                        <!-- Role Permission Conditional Rending -->
+                        <?php
+                        $user_role_permission = '';
+                        if ($row_sql_fetch_all_user['role'] == '0') {
+                          $user_role_permission = 'Administration Level';
+                        } elseif ($row_sql_fetch_all_user['role'] == '1') {
+                          $user_role_permission = 'Middle Management Level';
+                        } elseif ($row_sql_fetch_all_user['role'] == '9') {
+                          $user_role_permission = 'End User Level';
+                        } else {
+                          $user_role_permission = 'Null';
+                        }
+                        ?>
+                        <td><?php echo $user_role_permission ?></td>
                         <td><?php echo $row_sql_fetch_all_user['phone'] ?></td>
                         <td><?php echo $row_sql_fetch_all_user['email'] ?></td>
                         <td><?php echo $row_sql_fetch_all_user['date'] ?></td>
-                        <td><a href="#" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
-                        <td><a href="#" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
+                        <td><a href="user_management_edit.php?id=<?php echo ($row_sql_fetch_all_user["user_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
+                        <td><a href="user_management_delete.php?id=<?php echo ($row_sql_fetch_all_user["user_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
                   <?php }
                   } ?>

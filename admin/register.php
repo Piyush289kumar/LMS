@@ -9,7 +9,7 @@ if (isset($_POST['save'])) {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, md5($_POST['password']));
-  $role = 'end_user';
+  $role = '9';
   $date = Date('d-m-Y');
   $defult_user_profile = 'default_user_profile.png';
 
