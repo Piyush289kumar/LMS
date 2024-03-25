@@ -2,33 +2,24 @@
 include('../phpmailer_smtp/smtp/PHPMailerAutoload.php');
 include('../private_files/system_configure_setting.php');
 session_start();
-$end_user_email = $_SESSION['user_otp_email'];
+$end_user_email = 'piyushraikwar289@gmail.com';
+
 // Email Variables
-$user_email = '';
+$user_email = 'piyushraikwar289@gmail.com';
 $user_otp = '';
-$sql_otp_sender = "SELECT * FROM user_data WHERE email = '{$end_user_email}'" or die("Query Failed!! --> sql_otp_sender");
-$result_sql_otp_sender = mysqli_query($conn, $sql_otp_sender);
-if (mysqli_num_rows($result_sql_otp_sender) > 0) {
-    while ($row = mysqli_fetch_assoc($result_sql_otp_sender)) {
-        $user_email = $row['email'];
-        $user_otp = $row['forgot_pwd_otp'];
-        // Create Email Sesssion
-        $_SESSION['otp_username'] = $row['username'];
-        $_SESSION['otp_email'] = $row['email'];
-    }
-} else { ?>
-<?php
-    echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Email Not Send</p></div>");
-}
+
 // Email Send Code
-$subject = "Account Enable Two Factor Authenticaion Notification";
-$body = "<!doctype html>
-<html lang='en'>
+$subject = "Deactivate Account Notification";
+$body = '<!doctype html>
+<html lang="en">
 
 <head>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
-  <style media='all' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style media="all" type="text/css">
+    /* -------------------------------------
+    GLOBAL RESETS
+------------------------------------- */
     body {
       font-family: Helvetica, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -51,6 +42,9 @@ $body = "<!doctype html>
       vertical-align: top;
     }
 
+    /* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
     body {
       background-color: #f4f5f6;
       margin: 0;
@@ -78,6 +72,9 @@ $body = "<!doctype html>
       padding: 0;
     }
 
+    /* -------------------------------------
+    HEADER, FOOTER, MAIN
+------------------------------------- */
     .main {
       background: #ffffff;
       border: 1px solid #eaebed;
@@ -106,6 +103,9 @@ $body = "<!doctype html>
       text-align: center;
     }
 
+    /* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
     p {
       font-family: Helvetica, sans-serif;
       font-size: 16px;
@@ -119,6 +119,9 @@ $body = "<!doctype html>
       text-decoration: underline;
     }
 
+    /* -------------------------------------
+    BUTTONS
+------------------------------------- */
     .btn {
       box-sizing: border-box;
       min-width: 100% !important;
@@ -183,6 +186,9 @@ $body = "<!doctype html>
       }
     }
 
+    /* -------------------------------------
+    OTHER STYLES THAT MIGHT BE USEFUL
+------------------------------------- */
     .last {
       margin-bottom: 0;
     }
@@ -237,6 +243,9 @@ $body = "<!doctype html>
       text-decoration: none;
     }
 
+    /* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
     @media only screen and (max-width: 640px) {
 
       .main p,
@@ -277,6 +286,9 @@ $body = "<!doctype html>
       }
     }
 
+    /* -------------------------------------
+    PRESERVE THESE STYLES IN THE HEAD
+------------------------------------- */
     @media all {
       .ExternalClass {
         width: 100%;
@@ -312,28 +324,29 @@ $body = "<!doctype html>
   </style>
 </head>
 
-<body style='background:#F4F5F6;'>
-  <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'>
+<body style="background:#F4F5F6; height: 100vh;">
+  <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
     <tr>
       <td>&nbsp;</td>
-      <td class='container'>
-        <div class='content'>
+      <td class="container">
+        <div class="content">
           <!-- START CENTERED WHITE CONTAINER -->
-          <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='main'>
+          <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="main">
             <!-- START MAIN CONTENT AREA -->
             <tr>
-              <td class='wrapper'>
-                <h1 style='color: #0D1117;'>2FA Code</h1>
-                <p style='color: #0D1117;'>Here is your verification code to enable 2FA:</p>
-                <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='btn btn-primary'>
+              <td class="wrapper">
+                <h1 style="color: #0D1117;">2FA Code</h1>
+                <p style="color: #0D1117;">Here is your verification code to enable 2FA:</p>
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                   <tbody>
                     <tr>
-                      <td align='left'>
-                        <table role='presentation' border='0' cellpadding='0' cellspacing='0'>
+                      <td align="left">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                           <tbody>
                             <tr>
                               <td>
-                                <a id='MainContend'>" . $user_otp . "</a>
+                                <a id="MainContend">Call To Action</a>
                               </td>
                             </tr>
                           </tbody>
@@ -348,13 +361,13 @@ $body = "<!doctype html>
             <!-- END MAIN CONTENT AREA -->
           </table>
           <!-- START FOOTER -->
-          <div class='footer'>
-            <table role='presentation' border='0' cellpadding='0' cellspacing='0'>
+          <div class="footer">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td class='content-block'>
+                <td class="content-block">
                   <div
-                    style=' text-align: center; padding-top: 5px; text-align: center; font-size: 16px; color: #012970;'>
-                    Designed & Developed by <a href='https://github.com/Piyush289kumar/' style='color: #012970;'>Piyush
+                    style=" text-align: center; padding-top: 5px; text-align: center; font-size: 16px; color: #012970;">
+                    Designed & Developed by <a href="https://github.com/Piyush289kumar/" style="color: #012970;">Piyush
                       Kumar Raikwar</a>
                   </div>
                 </td>
@@ -369,8 +382,7 @@ $body = "<!doctype html>
     </tr>
   </table>
 </body>
-
-</html>";
+</html>';
 echo smtp_mailer($user_email, $subject, $body);
 function smtp_mailer($to, $subject, $msg)
 {
@@ -400,6 +412,6 @@ function smtp_mailer($to, $subject, $msg)
     if (!$mail->Send()) {
         echo "<div style='background:red; color:#fff; font-size:24px;'>Please cheack Your Internet Connection !!</div>";
     } else {
-        return "<script>window.location.href='http://localhost/LMS/admin/two_factor_authentication_otp_auth.php'</script>";
+        return "<script>window.location.href='http://localhost/LMS/admin/deactivate_user_account_otp_auth.php'</script>";
     }
 }
