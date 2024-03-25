@@ -16,7 +16,7 @@ include('private_files/system_configure_setting.php'); ?>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item">User Management</li>
-          <li class="breadcrumb-item active">Administration Users</li>
+          <li class="breadcrumb-item active">Middle Management Users</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -25,7 +25,7 @@ include('private_files/system_configure_setting.php'); ?>
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Administration Users</h5>
+              <h5 class="card-title">Middle Management Users</h5>
               <!-- Table with stripped rows -->
               <table class="table datatable table-striped table-hover table-bordered">
                 <thead>
@@ -44,7 +44,7 @@ include('private_files/system_configure_setting.php'); ?>
                 </thead>
                 <tbody>
                   <?php
-                  $sql_fetch_all_user = "SELECT * FROM user_data WHERE active_record = 'Yes' AND role = '0' ORDER BY user_id DESC";
+                  $sql_fetch_all_user = "SELECT * FROM user_data WHERE active_record = 'Yes' AND role = '1' ORDER BY user_id DESC";
                   $result_sql_fetch_all_user = mysqli_query($conn, $sql_fetch_all_user) or die("Query Failed!!");
                   if (mysqli_num_rows($result_sql_fetch_all_user) > 0) {
                     while ($row_sql_fetch_all_user = mysqli_fetch_assoc($result_sql_fetch_all_user)) {
@@ -57,8 +57,8 @@ include('private_files/system_configure_setting.php'); ?>
                         <!-- Role Permission Conditional Rending -->
                         <?php
                         $user_role_permission = '';
-                        if ($row_sql_fetch_all_user['role'] == '0') {
-                          $user_role_permission = 'Administration Level';
+                        if ($row_sql_fetch_all_user['role'] == '1') {
+                          $user_role_permission = 'Middle Management Level';
                         } else {
                           $user_role_permission = 'Null';
                         }

@@ -165,7 +165,17 @@
             <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="user_management_read.php">
-                        <i class="bi bi-circle"></i><span>All Users</span>
+                        <i class="bi bi-circle"></i><span>Administration Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user_management_read_middle_management.php">
+                        <i class="bi bi-circle"></i><span>Middle Management Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user_management_read_end_users.php">
+                        <i class="bi bi-circle"></i><span>End Users</span>
                     </a>
                 </li>
                 <li>
