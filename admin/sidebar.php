@@ -157,6 +157,22 @@
             </ul>
         </li><!-- End Charts Nav -->
 
+
+        <!-- Analysis section nav start -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#analysisCenter" data-bs-toggle="collapse" href="user_management_read.php">
+                <i class="bi bi-clipboard-data"></i><span>Analysis Center</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="analysisCenter" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="analysis_uers_data.php">
+                        <i class="bi bi-circle"></i><span>Users Data</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Analysis section nav start -->
+
         <!-- user management section nav start -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="user_management_read.php">
@@ -183,13 +199,11 @@
                         <i class="bi bi-circle"></i><span>Create a New User</span>
                     </a>
                 </li>
-                <li>
-                    <a href="icons-boxicons.html">
-                        <i class="bi bi-circle"></i><span>Boxicons</span>
-                    </a>
-                </li>
             </ul>
-        </li><!-- End Icons Nav -->
+        </li>
+        <!-- user management section nav start -->
+
+
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -211,7 +225,7 @@
                     </a>
                 </li>
             </ul>
-        </li><!-- user management section nav start -->
+        </li>
 
         <li class="nav-heading">Pages</li>
 
