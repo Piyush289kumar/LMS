@@ -69,7 +69,7 @@ include('private_files/system_configure_setting.php'); ?>
                       <img src="upload_media/users_profiles_picture/<?php echo $row_user_overview['profile_picture'] ?>" alt="Profile" style='width:100px; border-radius:50%;'>
                       <div class="pt-2 px-3">
                         <input type="file" name="new-image" id="img" style="display:none;" />
-                        <label for="img" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i>&#20;Upload new profile image</label>
+                        <label for="img" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i>&nbsp;&nbsp;Upload new profile image</label>
                         <input type="hidden" name="old-image" value="<?php echo $row_user_overview['profile_picture']; ?>">
                       </div>
                     </div>

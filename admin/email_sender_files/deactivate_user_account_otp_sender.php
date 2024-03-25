@@ -129,7 +129,7 @@ $body = "<!doctype html>
     }
     .btn a {
       background-color: #ffffff;
-      border: solid 2px #0867ec;
+      border:none;
       border-radius: 4px;
       box-sizing: border-box;
       color: #0867ec;
