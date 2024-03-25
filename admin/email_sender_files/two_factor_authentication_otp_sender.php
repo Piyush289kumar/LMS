@@ -24,7 +24,6 @@ if (mysqli_num_rows($result_sql_otp_sender) > 0) {
 $subject = "Account Enable Two Factor Authenticaion Notification";
 $body = "<!doctype html>
 <html lang='en'>
-
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
@@ -37,31 +36,26 @@ $body = "<!doctype html>
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
     }
-
     table {
       border-collapse: separate;
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
       width: 100%;
     }
-
     table td {
       font-family: Helvetica, sans-serif;
       font-size: 16px;
       vertical-align: top;
     }
-
     body {
       background-color: #f4f5f6;
       margin: 0;
       padding: 0;
     }
-
     .body {
       background-color: #f4f5f6;
       width: 100%;
     }
-
     .container {
       margin: 0 auto !important;
       max-width: 600px;
@@ -69,7 +63,6 @@ $body = "<!doctype html>
       padding-top: 24px;
       width: 600px;
     }
-
     .content {
       box-sizing: border-box;
       display: block;
@@ -77,26 +70,22 @@ $body = "<!doctype html>
       max-width: 600px;
       padding: 0;
     }
-
     .main {
       background: #ffffff;
       border: 1px solid #eaebed;
       border-radius: 16px;
       width: 100%;
     }
-
     .wrapper {
       box-sizing: border-box;
       padding: 24px;
     }
-
     .footer {
       clear: both;
       padding-top: 24px;
       text-align: center;
       width: 100%;
     }
-
     .footer td,
     .footer p,
     .footer span,
@@ -105,7 +94,6 @@ $body = "<!doctype html>
       font-size: 16px;
       text-align: center;
     }
-
     p {
       font-family: Helvetica, sans-serif;
       font-size: 16px;
@@ -113,32 +101,26 @@ $body = "<!doctype html>
       margin: 0;
       margin-bottom: 16px;
     }
-
     a {
       color: #0867ec;
       text-decoration: underline;
     }
-
     .btn {
       box-sizing: border-box;
       min-width: 100% !important;
       width: 100%;
     }
-
     .btn>tbody>tr>td {
       padding-bottom: 16px;
     }
-
     .btn table {
       width: auto;
     }
-
     .btn table td {
       background-color: #ffffff;
       border-radius: 4px;
       text-align: center;
     }
-
     .btn a {
       background-color: #ffffff;
       border: solid 2px #0867ec;
@@ -154,17 +136,14 @@ $body = "<!doctype html>
       text-decoration: none;
       text-transform: capitalize;
     }
-
     .btn-primary table td {
       background-color: #0867ec;
     }
-
     .btn-primary a {
       background-color: #0867ec;
       border-color: #0867ec;
       color: #ffffff;
     }
-
     @media all {
       #MainContend {
         background: #4054F1 !important;
@@ -176,50 +155,35 @@ $body = "<!doctype html>
         cursor: pointer;
         transition: all 0.3s ease-out;
       }
-
-      #MainContend:hover {
-        background: #F6F6FE !important;
-        color: #4054F1 !important;
-      }
     }
-
     .last {
       margin-bottom: 0;
     }
-
     .first {
       margin-top: 0;
     }
-
     .align-center {
       text-align: center;
     }
-
     .align-right {
       text-align: right;
     }
-
     .align-left {
       text-align: left;
     }
-
     .text-link {
       color: #0867ec !important;
       text-decoration: underline !important;
     }
-
     .clear {
       clear: both;
     }
-
     .mt0 {
       margin-top: 0;
     }
-
     .mb0 {
       margin-bottom: 0;
     }
-
     .preheader {
       color: transparent;
       display: none;
@@ -232,56 +196,45 @@ $body = "<!doctype html>
       visibility: hidden;
       width: 0;
     }
-
     .powered-by a {
       text-decoration: none;
     }
-
     @media only screen and (max-width: 640px) {
-
       .main p,
       .main td,
       .main span {
         font-size: 16px !important;
       }
-
       .wrapper {
         padding: 8px !important;
       }
-
       .content {
         padding: 0 !important;
       }
-
       .container {
         padding: 0 !important;
         padding-top: 8px !important;
         width: 100% !important;
       }
-
       .main {
         border-left-width: 0 !important;
         border-radius: 0 !important;
         border-right-width: 0 !important;
       }
-
       .btn table {
         max-width: 100% !important;
         width: 100% !important;
       }
-
       .btn a {
         font-size: 16px !important;
         max-width: 100% !important;
         width: 100% !important;
       }
     }
-
     @media all {
       .ExternalClass {
         width: 100%;
       }
-
       .ExternalClass,
       .ExternalClass p,
       .ExternalClass span,
@@ -290,7 +243,6 @@ $body = "<!doctype html>
       .ExternalClass div {
         line-height: 100%;
       }
-
       .apple-link a {
         color: inherit !important;
         font-family: inherit !important;
@@ -299,7 +251,6 @@ $body = "<!doctype html>
         line-height: inherit !important;
         text-decoration: none !important;
       }
-
       #MessageViewBody a {
         color: inherit;
         text-decoration: none;
@@ -311,8 +262,7 @@ $body = "<!doctype html>
     }
   </style>
 </head>
-
-<body style='background:#F4F5F6;'>
+<body style='background:#F4F5F6; height:100vh'>
   <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'>
     <tr>
       <td>&nbsp;</td>
@@ -323,8 +273,26 @@ $body = "<!doctype html>
             <!-- START MAIN CONTENT AREA -->
             <tr>
               <td class='wrapper'>
-                <h1 style='color: #0D1117;'>2FA Code</h1>
-                <p style='color: #0D1117;'>Here is your verification code to enable 2FA:</p>
+                <!-- Img Header Logo -->
+                <div>
+                  <a href=" . $hostname . "
+                    style='display: flex; justify-content: center; align-items: center; text-decoration: none;'>
+                    <img style='width: 35px; padding-bottom: 15px;'
+                      src='https://raw.githubusercontent.com/Piyush289kumar/LMS/main/admin/assets/img/logo.png?token=GHSAT0AAAAAACONJWPS4OJ6UOAQ2GQITP6MZQA7UXA'
+                      alt='logo'>
+                    <p style='color: #4054F1 !important;
+                    padding: 12px 18px !important;
+                    width: 100% !important;
+                    font-size: 20px !important;
+                    font-weight: 800 !important;
+                    cursor: pointer;
+                    transition: all 0.3s ease-out;'>" . $website_display_default_name . "
+                    </p>
+                  </a>
+                </div>
+                <!-- Img Header Logo -->
+                <h1 style='color: #212121ef;'>2FA Code</h1>
+                <p style='color: #212121ef;'>Here is your verification code to enable 2FA:</p>
                 <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='btn btn-primary'>
                   <tbody>
                     <tr>
@@ -342,34 +310,26 @@ $body = "<!doctype html>
                     </tr>
                   </tbody>
                 </table>
-                <p>Please make sure you never share this code with anyone.</p>
+                <p><b>Note:</b> Please make sure you never share this code with anyone.</p>
               </td>
-            </tr>
-            <!-- END MAIN CONTENT AREA -->
-          </table>
-          <!-- START FOOTER -->
-          <div class='footer'>
-            <table role='presentation' border='0' cellpadding='0' cellspacing='0'>
               <tr>
                 <td class='content-block'>
                   <div
-                    style=' text-align: center; padding-top: 5px; text-align: center; font-size: 16px; color: #012970;'>
+                    style='text-align: center; padding-top:5px; padding-bottom:25px; text-align: center; font-size: 16px; color: #012970;'>
                     Designed & Developed by <a href='https://github.com/Piyush289kumar/' style='color: #012970;'>Piyush
                       Kumar Raikwar</a>
                   </div>
                 </td>
               </tr>
-            </table>
-          </div>
-          <!-- END FOOTER -->
-          <!-- END CENTERED WHITE CONTAINER -->
+            </tr>
+            <!-- END MAIN CONTENT AREA -->
+          </table>
         </div>
       </td>
       <td>&nbsp;</td>
     </tr>
   </table>
 </body>
-
 </html>";
 echo smtp_mailer($user_email, $subject, $body);
 function smtp_mailer($to, $subject, $msg)

@@ -152,11 +152,6 @@
         cursor: pointer;
         transition: all 0.3s ease-out;
       }
-
-      #MainContend:hover {
-        background: #F6F6FE !important;
-        color: #4054F1 !important;
-      }
     }
 
     .last {
@@ -288,7 +283,7 @@
   </style>
 </head>
 
-<body style='background:#F4F5F6;'>
+<body style='background:#F4F5F6; height:100vh'>
   <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'>
     <tr>
       <td>&nbsp;</td>
@@ -299,8 +294,26 @@
             <!-- START MAIN CONTENT AREA -->
             <tr>
               <td class='wrapper'>
-                <h1 style='color: #0D1117;'>2FA Code</h1>
-                <p style='color: #0D1117;'>Here is your verification code to enable 2FA:</p>
+                <!-- Img Header Logo -->
+                <div>
+                  <a href=" . $hostname . "
+                    style='display: flex; justify-content: center; align-items: center; text-decoration: none;'>
+                    <img style='width: 35px; padding-bottom: 15px;'
+                      src='https://raw.githubusercontent.com/Piyush289kumar/LMS/main/admin/assets/img/logo.png?token=GHSAT0AAAAAACONJWPS4OJ6UOAQ2GQITP6MZQA7UXA'
+                      alt='logo'>
+                    <p style='color: #4054F1 !important;
+                    padding: 12px 18px !important;
+                    width: 100% !important;
+                    font-size: 20px !important;
+                    font-weight: 800 !important;
+                    cursor: pointer;
+                    transition: all 0.3s ease-out;'>" . $website_display_default_name . "
+                    </p>
+                  </a>
+                </div>
+                <!-- Img Header Logo -->
+                <h1 style='color: #212121ef;'>2FA Code</h1>
+                <p style='color: #212121ef;'>Here is your verification code to enable 2FA:</p>
                 <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='btn btn-primary'>
                   <tbody>
                     <tr>
@@ -309,7 +322,7 @@
                           <tbody>
                             <tr>
                               <td>
-                                <a id='MainContend'>Call To Action</a>
+                                <a id='MainContend'>" . $user_otp . "</a>
                               </td>
                             </tr>
                           </tbody>
@@ -318,31 +331,24 @@
                     </tr>
                   </tbody>
                 </table>
-                <p>Please make sure you never share this code with anyone.</p>
+                <p><b>Note:</b> Please make sure you never share this code with anyone.</p>
+              </td>
+            <tr>
+              <td class='content-block'>
+                <div
+                  style='text-align: center; padding-top:5px; padding-bottom:25px; text-align: center; font-size: 16px; color: #012970;'>
+                  Designed & Developed by <a href='https://github.com/Piyush289kumar/' style='color: #012970;'>Piyush
+                    Kumar Raikwar</a>
+                </div>
               </td>
             </tr>
-            <!-- END MAIN CONTENT AREA -->
-          </table>
-          <!-- START FOOTER -->
-          <div class='footer'>
-            <table role='presentation' border='0' cellpadding='0' cellspacing='0'>
-              <tr>
-                <td class='content-block'>
-                  <div
-                    style=' text-align: center; padding-top: 5px; text-align: center; font-size: 16px; color: #012970;'>
-                    Designed & Developed by <a href='https://github.com/Piyush289kumar/' style='color: #012970;'>Piyush
-                      Kumar Raikwar</a>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <!-- END FOOTER -->
-          <!-- END CENTERED WHITE CONTAINER -->
-        </div>
-      </td>
-      <td>&nbsp;</td>
     </tr>
+    <!-- END MAIN CONTENT AREA -->
+  </table>
+  </div>
+  </td>
+  <td>&nbsp;</td>
+  </tr>
   </table>
 </body>
 
