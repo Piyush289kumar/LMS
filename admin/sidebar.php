@@ -175,10 +175,10 @@
 
         <!-- Course management section nav start -->
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="user_management_read.php">
+            <a class="nav-link collapsed" data-bs-target="#course_management" data-bs-toggle="collapse" href="user_management_read.php">
                 <i class="bi bi-people-fill"></i><span>Course Management</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="course_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="course_management_read.php">
                         <i class="bi bi-circle"></i><span>All Courses</span>

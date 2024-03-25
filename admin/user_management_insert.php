@@ -2,6 +2,68 @@
 <?php include('admin_header.php');
 include('private_files/system_configure_setting.php'); ?>
 
+<!-- User Insert Back-End Code -->
+<?php
+if (isset($_POST['save'])) {
+
+  if (isset($_FILES['fileToUpload'])) {
+    if ($_FILES['fileToUpload']["size"] > 10485760) {
+      echo "<div class='alert alert-danger'>Image must be 10mb or lower.</div>";
+    }
+    $info = getimagesize($_FILES['fileToUpload']['tmp_name']);
+    if (isset($info['mime'])) {
+      if ($info['mime'] == "image/jpeg") {
+        $img = imagecreatefromjpeg($_FILES['fileToUpload']['tmp_name']);
+      } elseif ($info['mime'] == "image/png") {
+        $img = imagecreatefrompng($_FILES['fileToUpload']['tmp_name']);
+      } elseif ($info['mime'] == "image/webp") {
+        $img = imagecreatefromwebp($_FILES['fileToUpload']['tmp_name']);
+      } else {
+        echo "<div class='alert alert-danger'>This extension file not allowed, Please choose a JPG, JPEG, PNG or WEBP file.</div>";
+      }
+      if (isset($img)) {
+        $output_img = date("d_M_Y_h_i_sa") . "_" . basename($_FILES['fileToUpload']["name"]) . ".webp";
+        imagewebp($img, "upload_media/users_profiles_picture/" . $output_img, 100);
+
+        $username = str_replace(' ', '', mysqli_real_escape_string($conn, $_POST['username']));
+        $role = mysqli_real_escape_string($conn, $_POST['role']);
+        $default_password = md5($username . '@lms');
+        $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+        $about_text = mysqli_real_escape_string($conn, $_POST['about_text']);
+        $designation = mysqli_real_escape_string($conn, $_POST['designation']);
+        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $github = mysqli_real_escape_string($conn, $_POST['github']);
+        $linkedin = mysqli_real_escape_string($conn, $_POST['linkedin']);
+        $twitter = mysqli_real_escape_string($conn, $_POST['twitter']);
+        $fb = mysqli_real_escape_string($conn, $_POST['fb']);
+        $insta = mysqli_real_escape_string($conn, $_POST['insta']);
+        $youtube = mysqli_real_escape_string($conn, $_POST['youtube']);
+        $date = Date('d-m-Y');
+
+        $sql_insert_user = "INSERT INTO user_data (username, role, password, full_name, about_text, designation, phone, email, github, linkedin, twitter, fb, insta, youtube, profile_picture, date) VALUES ('{$username}','{$role}', '{$default_password}', '{$full_name}', '{$about_text}', '{$designation}', '{$phone}','{$email}', '{$github}','{$linkedin}', '{$twitter}','{$fb}', '{$insta}', '{$youtube}', '{$output_img}', '{$date}')";
+
+        if (mysqli_query($conn, $sql_insert_user)) {
+?>
+          <script>
+            alert('Record is Inserted successfully !!')
+          </script>
+        <?php
+          // echo "<script>window.location.href='$hostname/admin/users-profile-edit.php'</script>";
+        } else {
+        ?>
+          <script>
+            alert('Record is not Insert !!')
+          </script>
+<?php
+        }
+      }
+    }
+  }
+}
+?>
+<!-- User Insert Back-End Code -->
+
 <body>
   <!-- Nav Bar -->
   <?php include("navbar.php") ?>
@@ -56,10 +118,10 @@ include('private_files/system_configure_setting.php'); ?>
                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                     <div class="col-md-8 col-lg-9">
                       <div class="pt-2">
-                        
+
                         <label for="img" class="btn btn-primary btn-sm" title="Upload Profile Picture"><i class="bi bi-upload">
-                        <input type="file" name="fileToUpload" id="img" required />
-                        </i></label>
+                            <input type="file" name="fileToUpload" id="img" required />
+                          </i></label>
                       </div>
                     </div>
                   </div>
@@ -164,66 +226,5 @@ include('private_files/system_configure_setting.php'); ?>
       </div>
     </section>
   </main><!-- End #main -->
-  <!-- User Update Back-End Code -->
-  <?php
-  if (isset($_POST['save'])) {
-
-    if (isset($_FILES['fileToUpload'])) {
-      if ($_FILES['fileToUpload']["size"] > 10485760) {
-        echo "<div class='alert alert-danger'>Image must be 10mb or lower.</div>";
-      }
-      $info = getimagesize($_FILES['fileToUpload']['tmp_name']);
-      if (isset($info['mime'])) {
-        if ($info['mime'] == "image/jpeg") {
-          $img = imagecreatefromjpeg($_FILES['fileToUpload']['tmp_name']);
-        } elseif ($info['mime'] == "image/png") {
-          $img = imagecreatefrompng($_FILES['fileToUpload']['tmp_name']);
-        } elseif ($info['mime'] == "image/webp") {
-          $img = imagecreatefromwebp($_FILES['fileToUpload']['tmp_name']);
-        } else {
-          echo "<div class='alert alert-danger'>This extension file not allowed, Please choose a JPG, JPEG, PNG or WEBP file.</div>";
-        }
-        if (isset($img)) {
-          $output_img = date("d_M_Y_h_i_sa") . "_" . basename($_FILES['fileToUpload']["name"]) . ".webp";
-          imagewebp($img, "upload_media/users_profiles_picture/" . $output_img, 100);
-
-          $username = str_replace(' ', '', mysqli_real_escape_string($conn, $_POST['username']));
-          $role = mysqli_real_escape_string($conn, $_POST['role']);
-          $default_password = md5($username . '@lms');
-          $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
-          $about_text = mysqli_real_escape_string($conn, $_POST['about_text']);
-          $designation = mysqli_real_escape_string($conn, $_POST['designation']);
-          $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-          $email = mysqli_real_escape_string($conn, $_POST['email']);
-          $github = mysqli_real_escape_string($conn, $_POST['github']);
-          $linkedin = mysqli_real_escape_string($conn, $_POST['linkedin']);
-          $twitter = mysqli_real_escape_string($conn, $_POST['twitter']);
-          $fb = mysqli_real_escape_string($conn, $_POST['fb']);
-          $insta = mysqli_real_escape_string($conn, $_POST['insta']);
-          $youtube = mysqli_real_escape_string($conn, $_POST['youtube']);
-          $date = Date('d-m-Y');
-
-          $sql_insert_user = "INSERT INTO user_data (username, role, password, full_name, about_text, designation, phone, email, github, linkedin, twitter, fb, insta, youtube, profile_picture, date) VALUES ('{$username}','{$role}', '{$default_password}', '{$full_name}', '{$about_text}', '{$designation}', '{$phone}','{$email}', '{$github}','{$linkedin}', '{$twitter}','{$fb}', '{$insta}', '{$youtube}', '{$output_img}', '{$date}')";
-
-          if (mysqli_query($conn, $sql_insert_user)) {
-  ?>
-            <script>
-              alert('Record is Inserted successfully !!')
-            </script>
-          <?php
-            // echo "<script>window.location.href='$hostname/admin/users-profile-edit.php'</script>";
-          } else {
-          ?>
-            <script>
-              alert('Record is not Insert !!')
-            </script>
-  <?php
-          }
-        }
-      }
-    }
-  }
-  ?>
-  <!-- User Update Back-End Code -->
   <!-- ======= Footer ======= -->
   <?php include('admin_footer.php') ?>
