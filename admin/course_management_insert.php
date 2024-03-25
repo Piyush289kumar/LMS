@@ -78,7 +78,7 @@ include('private_files/system_configure_setting.php');
                           alert('Course is Inserted successfully !!')
                         </script>
                       <?php
-                        // echo "<script>window.location.href='$hostname/admin/users-profile-edit.php'</script>";
+                        echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
                       } else {
                       ?>
                         <script>
