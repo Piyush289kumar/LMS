@@ -173,6 +173,36 @@
         </li>
         <!-- Analysis section nav start -->
 
+        <!-- Course management section nav start -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="user_management_read.php">
+                <i class="bi bi-people-fill"></i><span>Course Management</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="course_management_read.php">
+                        <i class="bi bi-circle"></i><span>All Courses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="course_management_insert.php">
+                        <i class="bi bi-circle"></i><span>Create a New Course</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user_management_read_end_users.php">
+                        <i class="bi bi-circle"></i><span>End Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user_management_insert.php">
+                        <i class="bi bi-circle"></i><span>Create a New User</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Course management section nav start -->
+
         <!-- user management section nav start -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="user_management_read.php">

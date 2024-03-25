@@ -43,7 +43,6 @@ include('private_files/system_configure_setting.php'); ?>
             }));
           } ?>
           <!-- PHP Code for data fetch from database -->
-
           <div class="card" style="cursor: pointer;">
             <div class="card-body">
               <h5 class="card-title">Polar Area Chart</h5>
@@ -76,10 +75,8 @@ include('private_files/system_configure_setting.php'); ?>
           </div>
         </div>
         <!-- Polar Area Chart -->
-
         <!-- Column Chart -->
         <div class="col-lg-6">
-
           <!-- PHP Code for data fetch from database -->
           <?php
           $sql_fetch_user_social_links = "SELECT * FROM user_data";
@@ -100,7 +97,6 @@ include('private_files/system_configure_setting.php'); ?>
               $userGithubFetchRes[] = $row_sql_fetch_user_social_links['github'];
             }
             $total_count_of_users_social = mysqli_num_rows($result_sql_fetch_user_social_links);
-
             //Count Data from fetch array
             $active_fb_count = count(array_filter($userFacebookFetchRes, function ($var) {
               return ($var != '');
@@ -127,7 +123,6 @@ include('private_files/system_configure_setting.php'); ?>
               <h5 class="card-title">Column Chart</h5>
               <p>Total Users Social Handles : <?php echo $total_count_of_users_social ?></p>
               <div id="columnChart"></div>
-
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   new ApexCharts(document.querySelector("#columnChart"), {
@@ -179,17 +174,12 @@ include('private_files/system_configure_setting.php'); ?>
                 });
               </script>
               <!-- End Column Chart -->
-
             </div>
           </div>
         </div>
         <!-- Column Chart -->
-
-
-
       </div>
     </section>
   </main><!-- End #main -->
-  <!-- ======= Footer ======= -->
   <!-- ======= Footer ======= -->
   <?php include('admin_footer.php') ?>
