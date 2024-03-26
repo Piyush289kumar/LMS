@@ -37,7 +37,7 @@ include('private_files/system_configure_setting.php'); ?>
                     <th class="border border-primary text-primary">Discount</th>
                     <th class="border border-primary text-primary">Category</th>
                     <th class="border border-primary text-primary">Course Level</th>
-                    <th class="border border-primary text-primary">Creation Date</th>
+                    <th class="border border-primary text-primary">Chapters</th>
                     <th class="border border-primary text-primary">Edit</th>
                     <th class="border border-primary text-primary">Delete</th>
                   </tr>
@@ -57,7 +57,7 @@ include('private_files/system_configure_setting.php'); ?>
                         <td class='text-center'><?php echo $row_sql_fetch_all_courses['discount'] ?>%</td>
                         <td><?php echo $row_sql_fetch_all_courses['category_name'] ?></td>
                         <td><?php echo $row_sql_fetch_all_courses['level'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_courses['entry_date'] ?></td>
+                        <td class='text-center'><a href="chapter_management_read.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>" class='btn btn-success'><i class="bi bi-eye"> View</i></a></td>
                         <td><a href="course_management_edit.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
                         <td><a href="middleware_auth_course_management_delete.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>&cate_id=<?php echo $row_sql_fetch_all_courses['category']; ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
