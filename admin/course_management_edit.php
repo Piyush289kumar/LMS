@@ -118,9 +118,9 @@ $id = $_GET['id'];
                     <div class="col-md-12 border-top">
                       <p class="card-text p-1 pt-4"><i class="bi bi-1-circle"></i> Step</p>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-7">
                       <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="title" placeholder="Course Name" name='course_name' required value=<?php echo $row_sql_fetch_all_courses['title'] ?>>
+                        <input type="text" class="form-control" id="title" placeholder="Course Name" name='course_name' required value="<?php echo $row_sql_fetch_all_courses['title'] ?>">
                         <label for="title">Course Name</label>
                       </div>
                       <div class="row g-3 pt-3">
@@ -129,7 +129,7 @@ $id = $_GET['id'];
                             <div class="input-group-prepend">
                               <span class="input-group-text py-3">₹</span>
                             </div>
-                            <input type="number" class="form-control py-3" placeholder="Course Price" aria-label="Amount (to the nearest rupess)" name='course_price' required value=<?php echo $row_sql_fetch_all_courses['sell_price'] ?>>
+                            <input type="number" class="form-control py-3" placeholder="Course Price" aria-label="Amount (to the nearest rupess)" name='course_price' required value="<?php echo $row_sql_fetch_all_courses['sell_price'] ?>">
                             <div class="input-group-append">
                               <span class="input-group-text py-3">.00</span>
                             </div>
@@ -140,7 +140,7 @@ $id = $_GET['id'];
                             <div class="input-group-prepend">
                               <span class="input-group-text py-3">₹</span>
                             </div>
-                            <input type="number" class="form-control py-3" placeholder="Estimated Price" name='estimated_price' required value=<?php echo $row_sql_fetch_all_courses['main_price'] ?>>
+                            <input type="number" class="form-control py-3" placeholder="Estimated Price" name='estimated_price' required value="<?php echo $row_sql_fetch_all_courses['main_price'] ?>">
                             <div class="input-group-append">
                               <span class="input-group-text py-3">.00</span>
                             </div>
@@ -148,7 +148,7 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-4">
                           <div class="input-group">
-                            <input type="number" class="form-control py-3" placeholder="Course Discount" name='discount' required value=<?php echo $row_sql_fetch_all_courses['discount'] ?>>
+                            <input type="number" class="form-control py-3" placeholder="Course Discount" name='discount' required value="<?php echo $row_sql_fetch_all_courses['discount'] ?>">
                             <div class="input-group-append">
                               <span class="input-group-text py-3">%</span>
                             </div>
@@ -159,9 +159,26 @@ $id = $_GET['id'];
                         <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <select class="form-select" id="category" aria-label="category" name='category' required>
-                              <option selected disabled>DSA / WEB DEV</option>
-                              <option value="DSA">DSA</option>
-                              <option value="WEB_DEV" selected>WEB DEV</option>
+
+                              <!-- Fetch Data from Category Table -->
+                              <?php
+                              $sql_fetch_all_category = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY category_id DESC";
+                              $result_sql_fetch_all_category = mysqli_query($conn, $sql_fetch_all_category) or die("Query Failed!!");
+                              if (mysqli_num_rows($result_sql_fetch_all_category) > 0) {
+
+                                while ($row_sql_fetch_all_category = mysqli_fetch_assoc($result_sql_fetch_all_category)) {
+
+                                  if ($row_sql_fetch_all_category['category_id'] == $row_sql_fetch_all_courses['category']) {
+                              ?>
+                                    <option selected value="<?php echo $row_sql_fetch_all_category['category_id'] ?>"><?php echo $row_sql_fetch_all_category['category_name'] ?></option>
+                                  <?php } else { ?>
+                                    <option value="<?php echo $row_sql_fetch_all_category['category_id']; ?>"><?php echo $row_sql_fetch_all_category['category_name']; ?></option>
+
+                              <?php }
+                                }
+                              } ?>
+                              <!-- Fetch Data from Category Table -->
+
                             </select>
                             <label for="category">Course Category</label>
                           </div>
@@ -169,7 +186,7 @@ $id = $_GET['id'];
                         <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <select class="form-select" id="level" aria-label="level" name='level'>
-                              <option selected value=<?php echo $row_sql_fetch_all_courses['level'] ?>><?php echo $row_sql_fetch_all_courses['level'] ?></option>
+                              <option selected value="<?php echo $row_sql_fetch_all_courses['level'] ?>"><?php echo $row_sql_fetch_all_courses['level'] ?></option>
                               <option value="Beginner">Beginner</option>
                               <option value="Intermediate">Intermediate</option>
                               <option value="Expert">Expert</option>
@@ -179,13 +196,21 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-4">
                           <div class="form-floating">
-                            <input type="text" class="form-control" id="skill_tags" placeholder="Course Tags" name='course_tags' value=<?php echo $row_sql_fetch_all_courses['skill_tags'] ?>>
+                            <input type="text" class="form-control" id="skill_tags" placeholder="Course Tags" name='course_tags' value="<?php echo $row_sql_fetch_all_courses['skill_tags'] ?>">
                             <label for="skill_tags">Course Tags</label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="d-flex justify-content-center gap-3 align-items-center">
+                            <label for="customRange1">Quality: </label>
+                            <span>25%</span>
+                            <input type="range" class="form-range" id="customRange1" value="100" name='picture_quality' disabled>
+                            <span>100%</span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3 pt-3">
+                    <div class="col-md-5 pt-3">
                       <div class="d-flex flex-column justify-content-center align-items-center">
                         <img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['poster'] ?>" alt="Profile" class='w-100 border rounded-3 mb-2'>
                         <input type="file" name="new-image" id="img" style="display:none;" />
@@ -193,7 +218,7 @@ $id = $_GET['id'];
                         <input type="hidden" name="old-image" value="<?php echo $row_sql_fetch_all_courses['poster']; ?>">
                       </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 pt-3">
                       <div class="form-floating">
                         <!-- CKEditor -->
                         <textarea name="description" id="editor" class="form-control"><?php echo $row_sql_fetch_all_courses['description'] ?></textarea>
@@ -205,67 +230,67 @@ $id = $_GET['id'];
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="learning_skill_1" placeholder="First Learning objective" name='flo' value=<?php echo $row_sql_fetch_all_courses['learning_skill_1'] ?>>
+                        <input type="text" class="form-control" id="learning_skill_1" placeholder="First Learning objective" name='flo' value="<?php echo $row_sql_fetch_all_courses['learning_skill_1'] ?>">
                         <label for="learning_skill_1">First Learning objective</label>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="learning_skill_2" placeholder="Second Learning objective" name='slo' value=<?php echo $row_sql_fetch_all_courses['learning_skill_2'] ?>>
+                        <input type="text" class="form-control" id="learning_skill_2" placeholder="Second Learning objective" name='slo' value="<?php echo $row_sql_fetch_all_courses['learning_skill_2'] ?>">
                         <label for="learning_skill_2">Second Learning objective</label>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="learning_skill_3" placeholder="Third Learning objective" name='tlo' value=<?php echo $row_sql_fetch_all_courses['learning_skill_3'] ?>>
+                        <input type="text" class="form-control" id="learning_skill_3" placeholder="Third Learning objective" name='tlo' value="<?php echo $row_sql_fetch_all_courses['learning_skill_3'] ?>">
                         <label for="learning_skill_3">Third Learning objective</label>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="prerequisties_1" placeholder="First Learning objective" name='fpr' value=<?php echo $row_sql_fetch_all_courses['prerequisties_1'] ?>>
+                        <input type="text" class="form-control" id="prerequisties_1" placeholder="First Learning objective" name='fpr' value="<?php echo $row_sql_fetch_all_courses['prerequisties_1'] ?>">
                         <label for="prerequisties_1">First Pre-requisites</label>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="prerequisties_2" placeholder="Second Pre-requisites" name='spr' value=<?php echo $row_sql_fetch_all_courses['prerequisties_2'] ?>>
+                        <input type="text" class="form-control" id="prerequisties_2" placeholder="Second Pre-requisites" name='spr' value="<?php echo $row_sql_fetch_all_courses['prerequisties_2'] ?>">
                         <label for="prerequisties_2">Second Pre-requisites</label>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="prerequisties_3" placeholder="Third Pre-requisites" name='tpr' value=<?php echo $row_sql_fetch_all_courses['prerequisties_3'] ?>>
+                        <input type="text" class="form-control" id="prerequisties_3" placeholder="Third Pre-requisites" name='tpr' value="<?php echo $row_sql_fetch_all_courses['prerequisties_3'] ?>">
                         <label for="prerequisties_3">Third Pre-requisites</label>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="feature_1" placeholder="First Feature" name='first_feature' value=<?php echo $row_sql_fetch_all_courses['feature_1'] ?>>
+                        <input type="text" class="form-control" id="feature_1" placeholder="First Feature" name='first_feature' value="<?php echo $row_sql_fetch_all_courses['feature_1'] ?>">
                         <label for="feature_1">First Feature</label>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="feature_2" placeholder="Second Feature" name='second_feature' value=<?php echo $row_sql_fetch_all_courses['feature_2'] ?>>
+                        <input type="text" class="form-control" id="feature_2" placeholder="Second Feature" name='second_feature' value="<?php echo $row_sql_fetch_all_courses['feature_2'] ?>">
                         <label for="feature_2">Second Feature</label>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="feature_3" placeholder="Third Feature" name='third_feature' value=<?php echo $row_sql_fetch_all_courses['feature_3'] ?>>
+                        <input type="text" class="form-control" id="feature_3" placeholder="Third Feature" name='third_feature' value="<?php echo $row_sql_fetch_all_courses['feature_3'] ?>">
                         <label for="feature_3">Third Feature</label>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="feature_4" placeholder="Fourth Feature" name='fourth_feature' value=<?php echo $row_sql_fetch_all_courses['feature_3'] ?>>
+                        <input type="text" class="form-control" id="feature_4" placeholder="Fourth Feature" name='fourth_feature' value="<?php echo $row_sql_fetch_all_courses['feature_3'] ?>">
                         <label for="feature_4">Fourth Feature</label>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="resource_link" placeholder="Resource" name='resource' value=<?php echo $row_sql_fetch_all_courses['resource_link'] ?>>
+                        <input type="text" class="form-control" id="resource_link" placeholder="Resource" name='resource' value="<?php echo $row_sql_fetch_all_courses['resource_link'] ?>">
                         <label for="resource_link">Resource</label>
                       </div>
                     </div>
