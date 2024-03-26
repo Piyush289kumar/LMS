@@ -222,7 +222,7 @@
         <!-- Course management section nav start -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#review" data-bs-toggle="collapse" href="user_management_read.php">
-            <i class="bi bi-star-half"></i><span>Review Management</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-star-half"></i><span>Review Management</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="review" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -265,6 +265,13 @@
             </ul>
         </li>
         <!-- user management section nav start -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="discussion_lobby.php">
+                <i class="bi bi-chat-left-text"></i>
+                <span>Discussion lobby</span>
+            </a>
+        </li>
 
 
         <li class="nav-item">
