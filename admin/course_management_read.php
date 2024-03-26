@@ -44,7 +44,7 @@ include('private_files/system_configure_setting.php'); ?>
                 </thead>
                 <tbody>
                   <?php
-                  $sql_fetch_all_courses = "SELECT * FROM course WHERE active_record = 'Yes' ORDER BY cid DESC";
+                  $sql_fetch_all_courses = "SELECT * FROM course INNER JOIN category ON course.category=category.category_id WHERE course.active_record = 'Yes' ORDER BY cid DESC";
                   $result_sql_fetch_all_courses = mysqli_query($conn, $sql_fetch_all_courses) or die("Query Failed!!");
                   if (mysqli_num_rows($result_sql_fetch_all_courses) > 0) {
                     while ($row_sql_fetch_all_courses = mysqli_fetch_assoc($result_sql_fetch_all_courses)) {
@@ -52,10 +52,10 @@ include('private_files/system_configure_setting.php'); ?>
                       <tr style="cursor: pointer;">
                         <td><img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['poster'] ?>" alt="Profile" class="rounded-2 " style='width:95px; height;:95px'></td>
                         <td><?php echo $row_sql_fetch_all_courses['title'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_courses['sell_price'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_courses['main_price'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_courses['discount'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_courses['category'] ?></td>
+                        <td class='text-center'>₹ <?php echo $row_sql_fetch_all_courses['sell_price'] ?></td>
+                        <td class='text-center'>₹ <?php echo $row_sql_fetch_all_courses['main_price'] ?></td>
+                        <td class='text-center'><?php echo $row_sql_fetch_all_courses['discount'] ?>%</td>
+                        <td><?php echo $row_sql_fetch_all_courses['category_name'] ?></td>
                         <td><?php echo $row_sql_fetch_all_courses['level'] ?></td>
                         <td><?php echo $row_sql_fetch_all_courses['entry_date'] ?></td>
                         <td><a href="course_management_edit.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>

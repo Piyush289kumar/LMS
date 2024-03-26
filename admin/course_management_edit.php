@@ -159,26 +159,21 @@ $id = $_GET['id'];
                         <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <select class="form-select" id="category" aria-label="category" name='category' required>
-
                               <!-- Fetch Data from Category Table -->
                               <?php
                               $sql_fetch_all_category = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY category_id DESC";
                               $result_sql_fetch_all_category = mysqli_query($conn, $sql_fetch_all_category) or die("Query Failed!!");
                               if (mysqli_num_rows($result_sql_fetch_all_category) > 0) {
-
                                 while ($row_sql_fetch_all_category = mysqli_fetch_assoc($result_sql_fetch_all_category)) {
-
                                   if ($row_sql_fetch_all_category['category_id'] == $row_sql_fetch_all_courses['category']) {
                               ?>
                                     <option selected value="<?php echo $row_sql_fetch_all_category['category_id'] ?>"><?php echo $row_sql_fetch_all_category['category_name'] ?></option>
                                   <?php } else { ?>
                                     <option value="<?php echo $row_sql_fetch_all_category['category_id']; ?>"><?php echo $row_sql_fetch_all_category['category_name']; ?></option>
-
                               <?php }
                                 }
                               } ?>
                               <!-- Fetch Data from Category Table -->
-
                             </select>
                             <label for="category">Course Category</label>
                           </div>
