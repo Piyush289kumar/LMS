@@ -32,6 +32,8 @@ include('private_files/system_configure_setting.php');
               <?php
               if (isset($_POST['save'])) {
                 if (isset($_FILES['fileToUpload'])) {
+                  // Picture Quality Set Input
+                  $picture_quality = mysqli_real_escape_string($conn, $_POST['picture_quality']);
                   if ($_FILES['fileToUpload']["size"] > 10485760) {
                     echo "<div class='alert alert-danger'>Image must be 10mb or lower.</div>";
                   }
@@ -48,7 +50,7 @@ include('private_files/system_configure_setting.php');
                     }
                     if (isset($img)) {
                       $output_img = date("d_m_Y_h_i_sa") . "_" . basename($_FILES['fileToUpload']["name"]) . ".webp";
-                      imagewebp($img, "upload_media/courses_poster/" . $output_img, 100);
+                      imagewebp($img, "upload_media/courses_poster/" . $output_img, $picture_quality);
                       $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
                       $description = mysqli_real_escape_string($conn, $_POST['description']);
                       $course_price = mysqli_real_escape_string($conn, $_POST['course_price']);
@@ -107,14 +109,7 @@ include('private_files/system_configure_setting.php');
                   <label for="formFile" class="form-label">Course Poster</label>
                   <input class="form-control" type="file" name="fileToUpload" id="formFile" required>
                 </div>
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <!-- CKEditor -->
-                    <textarea name="description" id="editor" class="form-control">Course Description</textarea>
-                    <!-- CKEditor -->
-                  </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text py-3">₹</span>
@@ -125,7 +120,7 @@ include('private_files/system_configure_setting.php');
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text py-3">₹</span>
@@ -136,12 +131,31 @@ include('private_files/system_configure_setting.php');
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="input-group">
                     <input type="number" class="form-control py-3" placeholder="Course Discount" name='discount' required>
                     <div class="input-group-append">
                       <span class="input-group-text py-3">%</span>
                     </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="input-group">
+                    <div>
+                      <label for="customRange1" class="form-label">Poster Picture Quality</label>
+                      <div class='d-flex justify-content-center gap-3 align-items-center'>
+                        <span>25%</span>
+                        <input type="range" class="form-range" id="customRange1" value="100" name='picture_quality'>
+                        <span>100%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-floating">
+                    <!-- CKEditor -->
+                    <textarea name="description" id="editor" class="form-control">Course Description</textarea>
+                    <!-- CKEditor -->
                   </div>
                 </div>
                 <div class="col-md-4">
