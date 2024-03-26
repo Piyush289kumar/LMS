@@ -241,7 +241,7 @@ include('private_files/system_configure_setting.php');
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary" name="save" required>Submit</button>
+                  <button type="submit" class="btn btn-primary" name="save" required>Create Now</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- End floating Labels Form -->

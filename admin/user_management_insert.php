@@ -216,7 +216,7 @@ if (isset($_POST['save'])) {
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary" name='save'>Create</button>
+                    <button type="submit" class="btn btn-primary" name='save'>Create Now</button>
                   </div>
                 </form><!-- End Profile Edit Form -->
               </div><!-- End Bordered Tabs -->
