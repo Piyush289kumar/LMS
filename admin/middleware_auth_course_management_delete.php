@@ -6,10 +6,11 @@ include('private_files/system_configure_setting.php')
 <!-- Form Start -->
 <?php
 session_start();
-if (!isset($_GET['id'])) {
+if (!isset($_GET['id'], $_GET['cate_id'])) {
   echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
 }
 $id = $_GET['id'];
+$cate_id = $_GET['cate_id'];
 if (isset($_POST['login'])) {
   $email = $_SESSION['email'];
   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
@@ -18,8 +19,10 @@ if (isset($_POST['login'])) {
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
 
     // After Have a access Block
-    $sql_user_course_record = "UPDATE course SET active_record ='No' WHERE cid = '{$id}'";
-    if (mysqli_query($conn, $sql_user_course_record)) {
+    $sql_user_course_record = "UPDATE course SET active_record ='No' WHERE cid = '{$id}';";
+    $sql_user_course_record .= "UPDATE category SET num_of_record = num_of_record - 1 WHERE category_id = '{$cate_id}'";
+
+    if (mysqli_multi_query($conn, $sql_user_course_record)) {
 ?>
       <script>
         alert('Record is Delete successfully !!')

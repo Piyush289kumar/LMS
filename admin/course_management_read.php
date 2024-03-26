@@ -59,7 +59,7 @@ include('private_files/system_configure_setting.php'); ?>
                         <td><?php echo $row_sql_fetch_all_courses['level'] ?></td>
                         <td><?php echo $row_sql_fetch_all_courses['entry_date'] ?></td>
                         <td><a href="course_management_edit.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
-                        <td><a href="middleware_auth_course_management_delete.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
+                        <td><a href="middleware_auth_course_management_delete.php?id=<?php echo ($row_sql_fetch_all_courses["cid"]) ?>&cate_id=<?php echo $row_sql_fetch_all_courses['category']; ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
                   <?php }
                   } ?>

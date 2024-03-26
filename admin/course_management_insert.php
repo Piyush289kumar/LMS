@@ -73,14 +73,17 @@ include('private_files/system_configure_setting.php');
                       $user_id = $_SESSION['user_id'];
                       $email = $_SESSION['email'];
                       $date = Date('d-m-Y');
-                      $sql_insert_course = "INSERT INTO course (title, description, main_price, sell_price, discount, learning_skill_1, learning_skill_2, learning_skill_3, feature_1, feature_2, feature_3, feature_4, skill_tags, category, level, prerequisties_1, prerequisties_2, prerequisties_3, resource_link, entry_date, user_id, user_email, poster) VALUES ('{$course_name}', '{$description}','{$estimated_price}', '{$course_price}', '{$discount}', '{$flo}', '{$slo}', '{$tlo}','{$first_feature}', '{$second_feature}','{$third_feature}', '{$fourth_feature}','{$course_tags}', '{$category}', '{$level}', '{$fpr}', '{$spr}', '{$tpr}', '{$resource}', '{$date}', '{$user_id}','{$email}','{$output_img}')";
-                      if (mysqli_query($conn, $sql_insert_course)) {
+
+                      $sql_insert_course = "INSERT INTO course (title, description, main_price, sell_price, discount, learning_skill_1, learning_skill_2, learning_skill_3, feature_1, feature_2, feature_3, feature_4, skill_tags, category, level, prerequisties_1, prerequisties_2, prerequisties_3, resource_link, entry_date, user_id, user_email, poster) VALUES ('{$course_name}', '{$description}','{$estimated_price}', '{$course_price}', '{$discount}', '{$flo}', '{$slo}', '{$tlo}','{$first_feature}', '{$second_feature}','{$third_feature}', '{$fourth_feature}','{$course_tags}', '{$category}', '{$level}', '{$fpr}', '{$spr}', '{$tpr}', '{$resource}', '{$date}', '{$user_id}','{$email}','{$output_img}');";
+                      $sql_insert_course .= "UPDATE category SET num_of_record = num_of_record + 1 WHERE category_id = '{$category}'";
+
+                      if (mysqli_multi_query($conn, $sql_insert_course)) {
               ?>
                         <script>
                           alert('Course is Inserted successfully !!')
                         </script>
                       <?php
-                        // echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
+                        echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
                       } else {
                       ?>
                         <script>
