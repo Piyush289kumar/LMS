@@ -219,6 +219,23 @@
         </li>
         <!-- Course management section nav start -->
 
+        <!-- Course management section nav start -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#review" data-bs-toggle="collapse" href="user_management_read.php">
+            <i class="bi bi-star-half"></i><span>Review Management</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="review" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="review_management_read.php">
+                        <i class="bi bi-circle"></i><span>All Review</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Course management section nav start -->
+
+
+
         <!-- user management section nav start -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="user_management_read.php">
