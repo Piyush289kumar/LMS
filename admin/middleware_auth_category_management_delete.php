@@ -7,7 +7,7 @@ include('private_files/system_configure_setting.php')
 <?php
 session_start();
 if (!isset($_GET['id'])) {
-  echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
+  echo "<script>window.location.href='$hostname/admin/category_management_read.php'</script>";
 }
 $id = $_GET['id'];
 if (isset($_POST['login'])) {
@@ -18,14 +18,14 @@ if (isset($_POST['login'])) {
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
 
     // After Have a access Block
-    $sql_user_course_record = "UPDATE course SET active_record ='No' WHERE cid = '{$id}'";
+    $sql_user_course_record = "UPDATE category SET active_record ='No' WHERE category_id = '{$id}'";
     if (mysqli_query($conn, $sql_user_course_record)) {
 ?>
       <script>
         alert('Record is Delete successfully !!')
       </script>
 <?php
-      echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
+      echo "<script>window.location.href='$hostname/admin/category_management_read.php'</script>";
     } else {
       echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid Password.</p></div>");
     }
