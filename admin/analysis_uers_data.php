@@ -40,7 +40,7 @@ include('private_files/system_configure_setting.php'); ?>
             }));
             $deactive_user_count = count(array_filter($userFetchDataRes, function ($var) {
               return ($var == 'Yes');
-            }));
+            }));            
           } ?>
           <!-- PHP Code for data fetch from database -->
           <div class="card" style="cursor: pointer;">
