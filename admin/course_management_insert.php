@@ -55,7 +55,7 @@ include('private_files/system_configure_setting.php');
                       $description = mysqli_real_escape_string($conn, $_POST['description']);
                       $course_price = mysqli_real_escape_string($conn, $_POST['course_price']);
                       $estimated_price = mysqli_real_escape_string($conn, $_POST['estimated_price']);
-                      $discount = mysqli_real_escape_string($conn, $_POST['discount']);
+                      $discount = floor((abs($estimated_price - $course_price) / $estimated_price) * 100);
                       $category = mysqli_real_escape_string($conn, $_POST['category']);
                       $level = mysqli_real_escape_string($conn, $_POST['level']);
                       $course_tags = mysqli_real_escape_string($conn, $_POST['course_tags']);
@@ -73,10 +73,8 @@ include('private_files/system_configure_setting.php');
                       $user_id = $_SESSION['user_id'];
                       $email = $_SESSION['email'];
                       $date = Date('d-m-Y');
-
                       $sql_insert_course = "INSERT INTO course (title, description, main_price, sell_price, discount, learning_skill_1, learning_skill_2, learning_skill_3, feature_1, feature_2, feature_3, feature_4, skill_tags, category, level, prerequisties_1, prerequisties_2, prerequisties_3, resource_link, entry_date, user_id, user_email, poster) VALUES ('{$course_name}', '{$description}','{$estimated_price}', '{$course_price}', '{$discount}', '{$flo}', '{$slo}', '{$tlo}','{$first_feature}', '{$second_feature}','{$third_feature}', '{$fourth_feature}','{$course_tags}', '{$category}', '{$level}', '{$fpr}', '{$spr}', '{$tpr}', '{$resource}', '{$date}', '{$user_id}','{$email}','{$output_img}');";
-                      $sql_insert_course .= "UPDATE category SET num_of_record = num_of_record + 1 WHERE category_id = '{$category}'";
-
+                      echo $sql_insert_course .= "UPDATE category SET num_of_record = num_of_record + 1 WHERE category_id = '{$category}'";
                       if (mysqli_multi_query($conn, $sql_insert_course)) {
               ?>
                         <script>
@@ -112,7 +110,7 @@ include('private_files/system_configure_setting.php');
                   <label for="formFile" class="form-label">Course Poster</label>
                   <input class="form-control" type="file" name="fileToUpload" id="formFile" required>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text py-3">₹</span>
@@ -123,7 +121,7 @@ include('private_files/system_configure_setting.php');
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text py-3">₹</span>
@@ -134,15 +132,15 @@ include('private_files/system_configure_setting.php');
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                   <div class="input-group">
                     <input type="number" class="form-control py-3" placeholder="Course Discount" name='discount' required>
                     <div class="input-group-append">
                       <span class="input-group-text py-3">%</span>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-3">
+                </div> -->
+                <div class="col-md-4">
                   <div class="input-group">
                     <div>
                       <label for="customRange1" class="form-label">Poster Picture Quality</label>
@@ -164,7 +162,7 @@ include('private_files/system_configure_setting.php');
                 <div class="col-md-4">
                   <div class="form-floating mb-3">
                     <select class="form-select" id="floatingSelect" aria-label="category" name='category' required>
-                      <option value=''>DSA / WEB DEV</option>
+                      <option value=''>Course Category</option>
                       <!-- Fetch Data from Category Table -->
                       <?php
                       $sql_fetch_all_category = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY category_id DESC";

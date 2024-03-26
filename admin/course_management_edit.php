@@ -70,6 +70,7 @@ $id = $_GET['id'];
                 $estimated_price = mysqli_real_escape_string($conn, $_POST['estimated_price']);
                 $discount = mysqli_real_escape_string($conn, $_POST['discount']);
                 $category = mysqli_real_escape_string($conn, $_POST['category']);
+                $old_category = $_POST['old_category'];
                 $level = mysqli_real_escape_string($conn, $_POST['level']);
                 $course_tags = mysqli_real_escape_string($conn, $_POST['course_tags']);
                 $flo = mysqli_real_escape_string($conn, $_POST['flo']);
@@ -86,8 +87,15 @@ $id = $_GET['id'];
                 $user_id = $_SESSION['user_id'];
                 $email = $_SESSION['email'];
                 $date = Date('d-m-Y');
-                $sql_update_course_details = "UPDATE course SET title = '{$course_name}', description = '{$description}', main_price = '{$estimated_price}' , sell_price = '{$course_price}', discount = '{$discount}', learning_skill_1 = '{$flo}', learning_skill_2 = '{$slo}', learning_skill_3 = '{$tlo}', feature_1 = '{$first_feature}', feature_2 = '{$second_feature}', feature_3 = '{$third_feature}', feature_4 = '{$fourth_feature}', skill_tags = '{$course_tags}', category = '{$category}', level = '{$level}', prerequisties_1 = '{$fpr}', prerequisties_2 = '{$spr}', prerequisties_3 = '{$tpr}', resource_link = '{$resource}', poster = '{$save_img_name}' WHERE cid ='{$id}'";
-                if (mysqli_query($conn, $sql_update_course_details)) {
+                $sql_update_course_details = "UPDATE course SET title = '{$course_name}', description = '{$description}', main_price = '{$estimated_price}' , sell_price = '{$course_price}', discount = '{$discount}', learning_skill_1 = '{$flo}', learning_skill_2 = '{$slo}', learning_skill_3 = '{$tlo}', feature_1 = '{$first_feature}', feature_2 = '{$second_feature}', feature_3 = '{$third_feature}', feature_4 = '{$fourth_feature}', skill_tags = '{$course_tags}', category = '{$category}', level = '{$level}', prerequisties_1 = '{$fpr}', prerequisties_2 = '{$spr}', prerequisties_3 = '{$tpr}', resource_link = '{$resource}', poster = '{$save_img_name}' WHERE cid ='{$id}';";
+
+                // If Category Change
+                if ($old_category !=  $category) {
+                  $sql_update_course_details .= "UPDATE category SET num_of_record = num_of_record - 1 WHERE category_id = '{$old_category}';";
+                  $sql_update_course_details .= "UPDATE category SET num_of_record = num_of_record + 1 WHERE category_id = '{$category}';";
+                }
+
+                if (mysqli_multi_query($conn, $sql_update_course_details)) {
               ?>
                   <script>
                     alert('Course Details Modify successfully !!')
@@ -175,6 +183,7 @@ $id = $_GET['id'];
                               } ?>
                               <!-- Fetch Data from Category Table -->
                             </select>
+                            <input type="hidden" value="<?php echo $row_sql_fetch_all_courses['category']; ?>" name="old_category">
                             <label for="category">Course Category</label>
                           </div>
                         </div>

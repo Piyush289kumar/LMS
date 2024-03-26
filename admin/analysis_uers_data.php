@@ -45,7 +45,7 @@ include('private_files/system_configure_setting.php'); ?>
           <!-- PHP Code for data fetch from database -->
           <div class="card" style="cursor: pointer;">
             <div class="card-body">
-              <h5 class="card-title">Polar Area Chart</h5>
+              <h5 class="card-title">Active / Deactive Users Account</h5>
               <p>Total Users : <?php echo $total_count_of_users ?></p>
               <!-- Polar Area Chart -->
               <canvas id="polarAreaChart" style="max-height: 400px;"></canvas>
@@ -120,7 +120,7 @@ include('private_files/system_configure_setting.php'); ?>
           <!-- PHP Code for data fetch from database -->
           <div class="card" style="cursor: pointer;">
             <div class="card-body">
-              <h5 class="card-title">Column Chart</h5>
+              <h5 class="card-title">Users Social Handles</h5>
               <p>Total Users Social Handles : <?php echo $total_count_of_users_social ?></p>
               <div id="columnChart"></div>
               <script>

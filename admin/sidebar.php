@@ -189,16 +189,6 @@
                         <i class="bi bi-circle"></i><span>Create a New Course</span>
                     </a>
                 </li>
-                <li>
-                    <a href="user_management_read_end_users.php">
-                        <i class="bi bi-circle"></i><span>End Users</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="user_management_insert.php">
-                        <i class="bi bi-circle"></i><span>Create a New User</span>
-                    </a>
-                </li>
             </ul>
         </li>
         <!-- Course management section nav start -->

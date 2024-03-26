@@ -31,7 +31,7 @@ include('private_files/system_configure_setting.php'); ?>
                 <thead>
                   <tr>
                     <th class="border border-primary text-primary text-center">Category Name</th>
-                    <th class="border border-primary text-primary text-center">Total Record</th>
+                    <th class="border border-primary text-primary text-center">Total Enroll Course</th>
                     <th class="border border-primary text-primary text-center">Entery Date</th>
                     <th class="border border-primary text-primary text-center">Edit</th>
                     <th class="border border-primary text-primary text-center">Delete</th>
@@ -46,8 +46,8 @@ include('private_files/system_configure_setting.php'); ?>
                   ?>
                       <tr style="cursor: pointer;">
                         <td><?php echo $row_sql_fetch_all_category['category_name'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_category['num_of_record'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_category['category_entry_date'] ?></td>
+                        <td class='text-center'><?php echo $row_sql_fetch_all_category['num_of_record'] ?></td>
+                        <td class='text-center'><?php echo $row_sql_fetch_all_category['category_entry_date'] ?></td>
                         <td class='text-center'><a href="category_management_edit.php?id=<?php echo ($row_sql_fetch_all_category["category_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
                         <td class='text-center'><a href="middleware_auth_category_management_delete.php?id=<?php echo ($row_sql_fetch_all_category["category_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
