@@ -47,7 +47,6 @@ include('private_files/system_configure_setting.php'); ?>
                   INNER JOIN user_data ON review.user_id = user_data.user_id
                   INNER JOIN course ON review.review_course_id = course.cid                  
                   WHERE review.active_record = 'Yes' ORDER BY review.review_id DESC";
-
                   $result_sql_fetch_all_review = mysqli_query($conn, $sql_fetch_all_review) or die("Query Failed!!");
                   if (mysqli_num_rows($result_sql_fetch_all_review) > 0) {
                     while ($row_sql_fetch_all_review = mysqli_fetch_assoc($result_sql_fetch_all_review)) {
@@ -60,7 +59,7 @@ include('private_files/system_configure_setting.php'); ?>
                         <td><?php echo $row_sql_fetch_all_review['email'] ?></td>
                         <td><?php echo $row_sql_fetch_all_review['review_date'] ?></td>
                         <td><a href="review_management_edit.php?id=<?php echo ($row_sql_fetch_all_review["review_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
-                        <td><a href="middleware_auth_user_management_delete.php?id=<?php echo ($row_sql_fetch_all_review["review_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
+                        <td><a href="middleware_auth_review_management_delete.php?id=<?php echo ($row_sql_fetch_all_review["review_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
                   <?php }
                   } ?>
