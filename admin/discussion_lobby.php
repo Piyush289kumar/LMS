@@ -48,22 +48,40 @@ include('private_files/system_configure_setting.php') ?>
 
               <!-- Header of Chat -->
               <!-- Card Element -->
-              <div class="card-body profile-card border pt-4 mb-2 d-flex align-items-center gap-3 rounded-2 bg-white shadow-sm" style='cursor: pointer;'>
-                <img src=" upload_media/users_profiles_picture/default_user_profile.png" alt="Profile" style="width: 45px; height:45px" class="rounded-circle">
-                <div class='d-flex justify-content-between align-items-center w-100'>
-                  <h5 class='fw-semibold h6'>@Piyushkumar</h5>
-                  <p style='font-size: 12px;' class='pt-2'><em>14:26 PM</em></p>
-                </div>
+              <div class="profile-card border p-2 mb-2 d-flex align-items-center gap-3 rounded-2 bg-white shadow-sm" style='cursor: pointer;'>
+                <img src=" upload_media/users_profiles_picture/default_user_profile.png" alt="Profile" style="width: 30px; height:30px" class="rounded-circle">
+                <h5 class='fw-semibold h6 pt-2'>@Piyushkumar</h5>
+
               </div>
               <!-- Card Element -->
               <!-- Header of Chat -->
 
-              <div style="height: 80%; background:red;">
+              <div style="height: 80%; background-color: #EAEAEA;" class='rounded-2 overflow-y-scroll p-4'>
+
+                <p class='text-dark '>Message Message Message Message Message Message Message Message Message Message Message Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
+                <p class='text-dark '>Message</p>
 
               </div>
 
               <form action="">
-                <div class='d-flex justify-content-between align-items-center gap-2'>
+                <div class='d-flex justify-content-between align-items-center gap-2 mt-2'>
                   <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
