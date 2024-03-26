@@ -39,17 +39,17 @@ include('private_files/system_configure_setting.php'); ?>
                 </thead>
                 <tbody>
                   <?php
-                  $sql_fetch_all_user = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY category_id DESC";
-                  $result_sql_fetch_all_user = mysqli_query($conn, $sql_fetch_all_user) or die("Query Failed!!");
-                  if (mysqli_num_rows($result_sql_fetch_all_user) > 0) {
-                    while ($row_sql_fetch_all_user = mysqli_fetch_assoc($result_sql_fetch_all_user)) {
+                  $sql_fetch_all_category = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY category_id DESC";
+                  $result_sql_fetch_all_category = mysqli_query($conn, $sql_fetch_all_category) or die("Query Failed!!");
+                  if (mysqli_num_rows($result_sql_fetch_all_category) > 0) {
+                    while ($row_sql_fetch_all_category = mysqli_fetch_assoc($result_sql_fetch_all_category)) {
                   ?>
                       <tr style="cursor: pointer;">
-                        <td><?php echo $row_sql_fetch_all_user['category_name'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_user['num_of_record'] ?></td>
-                        <td><?php echo $row_sql_fetch_all_user['category_entry_date'] ?></td>
-                        <td class='text-center'><a href="category_management_edit.php?id=<?php echo ($row_sql_fetch_all_user["category_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
-                        <td class='text-center'><a href="middleware_auth_category_management_delete.php?id=<?php echo ($row_sql_fetch_all_user["category_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
+                        <td><?php echo $row_sql_fetch_all_category['category_name'] ?></td>
+                        <td><?php echo $row_sql_fetch_all_category['num_of_record'] ?></td>
+                        <td><?php echo $row_sql_fetch_all_category['category_entry_date'] ?></td>
+                        <td class='text-center'><a href="category_management_edit.php?id=<?php echo ($row_sql_fetch_all_category["category_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
+                        <td class='text-center'><a href="middleware_auth_category_management_delete.php?id=<?php echo ($row_sql_fetch_all_category["category_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
                   <?php }
                   } ?>

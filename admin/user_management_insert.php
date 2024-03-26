@@ -138,7 +138,7 @@ if (isset($_POST['save'])) {
                     <label for="role" class="col-md-4 col-lg-3 col-form-label">Role</label>
                     <div class="col-md-8 col-lg-9">
                       <select class="form-select" name='role' required>
-                        <option selected disabled>Choose a Authorization Level</option>
+                        <option value="">Choose a Authorization Level</option>
                         <option value="0">1. Administration Level</option>
                         <option value="1">2. Middle Management Level</option>
                         <option value="9">3. End User Level</option>

@@ -78,7 +78,7 @@ include('private_files/system_configure_setting.php');
                           alert('Course is Inserted successfully !!')
                         </script>
                       <?php
-                        echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
+                        // echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
                       } else {
                       ?>
                         <script>
@@ -146,18 +146,27 @@ include('private_files/system_configure_setting.php');
                 </div>
                 <div class="col-md-4">
                   <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="category" name='category'>
-                      <option selected disabled>DSA / WEB DEV</option>
-                      <option value="DSA">DSA</option>
-                      <option value="WEB_DEV">WEB DEV</option>
+                    <select class="form-select" id="floatingSelect" aria-label="category" name='category' required>
+                      <option value=''>DSA / WEB DEV</option>
+                      <!-- Fetch Data from Category Table -->
+                      <?php
+                      $sql_fetch_all_category = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY category_id DESC";
+                      $result_sql_fetch_all_category = mysqli_query($conn, $sql_fetch_all_category) or die("Query Failed!!");
+                      if (mysqli_num_rows($result_sql_fetch_all_category) > 0) {
+                        while ($row_sql_fetch_all_category = mysqli_fetch_assoc($result_sql_fetch_all_category)) {
+                      ?>
+                          <option value="<?php echo $row_sql_fetch_all_category['category_id'] ?>"><?php echo $row_sql_fetch_all_category['category_name']; ?></option>
+                      <?php }
+                      } ?>
+                      <!-- Fetch Data from Category Table -->
                     </select>
                     <label for="floatingSelect">Course Category</label>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="level" name='level'>
-                      <option selected disabled>Beginner/ Intermediate / Expert</option>
+                    <select class="form-select" id="floatingSelect" aria-label="level" name='level' required>
+                      <option value=''>Beginner/ Intermediate / Expert</option>
                       <option value="Beginner">Beginner</option>
                       <option value="Intermediate">Intermediate</option>
                       <option value="Expert">Expert</option>
