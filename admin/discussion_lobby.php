@@ -110,7 +110,13 @@ if (!isset($_GET['receiver_id'])) {
                 <div class='rounded-2 p-3 chartBox card mb-3' style="height: 80%; overflow-y: scroll;">
                   <!-- Fetch Chat -->
                   <?php
-                  $sql_fetch_chat = "SELECT user_data.user_id, user_data.profile_picture, user_data.username, chat.chat_text, chat.chat_time, chat.sender_id, chat.receiver_id FROM user_data INNER JOIN chat ON user_data.user_id = chat.receiver_id WHERE chat.active_record = 'Yes' AND chat.sender_id = '{$sender_id}' AND chat.receiver_id = '{$receiver_id}' ORDER BY chat.chat_id";
+                  $sql_fetch_chat = "SELECT user_data.user_id, user_data.profile_picture, user_data.username, chat.chat_text, chat.chat_time, chat.sender_id, chat.receiver_id 
+                  FROM user_data 
+                  INNER JOIN chat ON user_data.user_id = chat.receiver_id 
+                  WHERE chat.active_record = 'Yes' AND (chat.sender_id = '{$sender_id}' OR chat.sender_id = '{$receiver_id}')
+                  AND (chat.receiver_id = '{$sender_id}' OR chat.receiver_id = '{$receiver_id}') 
+                  ORDER BY chat.chat_id";
+
                   $result_sql_fetch_chat = mysqli_query($conn, $sql_fetch_chat) or die("Query Failed!!");
                   if (mysqli_num_rows($result_sql_fetch_chat) > 0) {
                     while ($row_sql_fetch_chat = mysqli_fetch_assoc($result_sql_fetch_chat)) {
