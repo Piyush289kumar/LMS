@@ -112,7 +112,8 @@ if (!isset($_SESSION['username'])) {
                     AND chat.sender_id = '{$login_user_id}'
                     AND chat.receiver_id != '{$login_user_id}'
                     GROUP BY chat.receiver_id
-                    ORDER BY chat.chat_id DESC";
+                    ORDER BY chat.chat_id DESC
+                    LIMIT 0, 3";
                     $result_sql_fetch_chat = mysqli_query($conn, $sql_fetch_chat) or die("Query Failed!!");
                     if (mysqli_num_rows($result_sql_fetch_chat) > 0) {
                         while ($row_sql_fetch_chat = mysqli_fetch_assoc($result_sql_fetch_chat)) {

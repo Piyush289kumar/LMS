@@ -45,8 +45,17 @@ include('private_files/system_configure_setting.php');
                 </div>
               </a>
               <!-- Card Element -->
-          <?php
+            <?php
             }
+          } else {
+            ?>
+            <!-- Card Element -->
+            <div class="card-body profile-card border pt-4 mb-2 d-flex align-items-center gap-3 rounded-2 bg-white shadow-sm" style='cursor: pointer;'>
+              <i class="bi bi-trash2 h2"></i>
+              <p class='pt-2'>Empty Discussion Group</p>
+            </div>
+            <!-- Card Element -->
+          <?php
           }
           ?>
         </div>
