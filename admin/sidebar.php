@@ -199,7 +199,7 @@
         <!-- Course management section nav start -->
 
 
-        <!-- Course management section nav start -->
+        <!-- Category management section nav start -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#category_management" data-bs-toggle="collapse" href="user_management_read.php">
                 <i class="bi bi-menu-button"></i><span>Category Management</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -217,9 +217,16 @@
                 </li>
             </ul>
         </li>
-        <!-- Course management section nav start -->
+        <!-- Category management section nav start -->
 
-        <!-- Course management section nav start -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="team_management_read.php">
+                <i class="bi bi-microsoft-teams"></i>
+                <span>Team Management</span>
+            </a>
+        </li>
+
+        <!-- Review management section nav start -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#review" data-bs-toggle="collapse" href="user_management_read.php">
                 <i class="bi bi-star-half"></i><span>Review Management</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -232,7 +239,7 @@
                 </li>
             </ul>
         </li>
-        <!-- Course management section nav start -->
+        <!-- Review management section nav start -->
 
 
 
@@ -265,6 +272,8 @@
             </ul>
         </li>
         <!-- user management section nav start -->
+
+
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="discussion_lobby.php">

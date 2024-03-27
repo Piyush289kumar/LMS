@@ -31,7 +31,7 @@ $id = $_GET['id']; ?>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">All Chapter</h5>
-              <div class="col-md-2">
+              <div class="col-md-4">
                 <a href="chapter_management_insert.php?id=<?php echo $id; ?>" class="btn btn-primary w-100 mb-5">Create a new chapter</a>
               </div>
               <!-- Table with stripped rows -->
