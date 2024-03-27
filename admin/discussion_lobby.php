@@ -116,7 +116,6 @@ if (!isset($_GET['receiver_id'])) {
                   WHERE chat.active_record = 'Yes' AND (chat.sender_id = '{$sender_id}' OR chat.sender_id = '{$receiver_id}')
                   AND (chat.receiver_id = '{$sender_id}' OR chat.receiver_id = '{$receiver_id}') 
                   ORDER BY chat.chat_id";
-
                   $result_sql_fetch_chat = mysqli_query($conn, $sql_fetch_chat) or die("Query Failed!!");
                   if (mysqli_num_rows($result_sql_fetch_chat) > 0) {
                     while ($row_sql_fetch_chat = mysqli_fetch_assoc($result_sql_fetch_chat)) {
@@ -161,7 +160,6 @@ if (!isset($_GET['receiver_id'])) {
     </section>
   </main><!-- End #main -->
   <!-- ======= Footer ======= -->
-
   <script>
     let scrollToBottom = (elem) => {
       let el = document.querySelector(elem);
