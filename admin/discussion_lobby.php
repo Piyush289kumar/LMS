@@ -56,7 +56,7 @@ include('private_files/system_configure_setting.php') ?>
               <!-- Card Element -->
               <!-- Header of Chat -->
 
-              <div style="height: 80%; background-color: #EAEAEA;" class='rounded-2 overflow-y-scroll p-4'>
+              <div  class='rounded-2 p-4 chartBox'>
 
                 <p class='text-dark '>Message Message Message Message Message Message Message Message Message Message Message Message</p>
                 <p class='text-dark '>Message</p>

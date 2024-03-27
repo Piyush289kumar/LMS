@@ -11,13 +11,12 @@
 --------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
-
 }
 
 body {
   font-family: "Open Sans", sans-serif;
   background: #f6f9ff;
-  color: #444444;  
+  color: #444444;
 }
 a {
   color: #4154f1;
@@ -1229,3 +1228,21 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+/* Custom Css */
+/* Chat Box */
+::-webkit-scrollbar {
+  background: transparent !important;
+  width: 0;
+}
+.chartBox {
+  background: url("../img/chatboxbg.png");
+  background-repeat: no-repeat;
+  background-image: cover;
+  filter: brightness(1.12);
+  height: 80%;
+  background-color: #eaeaea;
+  overflow-y: scroll;
+}
+/* Chat Box */
+/* Custom Css */
