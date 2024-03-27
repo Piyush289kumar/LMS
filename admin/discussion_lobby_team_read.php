@@ -25,7 +25,12 @@ include('private_files/system_configure_setting.php');
         <!-- sql_fetch_all_team List -->
         <div class="col-xl-4 overflow-y-auto" style='height:75vh;'>
           <?php
-          $sql_fetch_all_team = "SELECT * FROM team WHERE active_record = 'Yes' ORDER BY team_id DESC";
+          $login_user_id = $_SESSION['user_id'];
+          $sql_fetch_all_team = "SELECT * FROM `team`
+          INNER JOIN team_member ON team.team_id = team_member.enroll_team_id
+          WHERE team.active_record = 'Yes' AND team_member.active_record = 'Yes' AND team_member.tm_user_id = '{$login_user_id}' 
+          GROUP BY team.team_name
+          ORDER BY team.team_id DESC";
           $result_sql_fetch_all_team = mysqli_query($conn, $sql_fetch_all_team) or die("Query Failed!!");
           if (mysqli_num_rows($result_sql_fetch_all_team) > 0) {
             while ($row_sql_fetch_all_team = mysqli_fetch_assoc($result_sql_fetch_all_team)) {
@@ -33,9 +38,7 @@ include('private_files/system_configure_setting.php');
               <!-- Card Element -->
               <a href="discussion_lobby.php?team_id=<?php echo $row_sql_fetch_all_team['team_id']; ?>" class='text-dark'>
                 <div class="card-body profile-card border pt-4 mb-2 d-flex align-items-center gap-3 rounded-2 bg-white shadow-sm" style='cursor: pointer;'>
-
                   <i class="bi bi-microsoft-teams rounded-circle btn btn-primary" style="font-size: 18px; padding: 14px 18px"></i>
-
                   <div class='d-flex justify-content-between align-items-center w-100'>
                     <h5 class='fw-semibold h6'><?php echo $row_sql_fetch_all_team['team_name']; ?></h5>
                   </div>
@@ -48,7 +51,6 @@ include('private_files/system_configure_setting.php');
           ?>
         </div>
         <!-- sql_fetch_all_team List -->
-
         <!-- Default Screen -->
         <div class="col-xl-8">
           <div class="card">
