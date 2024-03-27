@@ -34,6 +34,7 @@ include('private_files/system_configure_setting.php'); ?>
                   <tr>
                     <th class="border border-primary text-primary text-center">Team Member</th>
                     <th class="border border-primary text-primary text-center">Entery Date</th>
+                    <th class="border border-primary text-primary text-center">Team Member's</th>
                     <th class="border border-primary text-primary text-center">Edit</th>
                     <th class="border border-primary text-primary text-center">Delete</th>
                   </tr>
@@ -48,6 +49,7 @@ include('private_files/system_configure_setting.php'); ?>
                       <tr style="cursor: pointer;">
                         <td><?php echo $row_sql_fetch_all_team['team_name'] ?></td>
                         <td class='text-center'><?php echo $row_sql_fetch_all_team['team_entry_date'] ?></td>
+                        <td class='text-center'><a href="team_member_management_read.php?id=<?php echo ($row_sql_fetch_all_team["team_id"]) ?>" class='btn btn-success'><i class="bi bi-eye"> View</i></a></td>
                         <td class='text-center'><a href="team_management_edit.php?id=<?php echo ($row_sql_fetch_all_team["team_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
                         <td class='text-center'><a href="middleware_auth_team_management_delete.php?id=<?php echo ($row_sql_fetch_all_team["team_id"]) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
