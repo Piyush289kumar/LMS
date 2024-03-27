@@ -32,7 +32,7 @@ include('private_files/system_configure_setting.php'); ?>
               <table class="table datatable table-striped table-hover table-bordered">
                 <thead>
                   <tr>
-                    <th class="border border-primary text-primary text-center">Team Member</th>
+                    <th class="border border-primary text-primary text-center">Team Name</th>
                     <th class="border border-primary text-primary text-center">Entery Date</th>
                     <th class="border border-primary text-primary text-center">Team Member's</th>
                     <th class="border border-primary text-primary text-center">Edit</th>

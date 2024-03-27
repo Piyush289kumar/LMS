@@ -276,7 +276,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="discussion_lobby.php">
+            <a class="nav-link collapsed" href="discussion_lobby_team_read.php">
                 <i class="bi bi-chat-left-text"></i>
                 <span>Discussion lobby</span>
             </a>

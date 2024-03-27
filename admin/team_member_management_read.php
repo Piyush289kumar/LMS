@@ -31,7 +31,7 @@ $id = $_GET['id']; ?>
             <div class="card-body">
               <h5 class="card-title">All Team Member</h5>
               <div class="col-md-5">
-                <a href="team_management_insert.php" class="btn btn-primary w-100 mb-5">Create A New Team Member</a>
+                <a href="team_member_management_insert.php?id=<?php echo $id ?>" class="btn btn-primary w-100 mb-5">Create A New Team Member</a>
               </div>
               <!-- Table with stripped rows -->
               <table class="table datatable table-striped table-hover table-bordered">
@@ -41,13 +41,11 @@ $id = $_GET['id']; ?>
                     <th class="border border-primary text-primary text-center">Team Member</th>
                     <th class="border border-primary text-primary text-center">Enroll Team Name</th>
                     <th class="border border-primary text-primary text-center">Entery Date</th>
-                    <th class="border border-primary text-primary text-center">Edit</th>
                     <th class="border border-primary text-primary text-center">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-
                   $sql_fetch_all_team = "SELECT user_data.username, user_data.profile_picture, team_member.tm_id, team.team_name, team.team_id, team_member.tm_user_id, team_member.enroll_team_id, team_member.team_member_date
                   FROM team_member
                   INNER JOIN team ON team.team_id = team_member.enroll_team_id
@@ -62,7 +60,6 @@ $id = $_GET['id']; ?>
                         <td><?php echo $row_sql_fetch_all_team['username'] ?></td>
                         <td><?php echo $row_sql_fetch_all_team['team_name'] ?></td>
                         <td class='text-center'><?php echo $row_sql_fetch_all_team['team_member_date'] ?></td>
-                        <td class='text-center'><a href="team_member_management_edit.php?id=<?php echo ($row_sql_fetch_all_team["tm_id"]) ?>" class='btn btn-primary'><i class="bi bi-pencil-square"></i></a></td>
                         <td class='text-center'><a href="middleware_auth_team_member_management_delete.php?id=<?php echo ($row_sql_fetch_all_team["tm_id"]) ?>&team_id=<?php echo ($id) ?>" class="btn btn-outline-danger"><i class="bi bi-trash2-fill"></i></a></td>
                       </tr>
                   <?php }
