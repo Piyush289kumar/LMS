@@ -1,474 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>LMS</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/styleNew.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>Boldo | Boldo Agency Template</title>
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;display=swap"
+    rel="stylesheet">
+  <link href="vendors/prism/prism.css" rel="stylesheet">
+  <link href="vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/theme.css" rel="stylesheet" />
+  <link href="assets/css/user.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container-fluid bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+  <main class="main" id="top">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/Logo.png" alt="" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+            class="fa-solid fa-bars text-white fs-3"></i></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="blogs.html">Blogs</a></li>
+            <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100"
+                aria-current="page" href="#">Log In</a></li>
+          </ul>
         </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0" id="home">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0">LMS</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto py-0">
-                        <a href="#home" class="nav-item nav-link active">Home</a>
-                        <a href="#overview" class="nav-item nav-link">About</a>
-                        <a href="#features" class="nav-item nav-link">Features</a>
-                        <a href="#testimonial" class="nav-item nav-link">Testimonial</a>
-                        <a href="#contact" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <a href="admin/login.php"
-                        class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Login</a>
-                </div>
-            </nav>
-
-            <div class="container-fluid bg-primary hero-header">
-                <div class="container">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated slideInDown">Awesome Software To Manage Your Business
-                            </h1>
-                            <p class="text-white pb-3 animated slideInDown">Tempor rebum no at dolore lorem clita rebum
-                                rebum ipsum rebum stet dolor sed justo kasd dolor sed magna dolor.</p>
-                            <div class="position-relative w-100 mt-3">
-                                <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                                    placeholder="Your Email" style="height: 58px;">
-                                <button type="button"
-                                    class="btn btn-primary rounded-pill py-2 px-3 shadow-none position-absolute top-0 end-0 m-2">Free
-                                    Trail</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid rounded animated zoomIn" src="img/carbon.svg" alt="">
-                        </div>
-                    </div>
-                </div>
+      </div>
+    </nav>
+    <div class="bg-dark"><img class="img-fluid position-absolute end-0" src="assets/img/hero/hero-bg.png" alt="" />
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+        <div class="container">
+          <div class="row align-items-center py-lg-8 py-6">
+            <div class="col-lg-6 text-center text-lg-start">
+              <h1 class="text-white fs-5 fs-xl-6">Save time by building fast with Boldo Template</h1>
+              <p class="text-white py-lg-3 py-2">Funding handshake buyer business-to-business metrics iPad partnership.
+                First mover advantage innovator success deployment non-disclosure.</p>
+              <div class="d-sm-flex align-items-center gap-3">
+                <button class="btn btn-success text-black mb-3 w-75">Buy Template</button>
+                <button class="btn btn-outline-light mb-3 w-75">Explore</button>
+              </div>
             </div>
+            <div class="col-lg-6 text-center text-lg-end mt-3 mt-lg-0"><img class="img-fluid"
+                src="assets/img/hero/hero-graphics.png" alt="" /></div>
+          </div>
+          <div class="swiper">
+            <div class="swiper-container swiper-shadow swiper-theme"
+              data-swiper='{"slidesPerView":2,"breakpoints":{"640":{"slidesPerView":2,"spaceBetween":20},"768":{"slidesPerView":4,"spaceBetween":40},"992":{"slidesPerView":5,"spaceBetween":40},"1024":{"slidesPerView":4,"spaceBetween":50},"1025":{"slidesPerView":6,"spaceBetween":50}},"spaceBetween":10,"grabCursor":true,"pagination":{"el":".swiper-pagination","clickable":true},"loop":true,"freeMode":true,"autoplay":{"delay":2500,"disableOnInteraction":false}}'>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide text-center"><img src="assets/img/logos/boldo.png" alt="" /></div>
+                <div class="swiper-slide text-center"><img src="assets/img/logos/presto.png" alt="" /></div>
+                <div class="swiper-slide text-center"><img src="assets/img/logos/boldo.png" alt="" /></div>
+                <div class="swiper-slide text-center"><img src="assets/img/logos/presto.png" alt="" /></div>
+                <div class="swiper-slide text-center"><img src="assets/img/logos/boldo.png" alt="" /></div>
+                <div class="swiper-slide text-center"><img src="assets/img/logos/presto.png" alt="" /></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Navbar & Hero End -->
-
-
-        <!-- Overview Start -->
-        <div class="container-fluid bg-light my-6 py-5" id="overview">
-            <div class="container">
-                <div class="row g-5 py-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <img class="img-fluid rounded" src="img/tailwind.svg">
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="d-flex align-items-center mb-4">
-                            <h1 class="mb-0">01</h1>
-                            <span class="bg-primary mx-2" style="width: 30px; height: 2px;"></span>
-                            <h5 class="mb-0">App Integration</h5>
-                        </div>
-                        <p class="mb-4">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita
-                            erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo eirmod magna dolore
-                            erat amet</p>
-                        <p><i class="fa fa-check-circle text-primary me-3"></i>Fully customizable</p>
-                        <p><i class="fa fa-check-circle text-primary me-3"></i>User friendly interface</p>
-                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-3"></i>More effective & poerwfull
-                        </p>
-                    </div>
-                </div>
-                <div class="row g-5 py-5 align-items-center flex-column-reverse flex-lg-row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="d-flex align-items-center mb-4">
-                            <h1 class="mb-0">02</h1>
-                            <span class="bg-primary mx-2" style="width: 30px; height: 2px;"></span>
-                            <h5 class="mb-0">App Customization</h5>
-                        </div>
-                        <p class="mb-4">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita
-                            erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo eirmod magna dolore
-                            erat amet</p>
-                        <p><i class="fa fa-check-circle text-primary me-3"></i>Fully customizable</p>
-                        <p><i class="fa fa-check-circle text-primary me-3"></i>User friendly interface</p>
-                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-3"></i>More effective & poerwfull
-                        </p>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="img/reactjs.svg">
-                    </div>
-                </div>
-                <div class="row g-5 py-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="img/expressjs.svg">
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="d-flex align-items-center mb-4">
-                            <h1 class="mb-0">03</h1>
-                            <span class="bg-primary mx-2" style="width: 30px; height: 2px;"></span>
-                            <h5 class="mb-0">App Modification</h5>
-                        </div>
-                        <p class="mb-4">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita
-                            erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo eirmod magna dolore
-                            erat amet</p>
-                        <p><i class="fa fa-check-circle text-primary me-3"></i>Fully customizable</p>
-                        <p><i class="fa fa-check-circle text-primary me-3"></i>User friendly interface</p>
-                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-3"></i>More effective & poerwfull
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Overview End -->
-
-
-        <!-- Advanced Feature Start -->
-        <div class="container-fluid py-6" id="features">
-            <div class="container">
-                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Advanced Features</h1>
-                    <p class="mb-5">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat
-                        ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="advanced-feature-item text-center rounded py-5 px-4">
-                            <i class="fa fa-edit fa-3x text-primary mb-4"></i>
-                            <h5 class="mb-3">Fully Customizable</h5>
-                            <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                stet.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="advanced-feature-item text-center rounded py-5 px-4">
-                            <i class="fa fa-sync fa-3x text-primary mb-4"></i>
-                            <h5 class="mb-3">App Integration</h5>
-                            <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                stet.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="advanced-feature-item text-center rounded py-5 px-4">
-                            <i class="fa fa-laptop fa-3x text-primary mb-4"></i>
-                            <h5 class="mb-3">High Resolution</h5>
-                            <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                stet.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="advanced-feature-item text-center rounded py-5 px-4">
-                            <i class="fa fa-draw-polygon fa-3x text-primary mb-4"></i>
-                            <h5 class="mb-3">Drag And Drop</h5>
-                            <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                stet.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Advanced Feature End -->
-
-
-
-        <!-- Process Start -->
-        <div class="container-fluid py-6">
-            <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="img/process.jpg">
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <h1 class="mb-4">Three Simple Steps To Start Working With</h1>
-                        <p class="mb-4">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita
-                            erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo eirmod magna dolore
-                            erat amet</p>
-                        <ul class="process mb-0">
-                            <li>
-                                <span><i class="fa fa-cog"></i></span>
-                                <div>
-                                    <h5>Install the Software</h5>
-                                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-                                        et eos erat ipsum et lorem et sit</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span><i class="fa fa-address-card"></i></span>
-                                <div>
-                                    <h5>Setup Your Profile</h5>
-                                    <p>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem
-                                        et sit, sed stet lorem sit clita duo</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span><i class="fa fa-check"></i></span>
-                                <div>
-                                    <h5>Enjoy The Features</h5>
-                                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit
-                                        clita duo justo magna</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Process End -->
-
-
-        <!-- Testimonial Start -->
-        <div class="container-fluid py-6" id="testimonial">
-            <div class="container">
-                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">What Our Clients Say</h1>
-                    <p class="mb-5">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat
-                        ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo</p>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="testimonial-item bg-light rounded my-4">
-                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam
-                            ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit
-                            clita duo justo.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
-                                style="width: 65px; height: 65px;">
-                            <div class="ps-4">
-                                <h5 class="mb-1">Client Name</h5>
-                                <span>Profession</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded my-4">
-                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam
-                            ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit
-                            clita duo justo.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
-                                style="width: 65px; height: 65px;">
-                            <div class="ps-4">
-                                <h5 class="mb-1">Client Name</h5>
-                                <span>Profession</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded my-4">
-                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam
-                            ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit
-                            clita duo justo.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
-                                style="width: 65px; height: 65px;">
-                            <div class="ps-4">
-                                <h5 class="mb-1">Client Name</h5>
-                                <span>Profession</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
-
-
-        <!-- Contact Start -->
-        <div class="container-fluid py-6" id="contact">
-            <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="mb-3">Get In Touch</h1>
-                        <p class="mb-4">The contact form is currently inactive. Get a functional and working contact
-                            form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and
-                            you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 btn-square rounded-circle bg-primary text-white">
-                                <i class="fa fa-phone-alt"></i>
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-2">Call Us</p>
-                                <h5 class="mb-0">+012 345 6789</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 btn-square rounded-circle bg-primary text-white">
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-2">Mail Us</p>
-                                <h5 class="mb-0">info@example.com</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-0">
-                            <div class="flex-shrink-0 btn-square rounded-circle bg-primary text-white">
-                                <i class="fa fa-map-marker-alt"></i>
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-2">Our Office</p>
-                                <h5 class="mb-0">123 Street, New York, USA</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message"
-                                            style="height: 150px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send
-                                        Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact End -->
-
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Address<span></span></p>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
-                        <a class="btn btn-link" href="">About</a>
-                        <a class="btn btn-link" href="">Contact</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Conditions</a>
-                        <a class="btn btn-link" href="">Support</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Community<span></span></p>
-                        <a class="btn btn-link" href="">Career</a>
-                        <a class="btn btn-link" href="">Leadership</a>
-                        <a class="btn btn-link" href="">Strategy</a>
-                        <a class="btn btn-link" href="">History</a>
-                        <a class="btn btn-link" href="">Components</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit
-                            non vulpu</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                                placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-lg-5">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com"
-                                target="_blank">ThemeWagon</a>
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
     </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- <Course Section> ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="bg-light pt-6">
+      <div class="container px-5">
+        <div class="col-md-6">
+          <h1 class="text-dark fw-bold fs-4 pb-3">Explore Our Courses</h1>
+        </div>
+        <div class="swiper mt-8 pt-3 px-5">
+          <div class="swiper-container swiper-theme"
+            data-swiper='{"slidesPerView":1,"breakpoints":{"640":{"slidesPerView":1,"spaceBetween":10},"768":{"slidesPerView":2,"spaceBetween":20},"1025":{"slidesPerView":4,"spaceBetween":40}},"spaceBetween":10,"grabCursor":true,"pagination":{"el":".swiper-pagination","clickable":true},"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"loop":true,"freeMode":true,"loopedSlides":3}'>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/reactjs.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/nodejs.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/expressjs.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/mongodb.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/git.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/bash.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/zod.png" alt="reactjs" class="w-100" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/course_logo/jwt.png" alt="reactjs" class="w-100" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"><span class="fas fa-arrow-right fs-2"></span></div>
+          <div class="swiper-button-prev"><span class="fas fa-arrow-left fs-2"></span></div>
+        </div>
+      </div>
+      <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- <Course Section> ============================================-->
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section>
+      <div class="container">
+        <p class="text-center fs-1">Our Services</p>
+        <h2 class="mx-auto text-center fs-lg-6 fs-md-5 w-lg-75">Handshake infographic mass market crowdfunding
+          iteration.</h2>
+        <div class="row gx-xl-7 mt-5">
+          <div class="col-md-4 mb-6 mb-md-0 text-center text-md-start"><img class="w-50 w-md-100"
+              src="assets/img/services/1.png" alt="" />
+            <h4 class="mt-3 my-1">Cool feature title</h4>
+            <p class="fs-1 mb-0">Learning curve network effects return on investment.</p><a
+              class="text-dark fs-1 pb-2 fw-bold border-black border-bottom text-decoration-none" href="#">Explore
+              page<i class="fa-solid fa-arrow-right ms-2"></i></a>
+          </div>
+          <div class="col-md-4 mb-6 mb-md-0 text-center text-md-start"><img class="w-50 w-md-100"
+              src="assets/img/services/2.png" alt="" />
+            <h4 class="mt-3 my-1">Even cooler feature</h4>
+            <p class="fs-1 mb-0">Learning curve network effects return on investment.</p><a
+              class="text-dark fs-1 pb-2 fw-bold border-black border-bottom text-decoration-none" href="#">Explore
+              page<i class="fa-solid fa-arrow-right ms-2"></i></a>
+          </div>
+          <div class="col-md-4 mb-6 mb-md-0 text-center text-md-start"><img class="w-50 w-md-100"
+              src="assets/img/services/3.png" alt="" />
+            <h4 class="mt-3 my-1">Cool feature title</h4>
+            <p class="fs-1 mb-0">Learning curve network effects return on investment.</p><a
+              class="text-dark fs-1 pb-2 fw-bold border-black border-bottom text-decoration-none" href="#">Explore
+              page<i class="fa-solid fa-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-center text-lg-start"><img class="img-fluid" src="assets/img/offer/1.png" alt="" />
+          </div>
+          <div class="col-lg-6">
+            <h1 class="fs-xl-5 fs-lg-4 fs-3">We connect our customers with the best, and help them keep up-and stay
+              open.</h1>
+            <ul class="list-unstyled my-xl-5 my-3">
+              <li class="fs-2 my-4 d-flex align-items-center gap-3 text-black"><i
+                  class="fa-solid fa-circle-check fs-4 text-dark"></i><span>We connect our customers with the
+                  best.</span></li>
+              <li class="fs-2 my-4 d-flex align-items-center gap-3 text-black"><i
+                  class="fa-solid fa-circle-check fs-4 text-dark"></i><span>Advisor success customer launch
+                  party.</span></li>
+              <li class="fs-2 my-4 d-flex align-items-center gap-3 text-black"><i
+                  class="fa-solid fa-circle-check fs-4 text-dark"></i><span>Business-to-consumer long tail.</span></li>
+            </ul>
+            <button class="btn btn-dark">Start now</button>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="pt-8 pt-lg-0">
+      <div class="container">
+        <div class="d-flex flex-column-reverse flex-lg-row">
+          <div class="col-lg-6">
+            <h1 class="fs-lg-4 fs-md-3 fs-xl-5 mb-5">We connect our customers with the best, and help them keep up-and
+              stay open.</h1>
+            <ul class="list-unstyled">
+              <li class="fs-2 shadow-sm offer-list-item"><i class="fa-solid fa-leaf fs-lg-4 fs-3"></i><span>We connect
+                  our customers with the best.</span></li>
+              <li class="fs-2 shadow-sm offer-list-item"><i class="fa-solid fa-eye fs-lg-4 fs-3"></i><span>Advisor
+                  success customer launch party.</span></li>
+              <li class="fs-2 shadow-sm offer-list-item"><i
+                  class="fa-solid fa-sun fs-lg-4 fs-3"></i><span>Business-to-consumer long tail.</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6 text-center text-lg-end"><img class="img-fluid" src="assets/img/offer/2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section>
+      <div class="container"><img class="img-fluid" src="assets/img/offer/3.png" alt="" />
+        <div class="row mt-5 align-items-center">
+          <div class="col-md-6">
+            <h2 class="fs-md-4 fs-3 pt-3">We connect our customers with the best, and help them keep up-and stay open.
+            </h2>
+          </div>
+          <div class="col-md-6">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item"></div>
+              <h2 class="accordion-header border-bottom" id="srgdgfdgdgg45">
+                <button class="accordion-button collapsed text-black" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#srgdgfdgdgg45tyuu" aria-expanded="false" aria-controls="srgdgfdgdgg45"><span
+                    class="fs-1 pe-3">We connect our customers with the best?</span></button>
+              </h2>
+              <div class="accordion-collapse collapse" aria-labelledby="srgdgfdgdgg45"
+                data-bs-parent="#accordionFlushExample" id="srgdgfdgdgg45tyuu">
+                <div class="accordion-body">
+                  <p class="mb-0">Placeholder content for this accordion, which is intended to demonstrate the
+                    accordion-flush class. This is the first item's accordion body.</p>
+                </div>
+              </div>
+              <div class="accordion-item"></div>
+              <h2 class="accordion-header border-bottom" id="sxvdgrfhfh276">
+                <button class="accordion-button collapsed text-black" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#srgdgfdgdgg45tyuu5ghj" aria-expanded="false" aria-controls="sxvdgrfhfh276"><span
+                    class="fs-1 pe-3">Android research &amp; development rockstar? </span></button>
+              </h2>
+              <div class="accordion-collapse collapse" aria-labelledby="sxvdgrfhfh276"
+                data-bs-parent="#accordionFlushExample" id="srgdgfdgdgg45tyuu5ghj">
+                <div class="accordion-body">
+                  <p class="mb-0">Placeholder content for this accordion, which is intended to demonstrate the
+                    accordion-flush class. This is the first item's accordion body.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="pb-0">
+      <div class="container">
+        <p class="text-center text-gray fs-1">Our Blog</p>
+        <h2 class="mx-auto text-center fs-lg-6 fs-md-5 w-lg-75">Value proposition accelerator product management venture
+        </h2>
+        <div class="row mt-7 gx-xl-7">
+          <div class="col-md-4 text-center text-md-start h-auto mb-5">
+            <div class="d-flex justify-content-between flex-column h-100"><a href="#"><img
+                  class="w-75 w-md-100 rounded-2" src="assets/img/blog/1.png" alt="" /></a>
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mt-3"><a
+                  href="#">
+                  <p class="fw-bold mb-0 text-black">Category</p>
+                </a>
+                <p class="mb-0">November 22, 2021</p>
+              </div><a href="#">
+                <h5 class="mt-1 mb-3 fs-0 fs-md-1">Pitch termsheet backing validation focus release.</h5>
+              </a>
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3"><img
+                  class="img-fluid" src="assets/img/blog/profile1.png" alt="" /><a href="#">
+                  <p class="mb-0 text-gray">Chandler Bing</p>
+                </a></div>
+            </div>
+          </div>
+          <div class="col-md-4 text-center text-md-start h-auto mb-5">
+            <div class="d-flex justify-content-between flex-column h-100"><a href="#"><img
+                  class="w-75 w-md-100 rounded-2" src="assets/img/blog/2.png" alt="" /></a>
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mt-3"><a
+                  href="#">
+                  <p class="fw-bold mb-0 text-black">Category</p>
+                </a>
+                <p class="mb-0">November 22, 2021</p>
+              </div><a href="#">
+                <h5 class="mt-1 mb-3 fs-0 fs-md-1">Seed round direct mailing non-disclosure agreement graphical user
+                  interface rockstar.</h5>
+              </a>
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3"><img
+                  class="img-fluid" src="assets/img/blog/profile2.png" alt="" /><a href="#">
+                  <p class="mb-0 text-gray">Rachel Green</p>
+                </a></div>
+            </div>
+          </div>
+          <div class="col-md-4 text-center text-md-start h-auto mb-5">
+            <div class="d-flex justify-content-between flex-column h-100"><a href="#"><img
+                  class="w-75 w-md-100 rounded-2" src="assets/img/blog/3.png" alt="" /></a>
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mt-3"><a
+                  href="#">
+                  <p class="fw-bold mb-0 text-black">Category</p>
+                </a>
+                <p class="mb-0">November 22, 2021</p>
+              </div><a href="#">
+                <h5 class="mt-1 mb-3 fs-0 fs-md-1">Beta prototype sales iPad gen-z marketing network effects value
+                  proposition</h5>
+              </a>
+              <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3"><img
+                  class="img-fluid" src="assets/img/blog/profile3.png" alt="" /><a href="#">
+                  <p class="mb-0 text-gray">Monica Geller</p>
+                </a></div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-3">
+          <button class="btn btn-outline-dark">Load More</button>
+        </div>
+      </div>
+      <!-- end of .container-->
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+  </main>
+  <!-- ===============================================-->
+  <!--    End of Main Content-->
+  <!-- ===============================================-->
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section>
+    <div class="container bg-dark overflow-hidden rounded-1">
+      <div class="bg-holder" style="background-image:url(assets/img/promo/promo-bg.png);">
+      </div>
+      <!--/.bg-holder-->
+      <div class="px-5 py-7 position-relative">
+        <h1 class="text-center w-lg-75 mx-auto fs-lg-6 fs-md-4 fs-3 text-white">An enterprise template to ramp up your
+          company website</h1>
+        <div class="row justify-content-center mt-5">
+          <div class="col-auto w-100 w-lg-50">
+            <input class="form-control mb-2 border-light fs-1" type="email" placeholder="Your email address" />
+          </div>
+          <div class="col-auto mt-2 mt-lg-0">
+            <button class="btn btn-success text-dark fs-1">Start now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section class="pt-0">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-6 col-sm-12"><a href="index.html"><img class="img-fluid mt-5 mb-4"
+              src="assets/img/black-logo.png" alt="" /></a>
+          <p class="w-lg-75 text-gray">Social media validation business model canvas graphical user interface launch
+            party creative facebook iPad twitter.</p>
+        </div>
+        <div class="col-lg-2 col-sm-4">
+          <h3 class="fw-bold fs-1 mt-5 mb-4">Landings</h3>
+          <ul class="list-unstyled">
+            <li class="my-3 col-md-4"><a href="#">Home</a></li>
+            <li class="my-3"><a href="#">Products</a></li>
+            <li class="my-3"><a href="#">Services</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-sm-4">
+          <h3 class="fw-bold fs-1 mt-5 mb-4">Company</h3>
+          <ul class="list-unstyled">
+            <li class="my-3"><a href="#">Home</a></li>
+            <li class="my-3"><a href="#">Careers</a><span
+                class="py-1 px-2 rounded-2 bg-success fw-bold text-dark ms-2">Hiring!</span></li>
+            <li class="my-3"><a href="#">Services</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-sm-4">
+          <h3 class="fw-bold fs-1 mt-5 mb-4">Resources</h3>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a href="#">Home</a></li>
+            <li class="mb-3"><a href="#">Products</a></li>
+            <li class="mb-3"><a href="#">Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-gray">All rights reserved.</p>
+    </div>
+    <!-- end of .container-->
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+  <!-- ===============================================-->
+  <!--    JavaScripts-->
+  <!-- ===============================================-->
+  <script src="vendors/popper/popper.min.js"></script>
+  <script src="vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="vendors/anchorjs/anchor.min.js"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/fontawesome/all.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="vendors/prism/prism.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/theme.js"></script>
 </body>
 
 </html>
