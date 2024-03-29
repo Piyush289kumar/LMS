@@ -31,6 +31,7 @@ include('private_files/system_configure_setting.php');
               <!-- PHP Code for Insert Course Record -->
               <?php
               if (isset($_POST['save'])) {
+
                 if (isset($_FILES['fileToUpload'])) {
                   // Picture Quality Set Input
                   $picture_quality = mysqli_real_escape_string($conn, $_POST['picture_quality']);
@@ -49,45 +50,77 @@ include('private_files/system_configure_setting.php');
                       echo "<div class='alert alert-danger'>This extension file not allowed, Please choose a JPG, JPEG, PNG or WEBP file.</div>";
                     }
                     if (isset($img)) {
-                      $output_img = date("d_m_Y_h_i_sa") . "_" . basename($_FILES['fileToUpload']["name"]) . ".webp";
-                      imagewebp($img, "upload_media/courses_poster/" . $output_img, $picture_quality);
-                      $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
-                      $description = mysqli_real_escape_string($conn, $_POST['description']);
-                      $course_price = mysqli_real_escape_string($conn, $_POST['course_price']);
-                      $estimated_price = mysqli_real_escape_string($conn, $_POST['estimated_price']);
-                      $discount = floor((abs($estimated_price - $course_price) / $estimated_price) * 100);
-                      $category = mysqli_real_escape_string($conn, $_POST['category']);
-                      $level = mysqli_real_escape_string($conn, $_POST['level']);
-                      $course_tags = mysqli_real_escape_string($conn, $_POST['course_tags']);
-                      $flo = mysqli_real_escape_string($conn, $_POST['flo']);
-                      $slo = mysqli_real_escape_string($conn, $_POST['slo']);
-                      $tlo = mysqli_real_escape_string($conn, $_POST['tlo']);
-                      $fpr = mysqli_real_escape_string($conn, $_POST['fpr']);
-                      $spr = mysqli_real_escape_string($conn, $_POST['spr']);
-                      $tpr = mysqli_real_escape_string($conn, $_POST['tpr']);
-                      $first_feature = mysqli_real_escape_string($conn, $_POST['first_feature']);
-                      $second_feature = mysqli_real_escape_string($conn, $_POST['second_feature']);
-                      $third_feature = mysqli_real_escape_string($conn, $_POST['third_feature']);
-                      $fourth_feature = mysqli_real_escape_string($conn, $_POST['fourth_feature']);
-                      $resource = mysqli_real_escape_string($conn, $_POST['resource']);
-                      $user_id = $_SESSION['user_id'];
-                      $email = $_SESSION['email'];
-                      $date = Date('d-m-Y');
-                      $sql_insert_course = "INSERT INTO course (title, description, main_price, sell_price, discount, learning_skill_1, learning_skill_2, learning_skill_3, feature_1, feature_2, feature_3, feature_4, skill_tags, category, level, prerequisties_1, prerequisties_2, prerequisties_3, resource_link, entry_date, user_id, user_email, poster) VALUES ('{$course_name}', '{$description}','{$estimated_price}', '{$course_price}', '{$discount}', '{$flo}', '{$slo}', '{$tlo}','{$first_feature}', '{$second_feature}','{$third_feature}', '{$fourth_feature}','{$course_tags}', '{$category}', '{$level}', '{$fpr}', '{$spr}', '{$tpr}', '{$resource}', '{$date}', '{$user_id}','{$email}','{$output_img}');";
-                      echo $sql_insert_course .= "UPDATE category SET num_of_record = num_of_record + 1 WHERE category_id = '{$category}'";
-                      if (mysqli_multi_query($conn, $sql_insert_course)) {
+
+                      // Course Icon
+                      if (isset($_FILES['fileToUpload_icon'])) {
+                        // Picture Quality Set Input
+                        $picture_quality = mysqli_real_escape_string($conn, $_POST['picture_quality']);
+                        if ($_FILES['fileToUpload_icon']["size"] > 10485760) {
+                          echo "<div class='alert alert-danger'>Image must be 10mb or lower.</div>";
+                        }
+                        $info = getimagesize($_FILES['fileToUpload_icon']['tmp_name']);
+                        if (isset($info['mime'])) {
+                          if ($info['mime'] == "image/jpeg") {
+                            $img_icon = imagecreatefromjpeg($_FILES['fileToUpload_icon']['tmp_name']);
+                          } elseif ($info['mime'] == "image/png") {
+                            $img_icon = imagecreatefrompng($_FILES['fileToUpload_icon']['tmp_name']);
+                          } elseif ($info['mime'] == "image/webp") {
+                            $img_icon = imagecreatefromwebp($_FILES['fileToUpload_icon']['tmp_name']);
+                          } else {
+                            echo "<div class='alert alert-danger'>This extension file not allowed, Please choose a JPG, JPEG, PNG or WEBP file.</div>";
+                          }
+                          if (isset($img)) {
+                            if (isset($img_icon)) {
+                              // Course Icon
+
+                              // Course Poster
+                              $output_img = date("d_m_Y_h_i_sa") . "_" . basename($_FILES['fileToUpload']["name"]) . ".webp";
+                              imagewebp($img, "upload_media/courses_poster/" . $output_img, $picture_quality);
+                              // Course icon
+                              $output_img_icon = date("d_m_Y_h_i_sa") . "_" . basename($_FILES['fileToUpload_icon']["name"]) . ".webp";
+                              imagewebp($img_icon, "upload_media/courses_poster/" . $output_img_icon, $picture_quality);
+
+                              $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
+                              $description = mysqli_real_escape_string($conn, $_POST['description']);
+                              $course_price = mysqli_real_escape_string($conn, $_POST['course_price']);
+                              $estimated_price = mysqli_real_escape_string($conn, $_POST['estimated_price']);
+                              $discount = floor((abs($estimated_price - $course_price) / $estimated_price) * 100);
+                              $category = mysqli_real_escape_string($conn, $_POST['category']);
+                              $level = mysqli_real_escape_string($conn, $_POST['level']);
+                              $course_tags = mysqli_real_escape_string($conn, $_POST['course_tags']);
+                              $flo = mysqli_real_escape_string($conn, $_POST['flo']);
+                              $slo = mysqli_real_escape_string($conn, $_POST['slo']);
+                              $tlo = mysqli_real_escape_string($conn, $_POST['tlo']);
+                              $fpr = mysqli_real_escape_string($conn, $_POST['fpr']);
+                              $spr = mysqli_real_escape_string($conn, $_POST['spr']);
+                              $tpr = mysqli_real_escape_string($conn, $_POST['tpr']);
+                              $first_feature = mysqli_real_escape_string($conn, $_POST['first_feature']);
+                              $second_feature = mysqli_real_escape_string($conn, $_POST['second_feature']);
+                              $third_feature = mysqli_real_escape_string($conn, $_POST['third_feature']);
+                              $fourth_feature = mysqli_real_escape_string($conn, $_POST['fourth_feature']);
+                              $resource = mysqli_real_escape_string($conn, $_POST['resource']);
+                              $user_id = $_SESSION['user_id'];
+                              $email = $_SESSION['email'];
+                              $date = Date('d-m-Y');
+                              $sql_insert_course = "INSERT INTO course (title, description, main_price, sell_price, discount, learning_skill_1, learning_skill_2, learning_skill_3, feature_1, feature_2, feature_3, feature_4, skill_tags, category, level, prerequisties_1, prerequisties_2, prerequisties_3, resource_link, entry_date, user_id, user_email, icon, poster) VALUES ('{$course_name}', '{$description}','{$estimated_price}', '{$course_price}', '{$discount}', '{$flo}', '{$slo}', '{$tlo}','{$first_feature}', '{$second_feature}','{$third_feature}', '{$fourth_feature}','{$course_tags}', '{$category}', '{$level}', '{$fpr}', '{$spr}', '{$tpr}', '{$resource}', '{$date}', '{$user_id}','{$email}','{$output_img_icon}', '{$output_img}');";
+                              echo $sql_insert_course .= "UPDATE category SET num_of_record = num_of_record + 1 WHERE category_id = '{$category}'";
+                              if (mysqli_multi_query($conn, $sql_insert_course)) {
               ?>
-                        <script>
-                          alert('Course is Inserted successfully !!')
-                        </script>
-                      <?php
-                        echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
-                      } else {
-                      ?>
-                        <script>
-                          alert('Course is not Insert !!')
-                        </script>
+                                <script>
+                                  alert('Course is Inserted successfully !!')
+                                </script>
+                              <?php
+                                echo "<script>window.location.href='$hostname/admin/course_management_read.php'</script>";
+                              } else {
+                              ?>
+                                <script>
+                                  alert('Course is not Insert !!')
+                                </script>
               <?php
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -100,16 +133,23 @@ include('private_files/system_configure_setting.php');
                 <div class="col-md-12 border-top">
                   <p class="card-text p-1 pt-4"><i class="bi bi-1-circle"></i> Step</p>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6">
                   <div class="form-floating mt-3">
                     <input type="text" class="form-control" id="floatingName" placeholder="Course Name" name='course_name' required>
                     <label for="floatingName">Course Name</label>
                   </div>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-3">
+                  <label for="formFile" class="form-label">Course Icon</label>
+                  <input class="form-control" type="file" name="fileToUpload_icon" id="formFile" required>
+                </div>
+
+                <div class="col-md-3">
                   <label for="formFile" class="form-label">Course Poster</label>
                   <input class="form-control" type="file" name="fileToUpload" id="formFile" required>
                 </div>
+
                 <div class="col-md-4">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -132,18 +172,11 @@ include('private_files/system_configure_setting.php');
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col-md-3">
-                  <div class="input-group">
-                    <input type="number" class="form-control py-3" placeholder="Course Discount" name='discount' required>
-                    <div class="input-group-append">
-                      <span class="input-group-text py-3">%</span>
-                    </div>
-                  </div>
-                </div> -->
+
                 <div class="col-md-4">
                   <div class="input-group">
-                    <div>
-                      <label for="customRange1" class="form-label">Poster Picture Quality</label>
+                    <div class='w-100'>
+                      <label for="customRange1" class="form-label">Picture Quality</label>
                       <div class='d-flex justify-content-center gap-3 align-items-center'>
                         <span>25%</span>
                         <input type="range" class="form-range" id="customRange1" value="100" name='picture_quality'>

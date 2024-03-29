@@ -30,6 +30,7 @@ include('private_files/system_configure_setting.php'); ?>
               <table class="table datatable table-striped table-hover table-bordered">
                 <thead>
                   <tr>
+                    <th class="border border-primary text-primary">Icon</th>
                     <th class="border border-primary text-primary">Poster</th>
                     <th class="border border-primary text-primary">Title</th>
                     <th class="border border-primary text-primary">Sell Price</th>
@@ -50,6 +51,7 @@ include('private_files/system_configure_setting.php'); ?>
                     while ($row_sql_fetch_all_courses = mysqli_fetch_assoc($result_sql_fetch_all_courses)) {
                   ?>
                       <tr style="cursor: pointer;">
+                        <td><img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['icon'] ?>" alt="Icon" class="rounded-2 " style='width:50px; height;:50px'></td>
                         <td><img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['poster'] ?>" alt="Profile" class="rounded-2 " style='width:95px; height;:95px'></td>
                         <td><?php echo $row_sql_fetch_all_courses['title'] ?></td>
                         <td class='text-center'>₹ <?php echo $row_sql_fetch_all_courses['sell_price'] ?></td>
