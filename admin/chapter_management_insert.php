@@ -45,7 +45,7 @@ $id = $_GET['id']; ?>
                 $email = $_SESSION['email'];
                 $date = Date('d-m-Y');
 
-                echo $sql_insert_chapter = "INSERT INTO chapter (chapter_title, chapter_description, chapter_index, course_id, chapter_entry_date, user_id, user_email) VALUES ('{$course_name}', '{$description}','{$chapter_index}', '{$id}', '{$date}', '{$user_id}','{$email}')";
+                $sql_insert_chapter = "INSERT INTO chapter (chapter_title, chapter_description, chapter_index, course_id, chapter_entry_date, user_id, user_email) VALUES ('{$course_name}', '{$description}','{$chapter_index}', '{$id}', '{$date}', '{$user_id}','{$email}')";
                 if (mysqli_query($conn, $sql_insert_chapter)) {
               ?>
                   <script>

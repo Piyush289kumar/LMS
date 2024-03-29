@@ -96,7 +96,7 @@
           ?>
               <!-- Card -->
               <div class="col-lg-4 pb-5">
-                <a href="courses_single.php">
+                <a href="courses_single.php?course_id=<?php echo $row_sql_fetch_all_courses['cid']; ?>">
                   <div class="card rounded-2 shadow-sm">
                     <img src="admin/upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['poster'] ?>" class="card-img-top" alt="<?php echo $row_sql_fetch_all_courses['title'] ?>" style="border-top-right-radius: 24px; border-top-left-radius: 24px">
                     <div class="card-body p-3">

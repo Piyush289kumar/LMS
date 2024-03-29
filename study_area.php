@@ -12,9 +12,7 @@
   <link href="admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
   <link href="admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -35,6 +33,15 @@
 </head>
 
 <body>
+  <?php
+  include('private_files/system_configure_setting.php');
+  if (!isset($_GET['course_id'])) {
+    echo "
+  <script>
+    window.location.href = '$hostname/courses.php';
+  </script>";
+  }
+  $id = $_GET['course_id']; ?>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center" style="background: #0A2640;">
     <div class="d-flex align-items-center justify-content-between">
@@ -62,7 +69,10 @@
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
+
+
+      <!-- Chapter -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -89,7 +99,9 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li>
+      <!-- Chapter Nav -->
+
     </ul>
   </aside><!-- End Sidebar-->
   <main id="main" class="main">
@@ -188,8 +200,7 @@
       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </footer><!-- End Footer -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
   <script src="admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
