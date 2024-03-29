@@ -1,5 +1,6 @@
 <!-- Import Files -->
-<?php include('header.php'); ?>
+<?php include('header.php');
+include('private_files/system_configure_setting.php'); ?>
 
 <!-- Import course icon file -->
 <?php include('course_icon_slider.php') ?>
