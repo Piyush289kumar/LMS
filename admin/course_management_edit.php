@@ -64,6 +64,38 @@ $id = $_GET['id'];
                     }
                   }
                 }
+
+                // course icon
+                $file_name_icon = '';
+                if (empty($_FILES['new-image-icon']['name'])) {
+                  $save_img_name_icon = $_POST['old-image-icon'];
+                } else {
+                  if (isset($_FILES['new-image-icon'])) {
+                    $file_name_icon = $_FILES['new-image-icon']["name"];
+                    $file_tmp = $_FILES['new-image-icon']["tmp_name"];
+                    $file_type = $_FILES['new-image-icon']["type"];
+                    $file_size = $_FILES['new-image-icon']["size"];
+                    $tempFileExt = explode('.', $file_name_icon);
+                    $file_ext = strtolower(end($tempFileExt));
+                    $allow_extension = array("jpg", "jpeg", "png", "webp");
+                    $file_error = array();
+                    if (in_array($file_ext, $allow_extension) === false) {
+                      $file_error[] = "This extension file not allowed, Please choose a JPG or PNG file.";
+                    }
+                    if ($file_size > 2097152) {
+                      $file_error[] = "Image must be 2mb or lower.";
+                    }
+                    $save_img_name_icon = date("d_M_Y_h_i_sa") . "_" . basename($file_name_icon);
+                    $img_save_target_icon = "upload_media/courses_poster/";
+                    if (empty($file_error) == true) {
+                      move_uploaded_file($file_tmp, $img_save_target_icon . $save_img_name_icon);
+                    } else {
+                      print_r($file_error);
+                      die();
+                    }
+                  }
+                }
+                // course icon
                 $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
                 $description = mysqli_real_escape_string($conn, $_POST['description']);
                 $course_price = mysqli_real_escape_string($conn, $_POST['course_price']);
@@ -87,7 +119,7 @@ $id = $_GET['id'];
                 $user_id = $_SESSION['user_id'];
                 $email = $_SESSION['email'];
                 $date = Date('d-m-Y');
-                $sql_update_course_details = "UPDATE course SET title = '{$course_name}', description = '{$description}', main_price = '{$estimated_price}' , sell_price = '{$course_price}', discount = '{$discount}', learning_skill_1 = '{$flo}', learning_skill_2 = '{$slo}', learning_skill_3 = '{$tlo}', feature_1 = '{$first_feature}', feature_2 = '{$second_feature}', feature_3 = '{$third_feature}', feature_4 = '{$fourth_feature}', skill_tags = '{$course_tags}', category = '{$category}', level = '{$level}', prerequisties_1 = '{$fpr}', prerequisties_2 = '{$spr}', prerequisties_3 = '{$tpr}', resource_link = '{$resource}', poster = '{$save_img_name}' WHERE cid ='{$id}';";
+                $sql_update_course_details = "UPDATE course SET title = '{$course_name}', description = '{$description}', main_price = '{$estimated_price}' , sell_price = '{$course_price}', discount = '{$discount}', learning_skill_1 = '{$flo}', learning_skill_2 = '{$slo}', learning_skill_3 = '{$tlo}', feature_1 = '{$first_feature}', feature_2 = '{$second_feature}', feature_3 = '{$third_feature}', feature_4 = '{$fourth_feature}', skill_tags = '{$course_tags}', category = '{$category}', level = '{$level}', prerequisties_1 = '{$fpr}', prerequisties_2 = '{$spr}', prerequisties_3 = '{$tpr}', resource_link = '{$resource}', icon = '{$save_img_name_icon}' , poster = '{$save_img_name}' WHERE cid ='{$id}';";
 
                 // If Category Change
                 if ($old_category !=  $category) {
@@ -126,11 +158,12 @@ $id = $_GET['id'];
                     <div class="col-md-12 border-top">
                       <p class="card-text p-1 pt-4"><i class="bi bi-1-circle"></i> Step</p>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-10">
                       <div class="form-floating mt-3">
                         <input type="text" class="form-control" id="title" placeholder="Course Name" name='course_name' required value="<?php echo $row_sql_fetch_all_courses['title'] ?>">
                         <label for="title">Course Name</label>
                       </div>
+
                       <div class="row g-3 pt-3">
                         <div class="col-md-4">
                           <div class="input-group">
@@ -143,6 +176,8 @@ $id = $_GET['id'];
                             </div>
                           </div>
                         </div>
+
+
                         <div class="col-md-4">
                           <div class="input-group">
                             <div class="input-group-prepend">
@@ -154,6 +189,8 @@ $id = $_GET['id'];
                             </div>
                           </div>
                         </div>
+
+
                         <div class="col-md-4">
                           <div class="input-group">
                             <input type="number" class="form-control py-3" placeholder="Course Discount" name='discount' required value="<?php echo $row_sql_fetch_all_courses['discount'] ?>">
@@ -162,8 +199,12 @@ $id = $_GET['id'];
                             </div>
                           </div>
                         </div>
+
+
                       </div>
+
                       <div class="row g-3 pt-3">
+
                         <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <select class="form-select" id="category" aria-label="category" name='category' required>
@@ -187,6 +228,8 @@ $id = $_GET['id'];
                             <label for="category">Course Category</label>
                           </div>
                         </div>
+
+
                         <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <select class="form-select" id="level" aria-label="level" name='level'>
@@ -198,12 +241,16 @@ $id = $_GET['id'];
                             <label for="level">Course Level</label>
                           </div>
                         </div>
+
+
                         <div class="col-md-4">
                           <div class="form-floating">
                             <input type="text" class="form-control" id="skill_tags" placeholder="Course Tags" name='course_tags' value="<?php echo $row_sql_fetch_all_courses['skill_tags'] ?>">
                             <label for="skill_tags">Course Tags</label>
                           </div>
                         </div>
+
+
                         <div class="col-md-12">
                           <div class="d-flex justify-content-center gap-3 align-items-center">
                             <label for="customRange1">Quality: </label>
@@ -212,9 +259,23 @@ $id = $_GET['id'];
                             <span>100%</span>
                           </div>
                         </div>
+
+
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-2 pt-3">
+                      <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['icon'] ?>" alt="Profile" class='w-100 border rounded-3 mb-2'>
+                        <input type="file" name="new-image-icon" id="img-icon" style="display:none;" />
+                        <label for="img-icon" class="btn btn-primary btn-sm w-100" title="Upload new icon "><i class="bi bi-upload"></i>&nbsp;&nbsp;Upload icon</label>
+                        <input type="hidden" name="old-image-icon" value="<?php echo $row_sql_fetch_all_courses['icon']; ?>">
                       </div>
                     </div>
-                    <div class="col-md-5 pt-3">
+
+                    <!-- course icon -->
+                    <div class="col-md-6 pt-3">
                       <div class="d-flex flex-column justify-content-center align-items-center">
                         <img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['poster'] ?>" alt="Profile" class='w-100 border rounded-3 mb-2'>
                         <input type="file" name="new-image" id="img" style="display:none;" />
@@ -222,7 +283,9 @@ $id = $_GET['id'];
                         <input type="hidden" name="old-image" value="<?php echo $row_sql_fetch_all_courses['poster']; ?>">
                       </div>
                     </div>
-                    <div class="col-md-12 pt-3">
+                    <!-- course icon -->
+
+                    <div class="col-md-6 pt-3">
                       <div class="form-floating">
                         <!-- CKEditor -->
                         <textarea name="description" id="editor" class="form-control"><?php echo $row_sql_fetch_all_courses['description'] ?></textarea>
