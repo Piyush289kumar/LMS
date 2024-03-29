@@ -41,7 +41,7 @@
     window.location.href = '$hostname/courses.php';
   </script>";
   }
-  $id = $_GET['course_id']; ?>
+  $course_id = $_GET['course_id']; ?>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center" style="background: #0A2640;">
     <div class="d-flex align-items-center justify-content-between">
@@ -65,42 +65,45 @@
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Study Area</span>
         </a>
       </li>
 
+      <!-- Fetch Chapter Data -->
+      <!-- Fetch All Chapter From Database -->
+      <?php
+      $sql_fetch_all_chapter = "SELECT * FROM chapter
+                WHERE active_record = 'Yes'
+                AND course_id = '{$course_id}'
+                ORDER BY chapter_index";
+      $idx = 1;
+      $result_sql_fetch_all_chapter = mysqli_query($conn, $sql_fetch_all_chapter) or die("Query Failed!!");
+      if (mysqli_num_rows($result_sql_fetch_all_chapter) > 0) {
+        while ($row_sql_fetch_all_chapter = mysqli_fetch_assoc($result_sql_fetch_all_chapter)) {
+      ?>
+          <!-- Chapter -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#chapter_<?php echo $idx ?>" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>Chapter: <?php echo $idx ?></span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="chapter_<?php echo $idx ?>" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+              <li>
+                <a href="components-alerts.html">
+                  <i class="bi bi-circle"></i><span><?php echo $row_sql_fetch_all_chapter['chapter_title'] ?></span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Chapter Nav -->
 
-      <!-- Chapter -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- Chapter Nav -->
+
+      <?php
+          $idx++;
+        }
+      } ?>
+      <!-- Fetch Chapter Data -->
 
     </ul>
   </aside><!-- End Sidebar-->
@@ -187,6 +190,7 @@
       </div>
     </section>
   </main><!-- End #main -->
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
