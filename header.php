@@ -59,11 +59,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="study_area.php">Study Area</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Project</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="blogs.php">Blogs</a></li>
-                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Log In</a></li>
+                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">C-Panel</a></li>
                     </ul>
                 </div>
             </div>

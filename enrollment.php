@@ -9,6 +9,13 @@ if (!isset($_GET['course_id'])) {
   </script>";
 }
 $course_id = $_GET['course_id'];
+
+if ($sessionUserId == 0 || $sessionUserUsername == 0 || $sessionUserEmail == 0) {
+  echo "
+  <script>
+    window.location.href = '$hostname/login.php';
+  </script>";
+}
 ?>
 <!-- Login Back-End Code -->
 <!-- Form Start -->

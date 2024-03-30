@@ -3,7 +3,7 @@
 <section class="bg-light pt-6 rounded-bottom ">
     <div class="container px-5">
         <div class="col-md-6">
-            <h1 class="text-dark fw-bold fs-4 pb-3">Explore Our Courses</h1>
+            <h1 class="text-dark fw-bold fs-4 pb-3">Explore Our Projects</h1>
         </div>
         <div class="swiper mt-8 pt-3 px-5">
             <div class="swiper-container swiper-theme" data-swiper='{"slidesPerView":1,"breakpoints":{"640":{"slidesPerView":1,"spaceBetween":10},"768":{"slidesPerView":2,"spaceBetween":20},"1025":{"slidesPerView":4,"spaceBetween":40}},"spaceBetween":10,"grabCursor":true,"pagination":{"el":".swiper-pagination","clickable":true},"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"loop":true,"freeMode":true,"loopedSlides":3}'>

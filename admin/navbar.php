@@ -198,7 +198,7 @@ if (!isset($_SESSION['username'])) {
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center text-danger" href="login.php">
+                        <a class="dropdown-item d-flex align-items-center text-danger" href="logout.php">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
                         </a>

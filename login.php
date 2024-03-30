@@ -11,7 +11,7 @@ if (isset($_POST['login'])) {
   $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
     while ($row = mysqli_fetch_assoc($result_sql_user_pass_cheack)) {
-      session_start();
+
       $_SESSION['user_id'] = $row['user_id'];
       $_SESSION['username'] = $row['username'];
       $_SESSION['email'] = $row['email'];
@@ -21,18 +21,12 @@ if (isset($_POST['login'])) {
 
       //Conditional Rending
       if ($row['tfa'] == 'No') {
-        echo "<script>window.location.href='$hostname/admin'</script>";
-        echo $_SESSION['user_id'];
-        echo $_SESSION['username'];
-        echo $_SESSION['email'];
-        echo $_SESSION['user_role'];
-        echo $_SESSION['user_designation'];
-        echo $_SESSION['user_profile_picture'];
-
 ?>
         <script>
           alert('Login successfully !!')
         </script>
+        <?php echo "<script>window.location.href='$hostname/admin'</script>"; ?>
+
     <?php
       } else {
         // Create Session For OTP Auth
