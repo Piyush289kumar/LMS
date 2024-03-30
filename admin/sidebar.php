@@ -10,9 +10,7 @@
         <!-- Analysis section nav start -->
         <?php
         // $_SESSION['user_role'] = 0,1 or 9 => 0 - Admin | 1 - Middle Management | 9 - End User
-
         if ($_SESSION['user_role'] == 0 || $_SESSION['user_role'] == 1) { ?>
-
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#analysisCenter" data-bs-toggle="collapse" href="user_management_read.php">
                     <i class="bi bi-clipboard-data"></i><span>Analysis Center</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -88,7 +86,6 @@
                 </ul>
             </li>
             <!-- Review management section nav start -->
-
             <!-- Discussion lobby -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="discussion_lobby_team_read.php">
@@ -97,9 +94,7 @@
                 </a>
             </li>
             <!-- Discussion lobby -->
-
         <?php } ?>
-
         <?php
         if ($_SESSION['user_role'] == 0) { ?>
             <li class="nav-item">
@@ -138,9 +133,6 @@
             </li>
             <!-- user management section nav start -->
         <?php } ?>
-
-
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="users-profile-overview.php">
                 <i class="bi bi-person"></i>
