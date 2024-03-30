@@ -70,7 +70,7 @@
       <ul class="d-flex align-items-center">
         <div class="d-flex gap-4 px-5">
           <a href="index.php" class="text-white btn fw-bold">Home</a>
-          <a href="courses.php" class="text-white btn fw-bold">Course</a>
+          <a href="courses.php" class="text-white btn fw-bold">Project</a>
           <a href="about.php" class="text-white btn fw-bold">About</a>
           <a href="admin/users-profile-overview.php" class="btn bg-light fw-bold text-dark rounded-5">Dashboard</a>
         </div>
@@ -137,7 +137,7 @@
           <h1>Study Area</h1>
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a>Course: <?php echo $row_sql_fetch_chapter['title'] ?></a></li>
+              <li class="breadcrumb-item"><a>Project: <?php echo $row_sql_fetch_chapter['title'] ?></a></li>
               <li class="breadcrumb-item"><a>Chapter: <?php echo $row_sql_fetch_chapter['chapter_index'] ?></a></li>
               <li class="breadcrumb-item active"><?php echo $row_sql_fetch_chapter['chapter_title'] ?></li>
             </ol>

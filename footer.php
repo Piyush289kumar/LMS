@@ -43,6 +43,7 @@
         </div>
         <p class="text-gray">All rights reserved.</p>
     </div>
+    <?php include('tradmark_lable.php') ?>
     <!-- end of .container-->
 </section>
 <!-- <section> close ============================-->
