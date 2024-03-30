@@ -1,6 +1,14 @@
 <!-- Import Files -->
 <?php include('admin_header.php');
-include('private_files/system_configure_setting.php') ?>
+include('private_files/system_configure_setting.php');
+
+if (isset($_SESSION['user_id'])) {
+  echo "
+  <script>
+    window.location.href = '$hostname/admin/index.php';
+  </script>";
+}
+?>
 <!-- Login Back-End Code -->
 <!-- Form Start -->
 <?php
