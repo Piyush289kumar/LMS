@@ -2,15 +2,14 @@
 <?php include('private_files/system_configure_setting.php');
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location:{$hostname}/admin/login.php");
+    header("Location:{$hostname}/login.php");
 }
 ?>
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
         <a href="index.php" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="Error">
-            <span class="d-none d-lg-block"><?php echo $website_display_default_name ?></span>
+            <img src="../assets/img/meta_icon/Logo.png" style="width: 50%;" alt="project.dev">
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -27,69 +26,6 @@ if (!isset($_SESSION['username'])) {
                     <i class="bi bi-search"></i>
                 </a>
             </li><!-- End Search Icon-->
-            <!-- <li class="nav-item dropdown">
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="bi bi-bell"></i>
-                    <span class="badge bg-primary badge-number">4</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-                    <li class="dropdown-header">
-                        You have 4 new notifications
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="notification-item">
-                        <i class="bi bi-exclamation-circle text-warning"></i>
-                        <div>
-                            <h4>Lorem Ipsum</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>30 min. ago</p>
-                        </div>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="notification-item">
-                        <i class="bi bi-x-circle text-danger"></i>
-                        <div>
-                            <h4>Atque rerum nesciunt</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>1 hr. ago</p>
-                        </div>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="notification-item">
-                        <i class="bi bi-check-circle text-success"></i>
-                        <div>
-                            <h4>Sit rerum fuga</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>2 hrs. ago</p>
-                        </div>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="notification-item">
-                        <i class="bi bi-info-circle text-primary"></i>
-                        <div>
-                            <h4>Dicta reprehenderit</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>4 hrs. ago</p>
-                        </div>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="dropdown-footer">
-                        <a href="#">Show all notifications</a>
-                    </li>
-                </ul>
-            </li>
-         End Notification Nav -->
             <li class="nav-item dropdown">
                 <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                     <i class="bi bi-chat-left-text"></i>

@@ -51,10 +51,10 @@ if (isset($_POST['save'])) {
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+              <!-- logo -->
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt=<?php echo $website_display_default_name; ?>>
-                  <span class="d-none d-lg-block"><?php echo $website_display_default_name; ?></span>
+                <a href="index.php" class="d-flex justify-content-center w-full">
+                  <img src="assets/img/meta_icon/Logo.png" style="width: 65%;" alt=<?php echo $website_display_default_name; ?>>
                 </a>
               </div><!-- End Logo -->
               <div class="card mb-3">

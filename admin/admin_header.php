@@ -5,13 +5,20 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - LMS</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>project.dev</title>
+    <!-- ===============================================-->
+    <!--    Meta -->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/meta_icon/180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/meta_icon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/meta_icon/16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/meta_icon/16x16.png">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/meta_icon/150x150.png">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
