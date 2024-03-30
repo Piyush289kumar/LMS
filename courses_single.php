@@ -28,8 +28,6 @@
   <link href="vendors/prism/prism.css" rel="stylesheet">
   <link href="vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/theme.css" rel="stylesheet" />
-
-
   <!-- session -->
   <?php
   session_start();
@@ -119,26 +117,21 @@
             <h4 style="font-weight: 600;" class="px-3"><?php echo $row_sql_fetch_courses['discount'] ?>% Off</h4>
           </div>
           <div class="pt-2 pb-2 w-100">
-
             <!-- Conditional Rendring -->
             <?php
-
-
-
-            if ($sessionUserId == 0) {
+            $sql_isEnroll = "SELECT * FROM enrollment WHERE course_id = '{$course_id}' AND enroll_user_id = '{$sessionUserId}'" or die("Query Failed!! --> sql_isEnroll");
+            $result_sql_isEnroll = mysqli_query($conn, $sql_isEnroll);
+            if (mysqli_num_rows($result_sql_isEnroll) > 0) {
             ?>
-
               <a href="study_area.php?course_id=<?php echo $row_sql_fetch_courses['cid']; ?>" class="rounded-2 fs-1 fw-semibold text-white" style="background: #198754; padding: 10px 40px;">Enter Study Area</a>
-
             <?php
             } else {
             ?>
               <a href="enrollment.php?course_id=<?php echo $row_sql_fetch_courses['cid']; ?>" class="rounded-2 bg-danger fs-1 fw-semibold text-white" style="padding: 10px 40px;">Enroll
                 Now</a>
             <?php
-            } ?>
-
-
+            }
+            ?>
           </div>
           <div class="pt-4 pb-2 px-4">
             <li><?php echo $row_sql_fetch_courses['feature_1'] ?></li>

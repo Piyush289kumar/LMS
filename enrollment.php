@@ -1,9 +1,7 @@
 <!-- Import Files -->
 <?php include('admin_header.php');
 include('private_files/system_configure_setting.php');
-
 $course_id = $_GET['course_id'];
-
 if (!isset($_GET['course_id'])) {
   echo "
   <script>
@@ -15,29 +13,23 @@ $course_id = $_GET['course_id'];
 <!-- Login Back-End Code -->
 <!-- Form Start -->
 <?php
-
 $userid = $sessionUserId;
 $username = $sessionUserUsername;
 $email =  $sessionUserEmail;
-
 if (isset($_POST['login'])) {
-
   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
   $sql_user_pass_cheack = "SELECT * FROM user_data WHERE email = '{$email}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
   $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
-
     $date = Date('d-m-Y');
-
     $sql_user_delete_record = "INSERT INTO enrollment (course_id, enroll_user_id, enroll_date) VALUES ('{$course_id}', '{$userid}','{$date}')";
-
     if (mysqli_query($conn, $sql_user_delete_record)) {
 ?>
       <script>
         alert('Your Enrollment is successfully Done !!')
       </script>
 <?php
-      // echo "<script>window.location.href='$hostname/admin/user_management_read.php'</script>";
+      echo "<script>window.location.href='$hostname/study_area.php?course_id=$course_id'</script>";
     } else {
       echo ("<div class='d-flex justify-content-center' style='margin-bottom:-120px; padding-top:60px;'><p class='btn btn-danger'>Invalid Password.</p></div>");
     }
@@ -69,7 +61,6 @@ if (isset($_POST['login'])) {
                     <p class="text-center small">Enter your password to perform action</p>
                   </div>
                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" class="row g-3 needs-validation" novalidate autocomplete="off">
-
                     <div class="col-12">
                       <label for="email" class="form-label">User Name</label>
                       <div class="input-group has-validation">
@@ -78,8 +69,6 @@ if (isset($_POST['login'])) {
                         <div class="invalid-feedback">Please enter your User Name.</div>
                       </div>
                     </div>
-
-
                     <div class="col-12">
                       <label for="email" class="form-label">Email</label>
                       <div class="input-group has-validation">
