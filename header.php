@@ -28,6 +28,16 @@
     <link href="vendors/prism/prism.css" rel="stylesheet">
     <link href="vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/css/theme.css" rel="stylesheet" />
+    <!-- session -->
+    <?php
+    session_start();
+    $sessionUserId =  $_SESSION['user_id'];
+    $sessionUserUsername =  $_SESSION['username'];
+    $sessionUserEmail =  $_SESSION['email'];
+    $sessionUserRole =  $_SESSION['user_role'];
+    $sessionUserProfile =  $_SESSION['user_profile_picture'];
+    ?>
+    <!-- session -->
 </head>
 
 <body>
@@ -45,7 +55,7 @@
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="study_area.php">Study Area</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="blogs.php">Blogs</a></li>
-                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="#">Log In</a></li>
+                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Log In</a></li>
                     </ul>
                 </div>
             </div>

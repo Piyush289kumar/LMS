@@ -39,7 +39,8 @@
     window.location.href = '$hostname/courses.php';
   </script>";
   }
-  $course_id = $_GET['course_id']; ?>
+  $course_id = $_GET['course_id'];
+  ?>
   <!-- ===============================================-->
   <!--    Main Content-->
   <!-- ===============================================-->
@@ -89,7 +90,7 @@
     </div>
     <!-- <section> begin ============================-->
     <section class="bg-white">
-      <div class="row px-5">
+      <div class="row flex-row-reverse px-5">
         <div class="col-5">
           <img src="admin/upload_media/courses_poster/<?php echo $row_sql_fetch_courses['poster'] ?>" alt="course poster" class="w-100 rounded-2">
           <div class="pt-4 pb-2 d-flex gap-2">
@@ -98,8 +99,28 @@
             <h4 style="font-weight: 600;" class="px-3"><?php echo $row_sql_fetch_courses['discount'] ?>% Off</h4>
           </div>
           <div class="pt-2 pb-2 w-100">
-            <a href="study_area.php?course_id=<?php echo $row_sql_fetch_courses['cid']; ?>" class="rounded-2 fs-1 fw-semibold text-white" style="background: #198754; padding: 10px 40px;">Enroll
-              Now</a>
+
+            <!-- Conditional Rendring -->
+            <?php
+            
+            echo  'user_id' .  $_SESSION['user_id'];
+            
+            if (isset($_SESSION['user_id'])) {
+              echo  'user_id' . $_SESSION['user_id'];
+              echo  'user_id' .  $_SESSION['user_id'];
+            ?>
+
+              <a href="study_area.php?course_id=<?php echo $row_sql_fetch_courses['cid']; ?>" class="rounded-2 fs-1 fw-semibold text-white" style="background: #198754; padding: 10px 40px;">Enter Study Area</a>
+
+            <?php
+            } else {
+            ?>
+              <a href="admin/login.php" class="rounded-2 bg-danger fs-1 fw-semibold text-white" style="padding: 10px 40px;">Enroll
+                Now</a>
+            <?php
+            } ?>
+
+
           </div>
           <div class="pt-4 pb-2 px-4">
             <li><?php echo $row_sql_fetch_courses['feature_1'] ?></li>

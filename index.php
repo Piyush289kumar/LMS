@@ -3,9 +3,11 @@
 include('private_files/system_configure_setting.php'); ?>
 
 <!-- Import course icon file -->
-<?php include('course_icon_slider.php') ?>
+<?php include('course_icon_slider.php');
+?>
 <!-- <section> begin ============================-->
 <section>
+
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 text-center text-lg-start"><img class="img-fluid" src="assets/img/course_logo/technology.png" alt="code" />

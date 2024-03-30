@@ -17,7 +17,7 @@
                         while ($row_sql_fetch_all_courses_icon = mysqli_fetch_assoc($result_sql_fetch_all_courses_icon)) {
                     ?>
                             <div class="swiper-slide">
-                                <a href="#">
+                                <a href="courses_single.php?course_id=<?php echo $row_sql_fetch_all_courses_icon['cid']; ?>">
                                     <img src="admin/upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses_icon['icon'] ?>" alt="<?php echo $row_sql_fetch_all_courses_icon['title'] ?>" class="w-100" />
                                 </a>
                             </div>
