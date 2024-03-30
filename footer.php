@@ -18,6 +18,7 @@
                 <ul class="list-unstyled">
                     <li class="my-3 col-md-4"><a href="index.php">Home</a></li>
                     <li class="my-3"><a href="courses.php">Project</a></li>
+                    <li class="my-3"><a href="about.php">About</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-sm-4">

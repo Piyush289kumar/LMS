@@ -71,7 +71,11 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Project</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
-            <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
+            <?php if ($sessionUserId == 0) { ?>
+              <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
+            <?php } else { ?>
+              <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Dashboard</a></li>
+            <?php } ?>
           </ul>
         </div>
       </div>

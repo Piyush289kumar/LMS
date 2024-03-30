@@ -28,6 +28,24 @@
   <link href="vendors/prism/prism.css" rel="stylesheet">
   <link href="vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/theme.css" rel="stylesheet" />
+  <!-- session -->
+  <?php
+  session_start();
+  if (isset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['email'], $_SESSION['user_role'], $_SESSION['user_profile_picture'])) {
+    $sessionUserId =  $_SESSION['user_id'];
+    $sessionUserUsername =  $_SESSION['username'];
+    $sessionUserEmail =  $_SESSION['email'];
+    $sessionUserRole =  $_SESSION['user_role'];
+    $sessionUserProfile =  $_SESSION['user_profile_picture'];
+  } else {
+    $sessionUserId = 0;
+    $sessionUserUsername = 0;
+    $sessionUserEmail = 0;
+    $sessionUserRole = 0;
+    $sessionUserProfile = 0;
+  }
+  ?>
+  <!-- session -->
 </head>
 
 <body>
@@ -43,7 +61,11 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Project</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
-            <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
+            <?php if ($sessionUserId == 0) { ?>
+              <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
+            <?php } else { ?>
+              <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Dashboard</a></li>
+            <?php } ?>
           </ul>
         </div>
       </div>
