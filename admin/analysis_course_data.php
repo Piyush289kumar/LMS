@@ -31,7 +31,7 @@ include('private_files/system_configure_setting.php'); ?>
               <div id="polarAreaChart"></div>
               <!-- PHP Code for data fetch from database -->
               <?php
-              $sql_fetch_course_category_data = "SELECT * FROM category ORDER BY num_of_record";
+              $sql_fetch_course_category_data = "SELECT * FROM category WHERE active_record = 'Yes' ORDER BY num_of_record";
               $result_sql_fetch_course_category_data = mysqli_query($conn, $sql_fetch_course_category_data) or die("Query Failed!!");
               if (mysqli_num_rows($result_sql_fetch_course_category_data) > 0) {
                 $temp = array();
