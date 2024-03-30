@@ -8,16 +8,16 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Boldo | Boldo Agency Template</title>
+    <title>project.dev</title>
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/meta_icon/180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/meta_icon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/meta_icon/16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/meta_icon/16x16.png">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="msapplication-TileImage" content="assets/img/meta_icon/150x150.png">
     <meta name="theme-color" content="#ffffff">
     <!-- ===============================================-->
     <!--    Stylesheets-->
@@ -54,7 +54,7 @@
     <!-- ===============================================-->
     <main class="main" id="top">
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
-            <div class="container"><a class="navbar-brand" href="index.php"><img src="assets/img/Logo.png" alt="" /></a>
+            <div class="container"><a class="navbar-brand" href="index.php"><img src="assets/img/meta_icon/logo_163.png" alt="project.dev" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars text-white fs-3"></i></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
@@ -73,25 +73,23 @@
                 <div class="container">
                     <div class="row align-items-center py-lg-8 py-6">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white fs-5 fs-xl-6">Save time by building fast with Boldo Template</h1>
-                            <p class="text-white py-lg-3 py-2">Funding handshake buyer business-to-business metrics iPad partnership.
-                                First mover advantage innovator success deployment non-disclosure.</p>
+                            <h1 class="text-white fs-5 fs-xl-6 text-capitalize">Up Skill & Level up with project.dev</h1>
+                            <p class="text-white py-lg-3 py-2">Where Vision Meets Execution: Fueling Your Projects Forward.</p>
                             <div class="d-sm-flex align-items-center gap-3">
-                                <button class="btn btn-success text-black mb-3 w-75">Buy Template</button>
-                                <button class="btn btn-outline-light mb-3 w-75">Explore</button>
+                                <a href="courses.php" class="btn btn-success text-black mb-3 w-50">Explore Projects</a>
                             </div>
                         </div>
-                        <div class="col-lg-6 text-center text-lg-end mt-3 mt-lg-0"><img class="img-fluid" src="assets/img/hero/hero-graphics.png" alt="" /></div>
+                        <div class="col-lg-6 text-center text-lg-end mt-3 mt-lg-0"><img class="img-fluid" src="assets/img/hero/hero-graphics.png" alt="hero_section" /></div>
                     </div>
                     <div class="swiper ">
                         <div class="swiper-container swiper-shadow swiper-theme" data-swiper='{"slidesPerView":2,"breakpoints":{"640":{"slidesPerView":2,"spaceBetween":20},"768":{"slidesPerView":4,"spaceBetween":40},"992":{"slidesPerView":5,"spaceBetween":40},"1024":{"slidesPerView":4,"spaceBetween":50},"1025":{"slidesPerView":6,"spaceBetween":50}},"spaceBetween":10,"grabCursor":true,"pagination":{"el":".swiper-pagination","clickable":true},"loop":true,"freeMode":true,"autoplay":{"delay":2500,"disableOnInteraction":false}}'>
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide text-center"><img src="assets/img/logos/boldo.png" alt="" /></div>
-                                <div class="swiper-slide text-center"><img src="assets/img/logos/presto.png" alt="" /></div>
-                                <div class="swiper-slide text-center"><img src="assets/img/logos/boldo.png" alt="" /></div>
-                                <div class="swiper-slide text-center"><img src="assets/img/logos/presto.png" alt="" /></div>
-                                <div class="swiper-slide text-center"><img src="assets/img/logos/boldo.png" alt="" /></div>
-                                <div class="swiper-slide text-center"><img src="assets/img/logos/presto.png" alt="" /></div>
+                                <div class="swiper-slide text-center"><img src="assets/img/meta_icon/logo_145.png" alt="project.dev" /></div>
+                                <div class="swiper-slide text-center"><img src="assets/img/meta_icon/logo_145.png" alt="project.dev" /></div>
+                                <div class="swiper-slide text-center"><img src="assets/img/meta_icon/logo_145.png" alt="project.dev" /></div>
+                                <div class="swiper-slide text-center"><img src="assets/img/meta_icon/logo_145.png" alt="project.dev" /></div>
+                                <div class="swiper-slide text-center"><img src="assets/img/meta_icon/logo_145.png" alt="project.dev" /></div>
+                                <div class="swiper-slide text-center"><img src="assets/img/meta_icon/logo_145.png" alt="project.dev" /></div>
                             </div>
                         </div>
                     </div>
