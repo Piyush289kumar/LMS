@@ -23,7 +23,6 @@ include('private_files/system_configure_setting.php'); ?>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row pt-4">
-
         <!-- Bar Chart -->
         <div class="col-lg-6" style='cursor: pointer;'>
           <!-- PHP Code for data fetch from database -->
@@ -40,13 +39,12 @@ include('private_files/system_configure_setting.php'); ?>
               $teamFetchResTeamsName[] = $row_sql_fetch_teams['team_name'];
               $teamFetchResTeamsMemberCount[] = $row_sql_fetch_teams['num_of_member'];
             }
-            $total_count_of_team = mysqli_num_rows($result_sql_fetch_teams);
           } ?>
           <!-- PHP Code for data fetch from database -->
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Teams Data</h5>
-              <p>Total Teams: <?php echo $total_count_of_team ?></p>
+              <p>Total Teams: <?php echo mysqli_num_rows($result_sql_fetch_teams) ?></p>
               <div id="barChart"></div>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
@@ -77,8 +75,6 @@ include('private_files/system_configure_setting.php'); ?>
           </div>
         </div>
         <!-- End Bar Chart -->
-
-
         <!-- Polar Area Chart -->
         <div class="col-lg-6">
           <!-- PHP Code for data fetch from database -->
