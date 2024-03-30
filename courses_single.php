@@ -28,6 +28,26 @@
   <link href="vendors/prism/prism.css" rel="stylesheet">
   <link href="vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/theme.css" rel="stylesheet" />
+
+
+  <!-- session -->
+  <?php
+  session_start();
+  if (isset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['email'], $_SESSION['user_role'], $_SESSION['user_profile_picture'])) {
+    $sessionUserId =  $_SESSION['user_id'];
+    $sessionUserUsername =  $_SESSION['username'];
+    $sessionUserEmail =  $_SESSION['email'];
+    $sessionUserRole =  $_SESSION['user_role'];
+    $sessionUserProfile =  $_SESSION['user_profile_picture'];
+  } else {
+    $sessionUserId = 0;
+    $sessionUserUsername = 0;
+    $sessionUserEmail = 0;
+    $sessionUserRole = 0;
+    $sessionUserProfile = 0;
+  }
+  ?>
+  <!-- session -->
 </head>
 
 <body>
@@ -102,12 +122,10 @@
 
             <!-- Conditional Rendring -->
             <?php
-            
-            echo  'user_id' .  $_SESSION['user_id'];
-            
-            if (isset($_SESSION['user_id'])) {
-              echo  'user_id' . $_SESSION['user_id'];
-              echo  'user_id' .  $_SESSION['user_id'];
+
+
+
+            if ($sessionUserId == 0) {
             ?>
 
               <a href="study_area.php?course_id=<?php echo $row_sql_fetch_courses['cid']; ?>" class="rounded-2 fs-1 fw-semibold text-white" style="background: #198754; padding: 10px 40px;">Enter Study Area</a>
@@ -115,7 +133,7 @@
             <?php
             } else {
             ?>
-              <a href="admin/login.php" class="rounded-2 bg-danger fs-1 fw-semibold text-white" style="padding: 10px 40px;">Enroll
+              <a href="enrollment.php?course_id=<?php echo $row_sql_fetch_courses['cid']; ?>" class="rounded-2 bg-danger fs-1 fw-semibold text-white" style="padding: 10px 40px;">Enroll
                 Now</a>
             <?php
             } ?>

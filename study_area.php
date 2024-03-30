@@ -175,8 +175,9 @@
   } else {
     ?>
     <div class="row" style='height: 80vh;'>
-      <div class="offset-lg-5 d-flex justify-content-center align-items-center col-lg-4">
-        <a class="btn btn-danger w-75">No Data Found.</a>
+      <div class="offset-lg-5 d-flex flex-column justify-content-center align-items-center col-lg-4">
+        <i class="bi bi-journal-code text-success btn" style='font-size:20vh'></i>
+        <p class="text-success fw-bold" style='font-size:3vh;'>Please choose a chapter.</p>
       </div>
     </div>
   <?php

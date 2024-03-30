@@ -31,11 +31,19 @@
     <!-- session -->
     <?php
     session_start();
-    $sessionUserId =  $_SESSION['user_id'];
-    $sessionUserUsername =  $_SESSION['username'];
-    $sessionUserEmail =  $_SESSION['email'];
-    $sessionUserRole =  $_SESSION['user_role'];
-    $sessionUserProfile =  $_SESSION['user_profile_picture'];
+    if (isset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['email'], $_SESSION['user_role'], $_SESSION['user_profile_picture'])) {
+        $sessionUserId =  $_SESSION['user_id'];
+        $sessionUserUsername =  $_SESSION['username'];
+        $sessionUserEmail =  $_SESSION['email'];
+        $sessionUserRole =  $_SESSION['user_role'];
+        $sessionUserProfile =  $_SESSION['user_profile_picture'];
+    } else {
+        $sessionUserId = 0;
+        $sessionUserUsername = 0;
+        $sessionUserEmail = 0;
+        $sessionUserRole = 0;
+        $sessionUserProfile = 0;
+    }
     ?>
     <!-- session -->
 </head>
