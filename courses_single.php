@@ -94,7 +94,7 @@
                 <a href="#" class="text-white"><i class="bi bi-house bg-success rounded-circle text-center px-2 py-1 pb-2"></i>
                   Home</a>
                 <i class="bi bi-chevron-right text-white "></i>
-                <a href="#" class="text-white">Project</a>
+                <a href="courses.php" class="text-white">Project</a>
                 <i class="bi bi-chevron-right text-white "></i>
                 <a class="text-white"><?php echo $row_sql_fetch_courses['title'] ?></a>
               </div>
@@ -106,7 +106,7 @@
     <!-- ============================================-->
     </div>
     <!-- <section> begin ============================-->
-    <section class="bg-white">      
+    <section class="bg-white">
       <div class="row flex-row-reverse px-5">
         <div class="col-5">
           <img src="admin/upload_media/courses_poster/<?php echo $row_sql_fetch_courses['poster'] ?>" alt="course poster" class="w-100 rounded-2">
