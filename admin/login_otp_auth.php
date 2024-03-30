@@ -68,7 +68,7 @@ if (isset($_POST['verify'])) {
                       <button class="btn btn-primary w-100" type="submit" name='verify'>Verify OTP</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="login.php">login</a></p>
+                      <p class="small mb-0">Already have an account? <a href="../login.php">login</a></p>
                     </div>
                   </form>
                 </div>

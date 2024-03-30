@@ -16,7 +16,8 @@ if (isset($_POST['login'])) {
   $sql_user_pass_cheack = "SELECT * FROM user_data WHERE email = '{$email}' AND password = '{$pass}'" or die("Query Failed!! --> sql_user_pass_cheack");
   $result_sql_user_pass_cheack = mysqli_query($conn, $sql_user_pass_cheack);
   if (mysqli_num_rows($result_sql_user_pass_cheack) > 0) {
-    $sql_user_delete_record = "UPDATE user_data SET active_record ='No' WHERE user_id = '{$user_id}'";
+
+    $sql_user_delete_record = "UPDATE user_data SET email = 'email_deactive',  active_record ='No' WHERE user_id = '{$user_id}'";
     if (mysqli_query($conn, $sql_user_delete_record)) {
 ?>
       <script>

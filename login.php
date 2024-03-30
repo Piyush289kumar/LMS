@@ -21,9 +21,7 @@ if (isset($_POST['login'])) {
 
       //Conditional Rending
       if ($row['tfa'] == 'No') {
-        // echo "<script>window.location.href='$hostname/admin'</script>";
-
-
+        echo "<script>window.location.href='$hostname/admin'</script>";
         echo $_SESSION['user_id'];
         echo $_SESSION['username'];
         echo $_SESSION['email'];
@@ -118,6 +116,6 @@ if (isset($_POST['login'])) {
       </section>
     </div>
   </main><!-- End #main -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Import Vendor JS links -->
   <?php include('admin_footer_vendor_links.php') ?>

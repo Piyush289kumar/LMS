@@ -21,7 +21,7 @@ if (isset($_POST['verify'])) {
       alert('Registration completed successfully.')
     </script>
 <?php
-    echo "<script>window.location.href='$hostname/admin/login.php'</script>";
+    echo "<script>window.location.href='$hostname/login.php'</script>";
   } else {
     $notification_box = 'none !important';
     echo ("<div class='d-flex justify-content-center' style='padding-top:60px;'><p class='btn btn-danger'>Invalid OTP.</p></div>");
@@ -68,7 +68,7 @@ if (isset($_POST['verify'])) {
                       <button class="btn btn-primary w-100" type="submit" name='verify'>Verify OTP</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="login.php">login</a></p>
+                      <p class="small mb-0">Already have an account? <a href="../login.php">login</a></p>
                     </div>
                   </form>
                 </div>

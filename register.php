@@ -98,13 +98,6 @@ if (isset($_POST['save'])) {
                         <div class="invalid-feedback">Please enter your Password.</div>
                       </div>
                     </div>
-                    <!-- <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                        <div class="invalid-feedback">You must agree before submitting.</div>
-                      </div>
-                    </div> -->
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit" name="save">Create Account</button>
                     </div>
@@ -123,6 +116,6 @@ if (isset($_POST['save'])) {
       </section>
     </div>
   </main><!-- End #main -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Import Vendor JS links -->
   <?php include('admin_footer_vendor_links.php') ?>
