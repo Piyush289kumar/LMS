@@ -8,16 +8,16 @@
   <!-- ===============================================-->
   <!--    Document Title-->
   <!-- ===============================================-->
-  <title>Boldo | Boldo Agency Template</title>
+  <title>project.dev</title>
   <!-- ===============================================-->
-  <!--    Favicons-->
+  <!--    Meta -->
   <!-- ===============================================-->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/meta_icon/180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/meta_icon/32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/meta_icon/16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/meta_icon/16x16.png">
   <link rel="manifest" href="assets/img/favicons/manifest.json">
-  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <meta name="msapplication-TileImage" content="assets/img/meta_icon/150x150.png">
   <meta name="theme-color" content="#ffffff">
   <!-- ===============================================-->
   <!--    Stylesheets-->
@@ -63,21 +63,20 @@
   <!--    Main Content-->
   <!-- ===============================================-->
   <main class="main" id="top" style="background: #0A2640;">
-    <nav class="navbar navbar-expand-lg navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/Logo.png" alt="" /></a>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand" href="index.php"><img src="assets/img/meta_icon/Logo.png" alt="project.dev" style='width:20%' /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars text-white fs-3"></i></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.html">Courses</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="blogs.html">Blogs</a></li>
-            <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="#">Log In</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Project</a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
+            <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="bg-dark" style="height: 100px;"><img class="img-fluid position-absolute end-0" src="assets/img/hero/hero-bg.png" alt="Hero Section" />
+    <div class="bg-dark pt-5" style="height: 250px;"><img class="img-fluid position-absolute end-0" src="assets/img/hero/hero-bg.png" alt="Hero Section" />
       <!-- ============================================-->
       <!-- Fetch Course Data -->
       <!-- Fetch course data -->
@@ -89,13 +88,13 @@
         while ($row_sql_fetch_courses = mysqli_fetch_assoc($result_sql_fetch_courses)) {
       ?>
           <!-- <section> begin ============================-->
-          <div class="container pt-4">
-            <div class="row">
-              <div class="col-md-12 text-center d-flex gap-2 justify-content-start align-items-center">
+          <div class="container pt-5">
+            <div class="row py-5">
+              <div class="col-md-12 pt-5 text-center d-flex gap-2 justify-content-start align-items-center">
                 <a href="#" class="text-white"><i class="bi bi-house bg-success rounded-circle text-center px-2 py-1 pb-2"></i>
                   Home</a>
                 <i class="bi bi-chevron-right text-white "></i>
-                <a href="#" class="text-white">Courses</a>
+                <a href="#" class="text-white">Project</a>
                 <i class="bi bi-chevron-right text-white "></i>
                 <a class="text-white"><?php echo $row_sql_fetch_courses['title'] ?></a>
               </div>
@@ -107,7 +106,7 @@
     <!-- ============================================-->
     </div>
     <!-- <section> begin ============================-->
-    <section class="bg-white">
+    <section class="bg-white">      
       <div class="row flex-row-reverse px-5">
         <div class="col-5">
           <img src="admin/upload_media/courses_poster/<?php echo $row_sql_fetch_courses['poster'] ?>" alt="course poster" class="w-100 rounded-2">
@@ -220,62 +219,5 @@
   <!-- ===============================================-->
   <!-- ============================================-->
   <!-- <section> begin ============================-->
-  <section class="pt-0 bg-light rounded-top">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-lg-6 col-sm-12"><a href="index.html"><img class="img-fluid mt-5 mb-4" src="assets/img/black-logo.png" alt="" /></a>
-          <p class="w-lg-75 text-gray">Social media validation business model canvas graphical user interface launch
-            party creative facebook iPad twitter.</p>
-        </div>
-        <div class="col-lg-2 col-sm-4">
-          <h3 class="fw-bold fs-1 mt-5 mb-4">Quick Links</h3>
-          <ul class="list-unstyled">
-            <li class="my-3 col-md-4"><a href="#">Home</a></li>
-            <li class="my-3"><a href="#">Courses</a></li>
-            <li class="my-3"><a href="#"></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-sm-4">
-          <h3 class="fw-bold fs-1 mt-5 mb-4">Social handles</h3>
-          <div class="d-flex gap-4">
-            <ul class="list-unstyled">
-              <li class="my-3"><a href="#"><i class="fs-2 bi-github"></i></a></li>
-            </ul>
-            <ul class="list-unstyled">
-              <li class="my-3"><a href="#"><i class="fs-2 bi-linkedin"></i></a></li>
-            </ul>
-            <ul class="list-unstyled">
-              <li class="my-3"><a href="#"><i class="fs-2 bi-discord"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4">
-          <h3 class="fw-bold fs-1 mt-5 mb-4">Short-Cuts</h3>
-          <ul class="list-unstyled">
-            <li class="mb-3"><a href="#">About</a></li>
-            <li class="mb-3"><a href="#">Log-In</a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="text-gray">All rights reserved.</p>
-    </div>
-    <!-- end of .container-->
-  </section>
-  <!-- <section> close ============================-->
-  <!-- ============================================-->
-  <!-- ===============================================-->
-  <!--    JavaScripts-->
-  <!-- ===============================================-->
-  <script src="vendors/popper/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="vendors/anchorjs/anchor.min.js"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/fontawesome/all.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="vendors/prism/prism.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+  <!-- Import FIles -->
+  <?php include('footer.php') ?>

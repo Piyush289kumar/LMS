@@ -4,12 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  <!-- Favicons -->
-  <link href="admin/assets/img/favicon.png" rel="icon">
-  <link href="admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>project.dev</title>
+  <!-- ===============================================-->
+  <!--    Meta -->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/meta_icon/180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/meta_icon/32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/meta_icon/16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/meta_icon/16x16.png">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/meta_icon/150x150.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- ===============================================-->
+
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -42,7 +52,7 @@
   </script>";
   }
   $course_id = $_GET['course_id'];
-  if (!isset($_GET['course_id'])) {
+  if (!isset($_GET['chapter_id'])) {
     $chapter_id = 'blank';
   } else {
     $chapter_id = $_GET['chapter_id'];
@@ -51,18 +61,18 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center" style="background: #0A2640;">
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/Logo.png" alt="Logo">
+      <a href="index.php" class="logo d-flex align-items-center">
+        <img src="assets/img/meta_icon/Logo.png" alt="project.dev" style='width:50%; height:250px'>
       </a>
       <i class="bi bi-list toggle-sidebar-btn text-white"></i>
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <div class="d-flex gap-4 px-5">
-          <a href="#" class="text-white btn fw-bold">Home</a>
-          <a href="#" class="text-white btn fw-bold">Course</a>
-          <a href="#" class="text-white btn fw-bold">About</a>
-          <a href="#" class="btn bg-light fw-bold text-dark rounded-5">Login</a>
+          <a href="index.php" class="text-white btn fw-bold">Home</a>
+          <a href="courses.php" class="text-white btn fw-bold">Course</a>
+          <a href="about.php" class="text-white btn fw-bold">About</a>
+          <a href="admin/users-profile-overview.php" class="btn bg-light fw-bold text-dark rounded-5">Dashboard</a>
         </div>
       </ul>
     </nav><!-- End Icons Navigation -->

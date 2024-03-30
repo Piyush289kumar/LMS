@@ -10,7 +10,7 @@
     <!-- ===============================================-->
     <title>project.dev</title>
     <!-- ===============================================-->
-    <!--    Favicons-->
+    <!--    Meta -->
     <!-- ===============================================-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/meta_icon/180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/meta_icon/32x32.png">
@@ -61,7 +61,7 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Project</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
-                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">C-Panel</a></li>
+                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
                     </ul>
                 </div>
             </div>

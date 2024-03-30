@@ -6,19 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- ===============================================-->
-  <!--    Document Title-->
-  <!-- ===============================================-->
-  <title>Boldo | Boldo Agency Template</title>
-  <!-- ===============================================-->
-  <!--    Favicons-->
-  <!-- ===============================================-->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-  <link rel="manifest" href="assets/img/favicons/manifest.json">
-  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
-  <meta name="theme-color" content="#ffffff">
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>project.dev</title>
+    <!-- ===============================================-->
+    <!--    Meta -->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/meta_icon/180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/meta_icon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/meta_icon/16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/meta_icon/16x16.png">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/meta_icon/150x150.png">
+    <meta name="theme-color" content="#ffffff"> 
   <!-- ===============================================-->
   <!--    Stylesheets-->
   <!-- ===============================================-->
@@ -35,21 +35,20 @@
   <!--    Main Content-->
   <!-- ===============================================-->
   <main class="main" id="top">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="index.php"><img src="assets/img/Logo.png" alt="" /></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars text-white fs-3"></i></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Courses</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="blogs.php">Blogs</a></li>
-            <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="#">Log In</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="bg-dark"><img class="img-fluid position-absolute end-0" src="assets/img/hero/hero-bg.png" alt="Hero Section" />
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container"><a class="navbar-brand" href="index.php"><img src="assets/img/meta_icon/Logo.png" alt="project.dev" style='width:20%' /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars text-white fs-3"></i></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="courses.php">Project</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="about.php">About</a></li>
+                        <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.php">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="bg-dark"><img class="img-fluid position-absolute end-0" src="assets/img/hero/hero-bg.png" alt="Hero Section" />
       <!-- ============================================-->
       <!-- <section> begin ============================-->
       <section>
@@ -59,7 +58,7 @@
               <a href="index.php" class="text-white"><i class="bi bi-house bg-success rounded-circle text-center px-2 py-1 pb-2"></i>
                 Home</a>
               <i class="bi bi-chevron-right text-white "></i>
-              <a class="text-white">Courses</a>
+              <a class="text-white">Project</a>
             </div>
           </div>
         </div>
@@ -78,7 +77,7 @@
     <section class="bg-white mb-0 pb-0">
       <div class="container">
         <div class="col-md-12 pb-4">
-          <h1 class="text-dark fw-bold fs-4 text-center">Explore Our Courses</h1>
+          <h1 class="text-dark fw-bold fs-4 text-center">Explore Our Project</h1>
         </div>
         <div class="row pt-5 justify-content-center">
           <!-- Fetch course data -->
