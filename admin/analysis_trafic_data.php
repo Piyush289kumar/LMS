@@ -17,16 +17,14 @@ include('private_files/system_configure_setting.php'); ?>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item">Analysis Center</li>
-          <li class="breadcrumb-item active">Users Management Analysis</li>
+          <li class="breadcrumb-item active">Application Trafic Analysis</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row pt-4">
-        <!-- Trafic Chart -->
+        <!-- Application Trafic Browswer Wise Chart -->
         <div class="col-lg-6">
-
-
           <div class="card" style="cursor: pointer;">
             <!-- PHP Code for data fetch from database -->
             <?php
@@ -43,17 +41,16 @@ include('private_files/system_configure_setting.php'); ?>
             } ?>
             <!-- PHP Code for data fetch from database -->
             <div class="card-body">
-              <h5 class="card-title">Application Trafic</h5>
+              <h5 class="card-title">Application Trafic (Browser Wise)</h5>
               <p>Total Trafic Browser Wise : <?php echo $total_trafic ?></p>
               <!-- Radial Bar Chart -->
               <div id="radialBarChart"></div>
-
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   new ApexCharts(document.querySelector("#radialBarChart"), {
                     series: <?php echo json_encode($browser_trafic_count); ?>,
                     chart: {
-                      height: 350,
+                      height: 400,
                       type: 'radialBar',
                       toolbar: {
                         show: true
@@ -84,115 +81,56 @@ include('private_files/system_configure_setting.php'); ?>
                 });
               </script>
               <!-- End Radial Bar Chart -->
-
             </div>
           </div>
         </div>
+        <!-- Application Trafic Browswer Wise Chart -->
 
-        <!-- Trafic Chart -->
-        <!-- Column Chart -->
+        <!-- Application Trafic Device Wise Chart -->
         <div class="col-lg-6">
           <!-- PHP Code for data fetch from database -->
           <?php
-          $sql_fetch_user_social_links = "SELECT * FROM user_data";
-          $result_sql_fetch_user_social_links = mysqli_query($conn, $sql_fetch_user_social_links) or die("Query Failed!!");
-          if (mysqli_num_rows($result_sql_fetch_user_social_links) > 0) {
-            $userFacebookFetchRes = array();
-            $userTwitterFetchRes = array();
-            $userLinkedinFetchRes = array();
-            $userInstagramFetchRes = array();
-            $userYoutubeFetchRes = array();
-            $userGithubFetchRes = array();
-            while ($row_sql_fetch_user_social_links = mysqli_fetch_assoc($result_sql_fetch_user_social_links)) {
-              $userFacebookFetchRes[] = $row_sql_fetch_user_social_links['fb'];
-              $userTwitterFetchRes[] = $row_sql_fetch_user_social_links['twitter'];
-              $userLinkedinFetchRes[] = $row_sql_fetch_user_social_links['linkedin'];
-              $userInstagramFetchRes[] = $row_sql_fetch_user_social_links['insta'];
-              $userYoutubeFetchRes[] = $row_sql_fetch_user_social_links['youtube'];
-              $userGithubFetchRes[] = $row_sql_fetch_user_social_links['github'];
+          $sql_fetch_app_trafic_device = "SELECT COUNT(trafic_device) AS device_trafic_count, trafic_device FROM `trafic` GROUP BY trafic_device";
+          $result_sql_fetch_app_trafic_device = mysqli_query($conn, $sql_fetch_app_trafic_device) or die("Query Failed!!");
+          if (mysqli_num_rows($result_sql_fetch_app_trafic_device) > 0) {
+            $device_name = array();
+            $device_trafic_count = array();
+            while ($row_sql_fetch_app_trafic_device = mysqli_fetch_assoc($result_sql_fetch_app_trafic_device)) {
+              $device_name[] = $row_sql_fetch_app_trafic_device['trafic_device'];
+              $device_trafic_count[] = $row_sql_fetch_app_trafic_device['device_trafic_count'];
             }
-            $total_count_of_users_social = mysqli_num_rows($result_sql_fetch_user_social_links);
-            //Count Data from fetch array
-            $active_fb_count = count(array_filter($userFacebookFetchRes, function ($var) {
-              return ($var != '');
-            }));
-            $active_twitter_count = count(array_filter($userTwitterFetchRes, function ($var) {
-              return ($var != '');
-            }));
-            $active_linkedin_count = count(array_filter($userLinkedinFetchRes, function ($var) {
-              return ($var != '');
-            }));
-            $active_insta_count = count(array_filter($userInstagramFetchRes, function ($var) {
-              return ($var != '');
-            }));
-            $active_youtube_count = count(array_filter($userYoutubeFetchRes, function ($var) {
-              return ($var != '');
-            }));
-            $active_github_count = count(array_filter($userGithubFetchRes, function ($var) {
-              return ($var != '');
-            }));
+            $total_device_trafic = array_sum($device_trafic_count);
           } ?>
           <!-- PHP Code for data fetch from database -->
           <div class="card" style="cursor: pointer;">
             <div class="card-body">
-              <h5 class="card-title">Users Social Handles</h5>
-              <p>Total Users Social Handles : <?php echo $total_count_of_users_social ?></p>
-              <div id="columnChart"></div>
+            <h5 class="card-title">Application Trafic (Device Wise)</h5>
+              <p>Total Trafic Device Wise : <?php echo $total_device_trafic ?></p>
+              <!-- Polar Area Chart -->
+              <canvas id="polarAreaChart" style="max-height: 380px;"></canvas>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
-                  new ApexCharts(document.querySelector("#columnChart"), {
-                    series: [{
-                      name: 'Total Users Count',
-                      data: [<?php echo $total_count_of_users_social ?>, <?php echo $total_count_of_users_social ?>, <?php echo $total_count_of_users_social ?>, <?php echo $total_count_of_users_social ?>, <?php echo $total_count_of_users_social ?>, <?php echo $total_count_of_users_social ?>]
-                    }, {
-                      name: 'Total Users Social Count',
-                      data: [<?php echo $active_linkedin_count ?>, <?php echo $active_github_count ?>, <?php echo $active_fb_count ?>, <?php echo $active_twitter_count ?>, <?php echo $active_insta_count ?>, <?php echo $active_youtube_count ?>]
-                    }],
-                    chart: {
-                      type: 'bar',
-                      height: 385
-                    },
-                    plotOptions: {
-                      bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                      },
-                    },
-                    dataLabels: {
-                      enabled: false
-                    },
-                    stroke: {
-                      show: true,
-                      width: 2,
-                      colors: ['transparent']
-                    },
-                    xaxis: {
-                      categories: ['Linkedin', 'Github', 'Facebook', 'Twitter', 'Instagram', 'Youtube'],
-                    },
-                    yaxis: {
-                      title: {
-                        text: 'Users Social Handles Data'
-                      }
-                    },
-                    fill: {
-                      opacity: 1
-                    },
-                    tooltip: {
-                      y: {
-                        formatter: function(val) {
-                          return "Filled Social Filed : " + val
-                        }
-                      }
+                  new Chart(document.querySelector('#polarAreaChart'), {
+                    type: 'polarArea',
+                    data: {
+                      labels: <?php echo json_encode($device_name) ?>,
+                      datasets: [{
+                        label: 'Users Count',
+                        data: <?php echo json_encode($device_trafic_count) ?>,
+                        backgroundColor: [
+                          'rgb(255, 205, 86)',
+                          'rgb(54, 162, 235)',
+                        ]
+                      }]
                     }
-                  }).render();
+                  });
                 });
               </script>
-              <!-- End Column Chart -->
+              <!-- End Polar Area Chart -->
             </div>
           </div>
         </div>
-        <!-- Column Chart -->
+        <!-- Application Trafic Device Wise Chart -->
       </div>
     </section>
   </main><!-- End #main -->
