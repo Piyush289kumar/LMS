@@ -17,6 +17,11 @@
                 </a>
                 <ul id="analysisCenter" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
+                        <a href="analysis_trafic_data.php">
+                            <i class="bi bi-circle"></i><span>Application Trafic</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="analysis_administrative_data.php">
                             <i class="bi bi-circle"></i><span>Administrative Data</span>
                         </a>
