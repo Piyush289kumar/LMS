@@ -111,8 +111,8 @@
     </div>
     <!-- <section> begin ============================-->
     <section class="bg-white">
-      <div class="row flex-row-reverse px-5">
-        <div class="col-5">
+      <div class="row flex-lg-row-reverse px-5">
+        <div class="col-lg-5">
           <img src="admin/upload_media/courses_poster/<?php echo $row_sql_fetch_courses['poster'] ?>" alt="course poster" class="w-100 rounded-2">
           <div class="pt-4 pb-2 d-flex gap-2">
             <h3 style="font-weight: 600;">₹ <?php echo $row_sql_fetch_courses['sell_price'] ?> <sup class="text-decoration-line-through" style="color:gray">₹ <?php echo $row_sql_fetch_courses['main_price'] ?></sup>
@@ -143,7 +143,7 @@
             <li><?php echo $row_sql_fetch_courses['feature_4'] ?></li>
           </div>
         </div>
-        <div class="col-7">
+        <div class="col-lg-7">
           <h3 style="font-weight: 600;"><?php echo $row_sql_fetch_courses['title'] ?></h3>
           <h5>Level: <?php echo $row_sql_fetch_courses['level'] ?></h5>
           <div class="d-flex gap-2 justify-content-start align-content-center pb-2">

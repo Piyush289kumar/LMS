@@ -39,7 +39,7 @@ include('private_files/system_configure_setting.php') ?>
         ?>
             <!-- Card -->
             <div class="col-lg-4 pb-5">
-              <a href="http://localhost/lms/study_area.php?course_id=<?php echo $row_sql_fetch_all_courses['cid']; ?>">
+              <a href="<?php echo $hostname ?>/study_area.php?course_id=<?php echo $row_sql_fetch_all_courses['cid']; ?>">
                 <div class="card rounded-2 shadow-sm">
                   <img src="upload_media/courses_poster/<?php echo $row_sql_fetch_all_courses['poster'] ?>" class="card-img-top" alt="<?php echo $row_sql_fetch_all_courses['title'] ?>">
                   <div class="card-body p-3">

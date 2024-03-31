@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.php" class="logo d-flex align-items-center">
+        <a href="<?php echo $hostname ?>" class="logo d-flex align-items-center">
             <img src="../assets/img/meta_icon/Logo.png" style="width: 50%;" alt="project.dev">
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
