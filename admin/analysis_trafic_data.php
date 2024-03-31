@@ -23,27 +23,28 @@ include('private_files/system_configure_setting.php'); ?>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row pt-4">
-        <!-- Polar Area Chart -->
+        <!-- Trafic Chart -->
         <div class="col-lg-6">
-          <!-- PHP Code for data fetch from database -->
-          <?php
-          $sql_fetch_app_trafic = "SELECT COUNT(trafic_browser) AS browser_trafic_count, trafic_browser FROM `trafic` GROUP BY trafic_browser";
-          $result_sql_fetch_app_trafic = mysqli_query($conn, $sql_fetch_app_trafic) or die("Query Failed!!");
-          if (mysqli_num_rows($result_sql_fetch_app_trafic) > 0) {
-            $brower_name = array();
-            $browser_trafic_count = array();
-            while ($row_sql_fetch_app_trafic = mysqli_fetch_assoc($result_sql_fetch_app_trafic)) {
-              $brower_name[] = $row_sql_fetch_app_trafic['trafic_browser'];
-              $browser_trafic_count[] = $row_sql_fetch_app_trafic['browser_trafic_count'];
-            }
-            $total_trafic = array_sum($browser_trafic_count);
-          } ?>
-          <!-- PHP Code for data fetch from database -->
+
 
           <div class="card" style="cursor: pointer;">
+            <!-- PHP Code for data fetch from database -->
+            <?php
+            $sql_fetch_app_trafic = "SELECT COUNT(trafic_browser) AS browser_trafic_count, trafic_browser FROM `trafic` GROUP BY trafic_browser";
+            $result_sql_fetch_app_trafic = mysqli_query($conn, $sql_fetch_app_trafic) or die("Query Failed!!");
+            if (mysqli_num_rows($result_sql_fetch_app_trafic) > 0) {
+              $brower_name = array();
+              $browser_trafic_count = array();
+              while ($row_sql_fetch_app_trafic = mysqli_fetch_assoc($result_sql_fetch_app_trafic)) {
+                $brower_name[] = $row_sql_fetch_app_trafic['trafic_browser'];
+                $browser_trafic_count[] = $row_sql_fetch_app_trafic['browser_trafic_count'];
+              }
+              $total_trafic = array_sum($browser_trafic_count);
+            } ?>
+            <!-- PHP Code for data fetch from database -->
             <div class="card-body">
               <h5 class="card-title">Application Trafic</h5>
-              <p>Total Trafic Count : <?php echo $total_trafic ?></p>
+              <p>Total Trafic Browser Wise : <?php echo $total_trafic ?></p>
               <!-- Radial Bar Chart -->
               <div id="radialBarChart"></div>
 
@@ -88,7 +89,7 @@ include('private_files/system_configure_setting.php'); ?>
           </div>
         </div>
 
-        <!-- Polar Area Chart -->
+        <!-- Trafic Chart -->
         <!-- Column Chart -->
         <div class="col-lg-6">
           <!-- PHP Code for data fetch from database -->

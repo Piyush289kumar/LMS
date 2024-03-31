@@ -17,7 +17,7 @@ function get_browser_info()
   $user_agent = $_SERVER['HTTP_USER_AGENT'];
   if (strpos($user_agent, 'Opera') || strpos($user_agent, 'OPR/')) {
     return 'Opera';
-  } elseif (strpos($user_agent, 'Edge')) {
+  } elseif (strpos($user_agent, 'Edge') || strpos($user_agent, 'Edg')) {
     return 'Edge';
   } elseif (strpos($user_agent, 'Chrome')) {
     return 'Chrome';

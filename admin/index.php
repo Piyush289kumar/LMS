@@ -258,6 +258,73 @@ include('private_files/system_configure_setting.php') ?>
         </div><!-- End Left side columns -->
         <!-- Right side columns -->
         <div class="col-lg-4">
+
+
+         <!-- Website Traffic -->
+         <div class="card" style="cursor: pointer;">
+            <!-- PHP Code for data fetch from database -->
+            <?php
+            $sql_fetch_app_trafic = "SELECT COUNT(trafic_browser) AS browser_trafic_count, trafic_browser FROM `trafic` GROUP BY trafic_browser";
+            $result_sql_fetch_app_trafic = mysqli_query($conn, $sql_fetch_app_trafic) or die("Query Failed!!");
+            if (mysqli_num_rows($result_sql_fetch_app_trafic) > 0) {
+              $brower_name = array();
+              $browser_trafic_count = array();
+              while ($row_sql_fetch_app_trafic = mysqli_fetch_assoc($result_sql_fetch_app_trafic)) {
+                $brower_name[] = $row_sql_fetch_app_trafic['trafic_browser'];
+                $browser_trafic_count[] = $row_sql_fetch_app_trafic['browser_trafic_count'];
+              }
+              $total_trafic = array_sum($browser_trafic_count);
+            } ?>
+            <!-- PHP Code for data fetch from database -->
+
+            <div class="card-body">
+              <h5 class="card-title">Application Trafic</h5>
+              <p>Total Trafic Browser Wise : <?php echo $total_trafic ?></p>
+              <!-- Radial Bar Chart -->
+              <div id="radialBarChart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#radialBarChart"), {
+                    series: <?php echo json_encode($browser_trafic_count); ?>,
+                    chart: {
+                      height: 350,
+                      type: 'radialBar',
+                      toolbar: {
+                        show: true
+                      }
+                    },
+                    plotOptions: {
+                      radialBar: {
+                        dataLabels: {
+                          name: {
+                            fontSize: '22px',
+                          },
+                          value: {
+                            fontSize: '16px',
+                          },
+                          total: {
+                            show: true,
+                            label: 'Total',
+                            formatter: function(w) {
+                              // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                              return <?php echo $total_trafic; ?>
+                            }
+                          }
+                        }
+                      }
+                    },
+                    labels: <?php echo json_encode($brower_name); ?>,
+                  }).render();
+                });
+              </script>
+              <!-- End Radial Bar Chart -->
+
+            </div>
+          </div>
+          <!-- End Website Traffic -->
+
+
           <!-- Recent Activity -->
           <div class="card">
 
@@ -303,7 +370,9 @@ include('private_files/system_configure_setting.php') ?>
                 </div><!-- End activity item-->
               </div>
             </div>
-          </div><!-- End Recent Activity -->
+          </div>
+          <!-- End Recent Activity -->
+
           <!-- Budget Report -->
           <div class="card">
             <div class="filter">
@@ -371,68 +440,10 @@ include('private_files/system_configure_setting.php') ?>
                 });
               </script>
             </div>
-          </div><!-- End Budget Report -->
-          <!-- Website Traffic -->
-          <div class="card">
-            <div class="card-body pb-0">
-              <h5 class="card-title">Application Traffic <span>| This Month</span></h5>
-              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  echarts.init(document.querySelector("#trafficChart")).setOption({
-                    tooltip: {
-                      trigger: 'item'
-                    },
-                    legend: {
-                      top: '5%',
-                      left: 'center'
-                    },
-                    series: [{
-                      name: 'Access From',
-                      type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        show: false,
-                        position: 'center'
-                      },
-                      emphasis: {
-                        label: {
-                          show: true,
-                          fontSize: '18',
-                          fontWeight: 'bold'
-                        }
-                      },
-                      labelLine: {
-                        show: false
-                      },
-                      data: [{
-                          value: 1048,
-                          name: 'Search Engine'
-                        },
-                        {
-                          value: 735,
-                          name: 'Direct'
-                        },
-                        {
-                          value: 580,
-                          name: 'Email'
-                        },
-                        {
-                          value: 484,
-                          name: 'Union Ads'
-                        },
-                        {
-                          value: 300,
-                          name: 'Video Ads'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
-            </div>
-          </div><!-- End Website Traffic -->
+          </div>
+          <!-- End Budget Report -->
+
+         
 
         </div><!-- End Right side columns -->
       </div>
