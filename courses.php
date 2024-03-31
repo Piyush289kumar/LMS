@@ -109,6 +109,7 @@
           FROM course
           INNER JOIN chapter ON course.cid = chapter.course_id
           WHERE course.active_record = 'Yes'
+          AND chapter.active_record = 'Yes'
           GROUP BY chapter.course_id
           ORDER BY course.cid DESC LIMIT 0,12";
           $result_sql_fetch_all_courses = mysqli_query($conn, $sql_fetch_all_courses) or die("Query Failed!!");
