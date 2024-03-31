@@ -85,7 +85,6 @@ include('private_files/system_configure_setting.php'); ?>
           </div>
         </div>
         <!-- Application Trafic Browswer Wise Chart -->
-
         <!-- Application Trafic Device Wise Chart -->
         <div class="col-lg-6">
           <!-- PHP Code for data fetch from database -->
@@ -104,7 +103,7 @@ include('private_files/system_configure_setting.php'); ?>
           <!-- PHP Code for data fetch from database -->
           <div class="card" style="cursor: pointer;">
             <div class="card-body">
-            <h5 class="card-title">Application Trafic (Device Wise)</h5>
+              <h5 class="card-title">Application Trafic (Device Wise)</h5>
               <p>Total Trafic Device Wise : <?php echo $total_device_trafic ?></p>
               <!-- Polar Area Chart -->
               <canvas id="polarAreaChart" style="max-height: 380px;"></canvas>
@@ -115,11 +114,11 @@ include('private_files/system_configure_setting.php'); ?>
                     data: {
                       labels: <?php echo json_encode($device_name) ?>,
                       datasets: [{
-                        label: 'Users Count',
+                        label: 'Total Trafic Device Wise Count',
                         data: <?php echo json_encode($device_trafic_count) ?>,
                         backgroundColor: [
-                          'rgb(255, 205, 86)',
-                          'rgb(54, 162, 235)',
+                          'rgba(255, 205, 86, 0.8)',
+                          'rgba(54, 162, 235, 0.8)',
                         ]
                       }]
                     }
