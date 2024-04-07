@@ -38,6 +38,11 @@ include('private_files/system_configure_setting.php'); ?>
                 $browser_trafic_count[] = $row_sql_fetch_app_trafic['browser_trafic_count'];
               }
               $total_trafic = array_sum($browser_trafic_count);
+              $Chrome = round((($browser_trafic_count[0] / $total_trafic) * 100));
+              $Edge = round((($browser_trafic_count[1] / $total_trafic) * 100));
+              $Firefox = round((($browser_trafic_count[2] / $total_trafic) * 100));
+              $Other = round((($browser_trafic_count[3] / $total_trafic) * 100));
+              $Safari = round((($browser_trafic_count[4] / $total_trafic) * 100));
             } ?>
             <!-- PHP Code for data fetch from database -->
             <div class="card-body">
@@ -48,7 +53,7 @@ include('private_files/system_configure_setting.php'); ?>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   new ApexCharts(document.querySelector("#radialBarChart"), {
-                    series: <?php echo json_encode($browser_trafic_count); ?>,
+                    series: [<?php echo $Chrome; ?>, <?php echo $Edge; ?>, <?php echo $Firefox; ?>, <?php echo $Other; ?>, <?php echo $Safari; ?>, ],
                     chart: {
                       height: 400,
                       type: 'radialBar',
